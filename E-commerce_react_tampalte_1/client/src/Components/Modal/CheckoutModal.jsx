@@ -4,7 +4,7 @@ import { useCart } from '../../Context/CartContext';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-const CheckoutModal = ({ isOpen, onClose, total, cartItems }) => {
+const CheckoutModal = ({ isOpen, onClose, cartItems }) => {
   const { removeFromCart } = useCart();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -35,14 +35,24 @@ const CheckoutModal = ({ isOpen, onClose, total, cartItems }) => {
       return;
     }
 
+    // Calculate product total using consistent logic
+    const productTotal = cartItems.reduce((total, item) => {
+      const price = Number(
+        item.sale_price ?? item.discountPrice ?? item.price ?? 0
+      );
+      const qty = Number(item.quantity ?? 1);
+      return total + price * qty;
+    }, 0);
+
     const deliveryCharge = deliveryOption === 'inside_dhaka' ? 60 : 120;
-    const finalTotal = total + deliveryCharge;
+    const finalTotal = productTotal + deliveryCharge;
 
     const orderData = {
       customer: formData,
       cartItems,
       total: finalTotal,
       deliveryCharge,
+      productTotal, // Add productTotal to orderData
     };
 
     toast.success(`অর্ডার সফল! মোট: ৳${finalTotal.toFixed(2)}`);
@@ -94,13 +104,19 @@ const CheckoutModal = ({ isOpen, onClose, total, cartItems }) => {
                 </p>
                 <div className="flex items-center justify-between mt-1">
                   <span className="text-sm font-bold text-purple-700">
-                    ৳ {item.sale_price || item.price}
+                    ৳{' '}
+                    {Number(
+                      item.sale_price ?? item.discountPrice ?? item.price ?? 0
+                    )}
                   </span>
                   <span>
                     <span className="mr-5">x {item.quantity || 1}</span>৳
                     <span className="ml-0.5">
                       {(
-                        (item.sale_price || item.price) * (item.quantity || 1)
+                        (item.sale_price ??
+                          item.discountPrice ??
+                          item.price ??
+                          0) * (item.quantity || 1)
                       ).toFixed(2)}
                     </span>
                   </span>
@@ -201,26 +217,37 @@ const CheckoutModal = ({ isOpen, onClose, total, cartItems }) => {
             <h3 className="text-lg font-medium text-gray-800 mb-3">
               অর্ডার সারাংশ
             </h3>
-            <div className="flex justify-between mb-2">
-              <span>পণ্যের মূল্য:</span>
-              <span>৳ {total.toFixed(2)}</span>
-            </div>
-            <div className="flex justify-between mb-2">
-              <span>ডেলিভারি চার্জ:</span>
-              <span>
-                ৳ {formData.deliveryOption === 'inside_dhaka' ? 60 : 120}
-              </span>
-            </div>
-            <div className="flex justify-between font-bold text-lg border-t pt-2">
-              <span>মোট :</span>
-              <span>
-                ৳{' '}
-                {(
-                  total +
-                  (formData.deliveryOption === 'inside_dhaka' ? 60 : 120)
-                ).toFixed(2)}
-              </span>
-            </div>
+            {(() => {
+              // Calculate product total once and reuse
+              const productTotal = cartItems.reduce((total, item) => {
+                const price = Number(
+                  item.sale_price ?? item.discountPrice ?? item.price ?? 0
+                );
+                const qty = Number(item.quantity ?? 1);
+                return total + price * qty;
+              }, 0);
+
+              const deliveryCharge =
+                formData.deliveryOption === 'inside_dhaka' ? 60 : 120;
+              const finalTotal = productTotal + deliveryCharge;
+
+              return (
+                <>
+                  <div className="flex justify-between mb-2">
+                    <span>পণ্যের মূল্য:</span>
+                    <span>৳ {productTotal.toFixed(2)}</span>
+                  </div>
+                  <div className="flex justify-between mb-2">
+                    <span>ডেলিভারি চার্জ:</span>
+                    <span>৳ {deliveryCharge}</span>
+                  </div>
+                  <div className="flex justify-between font-bold text-lg border-t pt-2">
+                    <span>মোট :</span>
+                    <span>৳ {finalTotal.toFixed(2)}</span>
+                  </div>
+                </>
+              );
+            })()}
           </div>
 
           <div className="flex space-x-3">

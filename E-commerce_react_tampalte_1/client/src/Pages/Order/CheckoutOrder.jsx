@@ -12,27 +12,32 @@ import { useLocation } from 'react-router-dom';
 
 const CheckoutOrder = () => {
   const location = useLocation();
-  const { customer, cartItems, total, deliveryCharge } = location.state || {};
+  const { customer, cartItems, deliveryCharge } = location.state || {};
 
   if (!customer || !cartItems) {
     return <p>কোনো অর্ডার ডাটা পাওয়া যায়নি।</p>;
   }
 
-  // Proper decimal handling
-  const subtotal = parseFloat((total - deliveryCharge).toFixed(2));
-  const delivery = parseFloat(deliveryCharge.toFixed(2));
-  const finalTotal = parseFloat(total.toFixed(2));
+  // Proper decimal handling with consistent price calculation
+  const calculateItemTotal = item => {
+    const price = Number(
+      item.sale_price ?? item.discountPrice ?? item.price ?? 0
+    );
+    const qty = Number(item.quantity ?? 1);
+    return price * qty;
+  };
 
-  // Grand total from cartItems
-  const grandTotal = parseFloat(
+  const subtotal = parseFloat(
     cartItems
-      .reduce(
-        (sum, item) =>
-          sum + (item.discountPrice || item.price) * (item.quantity || 1),
-        0
-      )
+      .reduce((total, item) => total + calculateItemTotal(item), 0)
       .toFixed(2)
   );
+
+  const delivery = parseFloat(deliveryCharge.toFixed(2));
+  const finalTotal = parseFloat((subtotal + delivery).toFixed(2));
+
+  // Grand total from cartItems (same as subtotal in this context)
+  const grandTotal = subtotal;
 
   return (
     <div className="min-h-screen bg-purple-50 py-8 px-4 font-sans">
@@ -203,9 +208,7 @@ const CheckoutOrder = () => {
               <tbody>
                 {cartItems.map(item => {
                   const itemTotal = parseFloat(
-                    (
-                      (item.discountPrice || item.price) * (item.quantity || 1)
-                    ).toFixed(2)
+                    calculateItemTotal(item).toFixed(2)
                   );
                   return (
                     <tr
@@ -227,7 +230,13 @@ const CheckoutOrder = () => {
                       </td>
                       <td className="py-3 px-4">{item.title}</td>
                       <td className="py-3 px-4">
-                        ৳ {(item.discountPrice || item.price).toFixed(2)}
+                        ৳{' '}
+                        {Number(
+                          item.sale_price ??
+                            item.discountPrice ??
+                            item.price ??
+                            0
+                        ).toFixed(2)}
                       </td>
                       <td className="py-3 px-4">{item.quantity || 1}</td>
                       <td className="py-3 px-4 font-semibold">

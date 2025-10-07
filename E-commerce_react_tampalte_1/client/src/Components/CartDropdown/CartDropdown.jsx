@@ -151,7 +151,6 @@ const CartDropdown = ({ setShowCart, openCheckoutModal }) => {
       <CheckoutModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        total={totals.productTotal}
         cartItems={cartItems}
       />
     </div>
