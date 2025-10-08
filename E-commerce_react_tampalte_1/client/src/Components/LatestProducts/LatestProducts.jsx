@@ -2,21 +2,26 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { FaFire, FaChevronRight, FaChevronLeft } from 'react-icons/fa';
 import ProductCard from '../ProductCatd/ProductCard';
+import Spinner from '../../Shared/Spinner/Spinner';
 
 const LatestProducts = () => {
   const [products, setProducts] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleItems, setVisibleItems] = useState(4);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
+        setLoading(true);
         const response = await axios.get(`
           ${import.meta.env.VITE_API_URL}/api/products/latest-product`);
 
         setProducts(response.data.result.data);
+        setLoading(false);
       } catch (error) {
         console.error('Error fetching latest products:', error);
+        setLoading(false);
       }
     };
 
@@ -85,7 +90,7 @@ const LatestProducts = () => {
               </p>
             </div>
           </div>
-
+          {loading ? <Spinner></Spinner> : ''}
           <div className="flex items-center space-x-4">
             <div className="hidden md:flex space-x-2">
               <button

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import ProductCard from '../ProductCatd/ProductCard'; // Ensure path is correct
+import ProductCard from '../ProductCatd/ProductCard'; // ✅ Ensure correct path
+import Spinner from '../../Shared/Spinner/Spinner';
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -8,7 +9,7 @@ const Products = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [lastPage, setLastPage] = useState(1);
 
-  // Fetch products from API
+  // 🔹 Fetch products from API
   const fetchProducts = async page => {
     try {
       setLoading(true);
@@ -16,26 +17,24 @@ const Products = () => {
         `${import.meta.env.VITE_API_URL}/api/products?page=${page}`
       );
 
-      // Safe way to get products array
+      // Safely handle response
       setProducts(response.data?.data || []);
       setCurrentPage(response.data?.current_page || 1);
       setLastPage(response.data?.last_page || 1);
-      console.log(response.data.data);
-
-      setLoading(false);
     } catch (error) {
       console.error('Error fetching products:', error);
       setProducts([]);
+    } finally {
       setLoading(false);
     }
   };
 
-  // Fetch products whenever currentPage changes
+  // 🔹 Fetch products whenever currentPage changes
   useEffect(() => {
     fetchProducts(currentPage);
   }, [currentPage]);
 
-  // Pagination handlers
+  // 🔹 Pagination handlers
   const handleNext = () => {
     if (currentPage < lastPage) {
       setCurrentPage(prev => prev + 1);
@@ -48,15 +47,6 @@ const Products = () => {
     }
   };
 
-  // Loading state
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center min-h-screen">
-        <p className="text-lg font-semibold">Loading products...</p>
-      </div>
-    );
-  }
-
   return (
     <div className="min-h-screen py-8 px-4">
       <div className="max-w-7xl mx-auto">
@@ -65,37 +55,71 @@ const Products = () => {
         </h2>
         <p className="text-text-3-500 mb-10">Discover our most popular items</p>
 
-        {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {products.length > 0 ? (
-            products.map(product => (
-              <ProductCard key={product.id} product={product} />
-            ))
-          ) : (
-            <p>No products found.</p>
-          )}
-        </div>
+        {/* Conditional Rendering */}
+        {loading ? (
+          <div className="flex justify-center items-center py-10">
+            <Spinner />
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {products.length > 0 ? (
+              products.map(product => (
+                <ProductCard key={product.id} product={product} />
+              ))
+            ) : (
+              <p className="col-span-full text-center text-gray-500">
+                No products found.
+              </p>
+            )}
+          </div>
+        )}
 
         {/* Pagination Controls */}
-        <div className="flex justify-center items-center gap-4 mt-8">
+        <div className="flex items-center justify-end gap-3 mt-8">
           <button
             onClick={handlePrev}
             disabled={currentPage === 1}
-            className="px-4 py-2 bg-gray-300 rounded disabled:opacity-50"
+            className="flex items-center gap-2 px-4 py-2 bg-white text-gray-700 border border-gray-200 rounded-full shadow-sm hover:shadow-md disabled:opacity-40 disabled:shadow-none transition-all"
           >
-            Prev
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+            <span>Prev</span>
           </button>
 
-          <span className="font-semibold">
-            Page {currentPage} of {lastPage}
-          </span>
+          <div className="px-4 py-2 bg-sec-500 text-white rounded-full text-sm font-medium">
+            {currentPage} / {lastPage}
+          </div>
 
           <button
             onClick={handleNext}
             disabled={currentPage === lastPage}
-            className="px-4 py-2 bg-gray-300 rounded disabled:opacity-50"
+            className="flex items-center gap-2 px-4 py-2 bg-white text-gray-700 border border-gray-200 rounded-full shadow-sm hover:shadow-md disabled:opacity-40 disabled:shadow-none transition-all"
           >
-            Next
+            <span>Next</span>
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
           </button>
         </div>
       </div>

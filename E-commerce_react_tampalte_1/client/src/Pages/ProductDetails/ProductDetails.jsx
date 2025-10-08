@@ -13,6 +13,7 @@ import axios from 'axios';
 import CheckoutModal from '../../Components/Modal/CheckoutModal';
 import OrderModal from '../../Components/Modal/OrderModal';
 import { useCart } from '../../Context/CartContext';
+import Spinner from '../../Shared/Spinner/Spinner';
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -23,7 +24,9 @@ const ProductDetails = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { addToCart } = useCart();
 
-  console.log(product);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -86,7 +89,7 @@ const ProductDetails = () => {
     ];
   };
 
-  if (loading) return <p className="text-center mt-20">Loading...</p>;
+  if (loading) return <Spinner></Spinner>;
   if (error) return <p className="text-center mt-20 text-red-500">{error}</p>;
   if (!product) return <p className="text-center mt-20">Product not found.</p>;
 
@@ -110,7 +113,7 @@ const ProductDetails = () => {
             <li className="flex items-center">
               <span className="text-gray-400 mx-2">/</span>
               <span className="text-gray-700 font-medium">
-                {product.category_id || 'Product'}
+                {product.title || 'Product'}
               </span>
             </li>
           </ol>
