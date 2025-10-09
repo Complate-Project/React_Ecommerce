@@ -55,7 +55,7 @@ const Products = () => {
         </h2>
         <p className="text-text-3-500 mb-10">Discover our most popular items</p>
 
-        {/* Conditional Rendering */}
+        {/* Conditional product Rendering  */}
         {loading ? (
           <div className="flex justify-center items-center py-10">
             <Spinner />
