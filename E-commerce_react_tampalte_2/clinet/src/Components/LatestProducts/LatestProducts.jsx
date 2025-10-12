@@ -3,6 +3,7 @@ import axios from 'axios';
 import { FaFire, FaChevronRight, FaChevronLeft } from 'react-icons/fa';
 
 import ProductsCard from '../ProductCard/ProductsCard';
+import { toast } from 'react-toastify';
 
 const LatestProducts = () => {
   const [products, setProducts] = useState([]);
@@ -13,12 +14,11 @@ const LatestProducts = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get(
-          'http://localhost:3000/latest-products'
-        );
-        setProducts(response.data);
+        const response = await axios.get(`
+          ${import.meta.env.VITE_API_URL}/api/products/latest-product`);
+        setProducts(response?.data?.result.data);
       } catch (error) {
-        console.error('Error fetching latest products:', error);
+        toast.error('Error fetching latest products:', error);
       }
     };
     fetchProducts();

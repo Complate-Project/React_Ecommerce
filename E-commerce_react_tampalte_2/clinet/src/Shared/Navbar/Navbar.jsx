@@ -5,11 +5,13 @@ import { Link } from 'react-router-dom';
 import { useCart } from '../../Context/CartContext';
 import CartDropdown from '../../Components/CartDropdown/CartDropdown';
 import axios from 'axios';
+import CheckoutModal from '../../Components/Modal/CheckoutModal';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [showCart, setShowCart] = useState(false);
+  const [isCheckoutModalOpen, setIsCheckoutModalOpen] = useState(false);
   const { cartItems } = useCart();
   const [searchResults, setSearchResults] = useState([]);
   const [typingTimeout, setTypingTimeout] = useState(0);
@@ -51,8 +53,8 @@ const Navbar = () => {
       <div className="bg-sec-500 h-9 flex items-center justify-center">
         <div className="max-w-7xl mx-auto px-6  text-[15px] text-text-1-500">
           <Marquee>
-            পণ্য আপনার হাতের মুঠোয়, এক ক্লিকে পণ্য বুঝে পেয়ে , ডেলিভারি ম্যানকে
-            পেমেন্ট করুন। Thanks for shopping
+            পণ্য আপনার হাতের মুঠোয়, এক ক্লিকে পণ্য বুঝে পেয়ে , ডেলিভারি
+            ম্যানকে পেমেন্ট করুন। Thanks for shopping
           </Marquee>
         </div>
       </div>
@@ -122,10 +124,16 @@ const Navbar = () => {
                       </div>
                       <div className="flex-1 min-w-0">
                         <p className="text-sm font-medium text-gray-800 truncate">
-                          {item.name}
+                          {typeof item.name === 'string'
+                            ? item.name
+                            : 'Unknown Product'}
                         </p>
                         <p className="text-xs text-gray-500 truncate">
-                          {item.category}
+                          {typeof item.category === 'string'
+                            ? item.category
+                            : typeof item.category === 'object' && item.category
+                            ? item.category.name || 'Unknown Category'
+                            : 'Unknown Category'}
                         </p>
                       </div>
                       <div className="ml-2">
@@ -195,8 +203,18 @@ const Navbar = () => {
                   </span>
                 </button>
 
-                {showCart && <CartDropdown />}
+                {showCart && (
+                  <CartDropdown
+                    setShowCart={setShowCart}
+                    openCheckoutModal={() => setIsCheckoutModalOpen(true)}
+                  />
+                )}
               </div>
+              <CheckoutModal
+                isOpen={isCheckoutModalOpen}
+                onClose={() => setIsCheckoutModalOpen(false)}
+                cartItems={cartItems}
+              />
             </div>
 
             {/* Mobile menu button */}
@@ -277,13 +295,19 @@ const Navbar = () => {
                               src={
                                 item.image || 'https://via.placeholder.com/40'
                               }
-                              alt={item.name}
+                              alt={
+                                typeof item.name === 'string'
+                                  ? item.name
+                                  : 'Unknown Product'
+                              }
                               className="w-8 h-8 rounded object-cover"
                             />
                           </div>
                           <div className="flex-1 min-w-0">
                             <p className="text-sm font-medium text-gray-800 truncate">
-                              {item.name}
+                              {typeof item.name === 'string'
+                                ? item.name
+                                : 'Unknown Product'}
                             </p>
                           </div>
                           <div className="ml-2">

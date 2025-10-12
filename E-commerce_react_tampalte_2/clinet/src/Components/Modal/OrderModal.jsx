@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { FaTimes, FaPhone, FaMapMarkerAlt, FaTruck } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const OrderModal = ({ isOpen, onClose, product }) => {
   const [formData, setFormData] = useState({
@@ -8,6 +10,8 @@ const OrderModal = ({ isOpen, onClose, product }) => {
     address: '',
     deliveryOption: 'inside_dhaka',
   });
+
+  const navigate = useNavigate();
 
   if (!isOpen) return null;
 
@@ -21,15 +25,39 @@ const OrderModal = ({ isOpen, onClose, product }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
+
+    // Form validation
+    if (
+      !formData.name.trim() ||
+      !formData.mobile.trim() ||
+      !formData.address.trim()
+    ) {
+      alert('সব ফিল্ড পূরণ করুন।');
+      return;
+    }
+
+    if (!/^\d{11}$/.test(formData.mobile)) {
+      toast.warning('মোবাইল নম্বর ১১ ডিজিট হতে হবে।');
+      return;
+    }
+
     const deliveryCharge =
       formData.deliveryOption === 'inside_dhaka' ? 60 : 120;
     const totalPrice = Number(product.price) + deliveryCharge;
 
-    console.log('Order submitted:', { ...formData, product, totalPrice });
-    alert(
-      `✅ আপনার অর্ডারটি সফলভাবে গ্রহণ করা হয়েছে! মোট বিল: ৳${totalPrice}`
-    );
+    // Prepare order data
+    const orderData = {
+      customer: formData,
+      product,
+      deliveryCharge,
+      totalPrice,
+    };
+
+    toast.success(`অর্ডার সফল! মোট: ৳${totalPrice.toFixed(2)}`);
     onClose();
+
+    // Navigate to single order confirmation page
+    navigate('/single-order', { state: orderData });
   };
 
   // Calculate delivery charge & total price for UI
@@ -50,13 +78,21 @@ const OrderModal = ({ isOpen, onClose, product }) => {
         {/* Product Info */}
         <div className="p-5 flex gap-4 border-b">
           <img
-            src={product.image}
-            alt={product.name}
+            src={
+              product.image
+                ? `${import.meta.env.VITE_API_URL}/product/${product.image}`
+                : '/placeholder.png'
+            }
+            alt={product.title || product.name}
             className="w-20 h-20 object-cover rounded-md"
           />
           <div>
-            <h3 className="font-semibold text-text-2-500">{product.name}</h3>
-            <p className="text-text-3-500 font-bold">৳ {product.price}</p>
+            <h3 className="font-semibold text-text-2-500">
+              {product.title || product.name}
+            </h3>
+            <p className="text-text-3-500 font-bold">
+              ৳ {Number(product.sale_price ?? product.price ?? 0).toFixed(2)}
+            </p>
           </div>
         </div>
 
@@ -94,6 +130,7 @@ const OrderModal = ({ isOpen, onClose, product }) => {
                   onChange={handleInputChange}
                   required
                   placeholder="01XXXXXXXXX"
+                  maxLength={11}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-0 "
                 />
               </div>
@@ -155,7 +192,9 @@ const OrderModal = ({ isOpen, onClose, product }) => {
             </h3>
             <div className="flex justify-between mb-2">
               <span>পণ্যের মূল্য:</span>
-              <span>৳ {product.price}</span>
+              <span>
+                ৳ {Number(product.sale_price ?? product.price ?? 0).toFixed(2)}
+              </span>
             </div>
             <div className="flex justify-between mb-2">
               <span>ডেলিভারি চার্জ:</span>
@@ -163,7 +202,7 @@ const OrderModal = ({ isOpen, onClose, product }) => {
             </div>
             <div className="flex justify-between font-bold text-lg border-t pt-2">
               <span>মোট :</span>
-              <span className="text-text-3-500">৳ {totalPrice}</span>
+              <span className="text-text-3-500">৳ {totalPrice.toFixed(2)}</span>
             </div>
           </div>
 

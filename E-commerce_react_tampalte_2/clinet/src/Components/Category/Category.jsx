@@ -10,8 +10,10 @@ const Category = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/categories');
-        setCategory(response.data); // set state with API data
+        const response = await axios.get(
+          `${import.meta.env.VITE_API_URL}/api/category`
+        );
+        setCategory(response?.data?.result); // set state with API data
       } catch (error) {
         console.error('Error fetching latest products:', error);
       }
@@ -121,7 +123,13 @@ const Category = () => {
                   <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group">
                     <div className="relative overflow-hidden">
                       <img
-                        src={cat.image}
+                        src={
+                          cat.image
+                            ? `${import.meta.env.VITE_API_URL}/category/${
+                                cat.image
+                              }`
+                            : '/placeholder.png'
+                        }
                         alt={cat.name}
                         className="w-full h-40 object-cover transition-transform duration-500 group-hover:scale-110"
                       />
