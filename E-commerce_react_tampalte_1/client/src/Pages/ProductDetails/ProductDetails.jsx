@@ -240,16 +240,7 @@ const ProductDetails = () => {
                     />
 
                     <button
-                      onClick={() =>
-                        addToCart({
-                          ...product,
-                          name: product.title,
-                          discountPrice: product.sale_price,
-                          image: product.image
-                            ? `https://your-domain.com/images/${product.image}`
-                            : '/placeholder-image.jpg',
-                        })
-                      }
+                      onClick={() => addToCart(product)}
                       className="flex-1 bg-primary-500 hover:bg-product-btn-hover-1-500 text-white py-1  md:py-2 rounded-lg flex items-center justify-center transition-colors"
                     >
                       <FaShoppingCart className="mr-2 hidden md:block" /> Add to

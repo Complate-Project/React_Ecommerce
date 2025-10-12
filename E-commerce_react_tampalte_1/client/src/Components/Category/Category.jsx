@@ -6,6 +6,7 @@ const Category = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [category, setCategory] = useState([]);
   const [visibleItems, setVisibleItems] = useState(5);
+  console.log(category);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -126,7 +127,9 @@ const Category = () => {
                       <img
                         src={
                           cat.image
-                            ? `${import.meta.env.VITE_API_URL}/${cat.image}`
+                            ? `${import.meta.env.VITE_API_URL}/category/${
+                                cat.image
+                              }`
                             : '/placeholder.png'
                         }
                         alt={cat.name}

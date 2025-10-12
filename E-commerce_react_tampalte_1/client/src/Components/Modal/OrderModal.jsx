@@ -73,11 +73,16 @@ const OrderModal = ({ isOpen, onClose, product }) => {
             alt={product.title}
             className="w-20 h-20 object-cover rounded-md"
           />
-          <div>
+          <div className="w-full">
             <h3 className="font-semibold text-text-2-500">{product.title}</h3>
-            <p className="text-price-text-500 font-bold">
-              ৳ {product.sale_price}
-            </p>
+            <div className="flex items-center justify-between">
+              <p className="text-xl font-bold text-sec-500">
+                ৳ {product.sale_price}
+              </p>
+              <span className="text-sm text-gray-500">
+                x 1 = ৳{product.sale_price}
+              </span>
+            </div>
           </div>
         </div>
 
