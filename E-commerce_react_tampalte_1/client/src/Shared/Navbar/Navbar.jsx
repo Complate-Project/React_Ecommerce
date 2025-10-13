@@ -197,7 +197,7 @@ const Navbar = () => {
                           {item.title}
                         </p>
                         <p className="text-xs text-gray-500 truncate">
-                          {item.category}
+                          {item.long_description}
                         </p>
                       </div>
                       <div className="ml-2">

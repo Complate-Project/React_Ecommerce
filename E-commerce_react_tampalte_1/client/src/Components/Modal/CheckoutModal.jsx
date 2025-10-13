@@ -100,18 +100,23 @@ const CheckoutModal = ({ isOpen, onClose, cartItems }) => {
                   {item.title || item.name}
                 </h5>
                 <p className="text-xs text-gray-500">
-                  {item.brand?.name || item.category?.name || 'No Brand'}
+                  {item.long_description
+                    ? item.long_description.slice(0, 60) +
+                      (item.long_description.length > 60 ? '...' : '')
+                    : item.category?.name || 'No Brand'}
                 </p>
+
                 <div className="flex items-center justify-between mt-1">
-                  <span className="text-sm font-bold text-purple-700">
+                  {/* <span className="text-sm font-bold text-purple-700">
                     ৳{' '}
                     {Number(
                       item.sale_price ?? item.discountPrice ?? item.price ?? 0
                     )}
-                  </span>
+                  </span> */}
                   <span>
-                    <span className="mr-5">x {item.quantity || 1}</span>৳
-                    <span className="ml-0.5">
+                    <span className="mr-5">x {item.quantity || 1}</span>
+                    <span className="ml-0.5 text-sm font-bold text-purple-700">
+                      ৳{' '}
                       {(
                         (item.sale_price ??
                           item.discountPrice ??
@@ -125,10 +130,10 @@ const CheckoutModal = ({ isOpen, onClose, cartItems }) => {
 
               <button
                 onClick={() => removeFromCart(item.id)}
-                className="ml-2 p-1.5 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-full transition-colors duration-150"
+                className="ml-2 p-1.5 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-full transition-colors duration-150 flex justify-center items-center gap-2"
                 aria-label="Remove item"
               >
-                <FaTrash size={14} />
+                Delete <FaTrash size={14} />
               </button>
             </div>
           ))}

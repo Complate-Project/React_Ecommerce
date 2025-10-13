@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FaTimes, FaPhone, FaMapMarkerAlt, FaTruck } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { TbCurrencyTaka } from 'react-icons/tb';
 
 const OrderModal = ({ isOpen, onClose, product }) => {
   const navigate = useNavigate();
@@ -74,14 +75,19 @@ const OrderModal = ({ isOpen, onClose, product }) => {
             className="w-20 h-20 object-cover rounded-md"
           />
           <div className="w-full">
-            <h3 className="font-semibold text-text-2-500">{product.title}</h3>
+            <h3 className="font-semibold text-text-4-500">{product.title}</h3>
+            <p className="text-xs text-gray-500">
+              {product.long_description
+                ? product.long_description.slice(0, 60) +
+                  (product.long_description.length > 60 ? '...' : '')
+                : product.category?.name || 'No Brand'}
+            </p>
             <div className="flex items-center justify-between">
-              <p className="text-xl font-bold text-sec-500">
-                ৳ {product.sale_price}
+              <p className="text-xl font-bold flex items-center ">
+                <span className="text-base text-gray-500 font-medium">x1</span>
+                <TbCurrencyTaka className="text-2xl " />
+                <span className="text-sec-500">{product.sale_price}</span>
               </p>
-              <span className="text-sm text-gray-500">
-                x 1 = ৳{product.sale_price}
-              </span>
             </div>
           </div>
         </div>
