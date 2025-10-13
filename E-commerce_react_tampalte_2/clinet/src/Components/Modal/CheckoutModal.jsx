@@ -103,12 +103,13 @@ const CheckoutModal = ({ isOpen, onClose, cartItems }) => {
                   {item.brand?.name || item.category?.name || 'No Brand'}
                 </p>
                 <div className="flex items-center justify-between mt-1">
-                  <span className="text-sm font-bold text-text-2-500">
+                  {/* <span className="text-sm font-bold text-text-2-500">
                     ৳{' '}
                     {Number(
                       item.sale_price ?? item.discountPrice ?? item.price ?? 0
                     )}
-                  </span>
+                  </span> */}
+
                   <span>
                     <span className="mr-5">x {item.quantity || 1}</span>৳
                     <span className="ml-0.5">
@@ -125,9 +126,10 @@ const CheckoutModal = ({ isOpen, onClose, cartItems }) => {
 
               <button
                 onClick={() => removeFromCart(item.id)}
-                className="ml-2 p-1.5 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-full transition-colors duration-150"
+                className="ml-2 p-1.5 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-full transition-colors duration-150 flex justify-center items-center gap-2"
                 aria-label="Remove item"
               >
+                <p>Delete </p>
                 <FaTrash size={14} />
               </button>
             </div>

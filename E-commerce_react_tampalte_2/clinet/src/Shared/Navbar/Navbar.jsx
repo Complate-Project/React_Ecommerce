@@ -14,6 +14,7 @@ const Navbar = () => {
   const [isCheckoutModalOpen, setIsCheckoutModalOpen] = useState(false);
   const { cartItems } = useCart();
   const [searchResults, setSearchResults] = useState([]);
+  console.log(searchResults);
   const [typingTimeout, setTypingTimeout] = useState(0);
   const [isSearchFocused, setIsSearchFocused] = useState(false);
 
@@ -39,9 +40,10 @@ const Navbar = () => {
     }
 
     try {
-      const res = await axios.get(
-        `http://localhost:3000/get-products/search?q=${query}`
+      const res = await axios.post(
+        `https://admin.prothomashop.com/api/products/search?search=${query}`
       );
+      console.log(res);
       setSearchResults(res.data);
     } catch (err) {
       console.error(err);
@@ -104,7 +106,7 @@ const Navbar = () => {
 
             {/* Dropdown results */}
             {searchResults.length > 0 && isSearchFocused && (
-              <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden z-50">
+              <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden z-50 h-[400px] md:h-[600px] overflow-y-scroll">
                 <div className="py-2">
                   <div className="px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">
                     Search Results ({searchResults.length})
@@ -117,23 +119,23 @@ const Navbar = () => {
                     >
                       <div className="flex-shrink-0 mr-3">
                         <img
-                          src={item.image || 'https://via.placeholder.com/40'}
+                          src={
+                            item.image
+                              ? `${import.meta.env.VITE_API_URL}/product/${
+                                  item.image
+                                }`
+                              : '/placeholder.png'
+                          }
                           alt={item.name}
                           className="w-10 h-10 rounded object-cover"
                         />
                       </div>
                       <div className="flex-1 min-w-0">
                         <p className="text-sm font-medium text-gray-800 truncate">
-                          {typeof item.name === 'string'
-                            ? item.name
-                            : 'Unknown Product'}
+                          {item.title}
                         </p>
                         <p className="text-xs text-gray-500 truncate">
-                          {typeof item.category === 'string'
-                            ? item.category
-                            : typeof item.category === 'object' && item.category
-                            ? item.category.name || 'Unknown Category'
-                            : 'Unknown Category'}
+                          {item.long_description}
                         </p>
                       </div>
                       <div className="ml-2">
@@ -259,11 +261,15 @@ const Navbar = () => {
                 <input
                   type="text"
                   placeholder="Search natural products..."
-                  className="w-full border-2 border-gray-200 rounded-full px-5 py-2 focus:outline-none focus:border-green-500 transition-colors"
+                  className="w-full border-2 border-gray-200 rounded-md bg-green-50 px-6 py-3 focus:outline-none focus:border-green-500 transition-colors shadow-sm"
                   value={searchQuery}
                   onChange={handleChange}
+                  onFocus={() => setIsSearchFocused(true)}
+                  onBlur={() =>
+                    setTimeout(() => setIsSearchFocused(false), 200)
+                  }
                 />
-                <button className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                <button className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-green-600">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-5 w-5"
@@ -281,26 +287,25 @@ const Navbar = () => {
                 </button>
 
                 {/* Mobile dropdown results */}
-                {searchResults.length > 0 && (
-                  <div className="absolute top-full left-0 right-0 mt-1 bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden z-50">
-                    <div className="py-2 max-h-60 overflow-y-auto">
+                {searchResults.length > 0 && isSearchFocused && (
+                  <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden z-50">
+                    <div className="py-2">
+                      <div className="px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                        Search Results ({searchResults.length})
+                      </div>
                       {searchResults.map(item => (
                         <Link
                           key={item.id}
                           to={`/product-details/${item.id}`}
-                          className="flex items-center px-4 py-2 hover:bg-green-50 transition-colors border-b border-gray-100"
+                          className="flex items-center px-4 py-3 hover:bg-green-50 transition-colors border-b border-gray-100 last:border-b-0"
                         >
                           <div className="flex-shrink-0 mr-3">
                             <img
                               src={
                                 item.image || 'https://via.placeholder.com/40'
                               }
-                              alt={
-                                typeof item.name === 'string'
-                                  ? item.name
-                                  : 'Unknown Product'
-                              }
-                              className="w-8 h-8 rounded object-cover"
+                              alt={item.name}
+                              className="w-10 h-10 rounded object-cover"
                             />
                           </div>
                           <div className="flex-1 min-w-0">
@@ -309,14 +314,27 @@ const Navbar = () => {
                                 ? item.name
                                 : 'Unknown Product'}
                             </p>
+                            <p className="text-xs text-gray-500 truncate">
+                              {typeof item.category === 'string'
+                                ? item.category
+                                : typeof item.category === 'object' &&
+                                  item.category
+                                ? item.category.name || 'Unknown Category'
+                                : 'Unknown Category'}
+                            </p>
                           </div>
                           <div className="ml-2">
-                            <span className="text-green-600 text-sm font-semibold">
+                            <span className="text-green-600 font-semibold">
                               ৳{item.price}
                             </span>
                           </div>
                         </Link>
                       ))}
+                      <div className="px-4 py-3 bg-gray-50 text-center">
+                        <button className="text-green-600 text-sm font-medium hover:text-green-700">
+                          View all results
+                        </button>
+                      </div>
                     </div>
                   </div>
                 )}
@@ -325,7 +343,7 @@ const Navbar = () => {
               {/* Mobile contact info */}
               <div className="pt-4 pb-2 border-t border-gray-200">
                 <div className="flex items-center">
-                  <div className="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center mr-2">
+                  <div className="w-8 h-8 rounded-full bg-[#92e6a7]  flex items-center justify-center mr-2">
                     <svg
                       className="w-5 h-5 text-indigo-600"
                       fill="none"

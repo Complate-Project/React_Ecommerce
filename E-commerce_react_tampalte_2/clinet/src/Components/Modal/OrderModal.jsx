@@ -90,9 +90,13 @@ const OrderModal = ({ isOpen, onClose, product }) => {
             <h3 className="font-semibold text-text-2-500">
               {product.title || product.name}
             </h3>
-            <p className="text-text-3-500 font-bold">
-              ৳ {Number(product.sale_price ?? product.price ?? 0).toFixed(2)}
-            </p>
+            <div className="flex items-center gap-2">
+              <p className="text-gray-600 text-sm font-medium">1x</p>
+              <p className="text-lg font-semibold text-sec-500">
+                <span className="text-xl font-bold text-primary">৳</span>{' '}
+                {Number(product.sale_price ?? product.price ?? 0).toFixed(2)}
+              </p>
+            </div>
           </div>
         </div>
 
