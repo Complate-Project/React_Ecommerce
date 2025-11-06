@@ -9,8 +9,7 @@ const Heading = ({ onBuyNow }) => {
           Shop Inspiring Reads Today!
         </h1>
         <p className="md:text-xl text-gray-600 max-w-2xl mx-auto">
-          Transform Your Life with the #1 Bestselling Book That's Changing How
-          People Work and Live
+          Transform Your Life with the #1 Bestselling Book
         </p>
       </div>
 
@@ -18,7 +17,7 @@ const Heading = ({ onBuyNow }) => {
       <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
         {/* Book Cover & Author Section */}
         <div className="space-y-6">
-          <div className="bg-gradient-to-br from-blue-100 to-purple-100 p-8 rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-300">
+          <div className="bg-gradient-to-br from-blue-100 to-purple-100 p-8 rounded-2xl shadow-2xl ">
             <div className="relative">
               <img
                 src="https://images.unsplash.com/photo-1629992101753-56d196c8aabb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
