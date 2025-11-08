@@ -17,16 +17,6 @@ function CheckoutModal({
   return (
     <div className="max-w-7xl mx-auto md:px-2 md:py-12">
       <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-        <div className="p-6 border-b border-gray-200">
-          <button
-            onClick={() => setShowCheckout(false)}
-            className="flex items-center space-x-2 text-indigo-600 hover:text-indigo-700 font-semibold"
-          >
-            <FaArrowLeft />
-            <span>বই পৃষ্ঠায় ফিরে যান</span>
-          </button>
-        </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8">
           {/* অর্ডার সারাংশ */}
           <div className="bg-gray-50 rounded-xl p-6">
@@ -38,7 +28,7 @@ function CheckoutModal({
               <img
                 src={book.image}
                 alt={book.title}
-                className="object-cover rounded-lg shadow-md"
+                className="object-cover rounded-lg shadow-md h-[500px] w-[400px]"
               />
             </div>
 

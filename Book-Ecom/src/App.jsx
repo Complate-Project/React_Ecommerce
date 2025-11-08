@@ -2,14 +2,12 @@ import './App.css';
 import { useRef, useState, useMemo } from 'react';
 import CheckoutModal from './components/CheckoutModal';
 import Navbar from './components/Navbar';
-import BookDetails from './components/BookDetails';
 import Heading from './components/Heading';
 import Faq from './components/Faq';
 import ContactIcon from './components/ContactIcon';
 
 function App() {
   const [quantity, setQuantity] = useState(1);
-  const [showCheckout, setShowCheckout] = useState(false);
   const [orderComplete, setOrderComplete] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -32,7 +30,8 @@ function App() {
     reviews: 1284,
     description:
       "An epic journey through uncharted territories, 'The Great Adventure' takes readers on a thrilling ride filled with mystery, courage, and self-discovery.",
-    image: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600',
+    image:
+      'https://images.unsplash.com/photo-1629992101753-56d196c8aabb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
     features: [
       'Bestselling novel of the year',
       'Signed copy available',
@@ -72,49 +71,25 @@ function App() {
     [book.originalPrice, book.price, quantity]
   );
 
-  // Checkout section ref
-  const checkoutRef = useRef(null);
-
-  // ✅ Buy Now handler
-  const handleBuyNow = () => {
-    setShowCheckout(true);
-    setTimeout(() => {
-      checkoutRef.current?.scrollIntoView({ behavior: 'smooth' });
-    }, 100); // delay ensures CheckoutModal is rendered before scrolling
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-      <Navbar quantity={quantity} setShowCheckout={setShowCheckout} />
-      {/* Heading */}
-      <Heading onBuyNow={handleBuyNow} />
-      {/* Faq */}
+      <Navbar quantity={quantity} />
+      <Heading />
       <Faq />
-      {/* Book Details or Checkout */}
-      {!showCheckout ? (
-        <BookDetails
-          book={book}
-          quantity={quantity}
-          setQuantity={setQuantity}
-          totalPrice={totalPrice}
-          setShowCheckout={setShowCheckout}
-        />
-      ) : (
-        <div ref={checkoutRef}>
-          <CheckoutModal
-            book={book}
-            quantity={quantity}
-            setQuantity={setQuantity}
-            savings={savings}
-            totalPrice={totalPrice}
-            formData={formData}
-            handleInputChange={handleInputChange}
-            handleSubmitOrder={handleSubmitOrder}
-            setShowCheckout={setShowCheckout}
-          />
-        </div>
-      )}
-      <ContactIcon></ContactIcon>
+
+      {/* ✅ শুধু CheckoutModal দেখাও */}
+      <CheckoutModal
+        book={book}
+        quantity={quantity}
+        setQuantity={setQuantity}
+        savings={savings}
+        totalPrice={totalPrice}
+        formData={formData}
+        handleInputChange={handleInputChange}
+        handleSubmitOrder={handleSubmitOrder}
+      />
+
+      <ContactIcon />
     </div>
   );
 }
