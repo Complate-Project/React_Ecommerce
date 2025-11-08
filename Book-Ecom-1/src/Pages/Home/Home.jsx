@@ -1,11 +1,11 @@
 import { useRef, useState, useMemo } from 'react';
 import Navbar from '../../components/Navbar';
 import Heading from '../../components/Heading';
-import Video from '../../components/Video';
 import BookDetails from '../../components/BookDetails';
 import CheckoutModal from '../../components/CheckoutModal';
 import ContactIcon from '../../components/ContactIcon';
 import Footer from '../../components/Footer';
+import Faq from '../../components/Faq';
 
 const Home = () => {
   const [quantity, setQuantity] = useState(1);
@@ -151,8 +151,10 @@ const Home = () => {
       <Navbar quantity={quantity} setShowCheckout={setShowCheckout} />
       {/* Heading */}
       <Heading onBuyNow={handleBuyNow} />
-      {/* Video Section */}
-      <Video />
+
+      {/* faq */}
+      <Faq></Faq>
+
       {/* Product Details or Checkout */}
       {!showCheckout ? (
         <BookDetails
