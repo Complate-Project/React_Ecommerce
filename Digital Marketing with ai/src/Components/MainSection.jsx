@@ -5,10 +5,10 @@ const MainSection = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-purple-50/30">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-purple-900 via-purple-800 to-pink-700 py-20 px-4 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-purple-900 via-purple-800 to-pink-700 py-7 px-4 overflow-hidden">
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="relative z-10 max-w-7xl mx-auto text-center">
-          <div className="inline-flex items-center px-4 py-2 bg-white/20 rounded-full backdrop-blur-sm mb-8">
+          <div className="inline-flex items-center px-4 py-2 bg-white/20 rounded-full backdrop-blur-sm mb-5">
             <span className="text-white text-sm font-semibold">
               🎯 Limited Time Offer
             </span>
@@ -37,7 +37,7 @@ const MainSection = () => {
           {/* Section Header */}
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-800 mb-4">
-              👨‍🏫 আপনার ট্রেইনার
+              👨‍🏫 কোর্সের বিস্তারিত
             </h2>
             <p className="text-xl text-gray-600">
               ১০+ বছরের অভিজ্ঞতা নিয়ে আপনার পাশে
@@ -118,7 +118,7 @@ const MainSection = () => {
                     </div>
 
                     {/* Call to Action */}
-                    <a href="tel:+8801717468814">
+                    <a href="https://wa.me/8801978866933" target="_blank">
                       <button className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-4 rounded-xl font-bold hover:shadow-xl transition-all duration-300 hover:scale-105 transform flex items-center justify-center gap-2">
                         <span className="text-xl">📞</span>
                         <span>ট্রেইনারের সাথে কথা বলুন</span>
@@ -157,7 +157,7 @@ const MainSection = () => {
                           Class Time
                         </p>
                         <p className="text-gray-600">
-                          9PM to 11PM (Night) | Sunday,Tuesday,Thursday
+                          9PM to 11PM (Night) <br /> Sunday,Tuesday,Thursday
                         </p>
                       </div>
                     </div>
@@ -170,7 +170,7 @@ const MainSection = () => {
                           Course Duration
                         </p>
                         <p className="text-gray-600">
-                          12-15 Weeks | Online | Beginner to Advanced
+                          12-15 Weeks | Online <br /> Beginner to Advanced
                         </p>
                       </div>
                     </div>
@@ -205,7 +205,7 @@ const MainSection = () => {
                 <div className="text-center mb-8">
                   <h3 className="text-2xl font-bold mb-4">কোর্স ফি</h3>
                   <div className="text-5xl font-bold mb-2">৳ ৯৯৯৯</div>
-                  <p className="text-gray-300">ওয়ান টাইম পেমেন্ট</p>
+                  <p className="text-gray-300">এককালীন পেমেন্ট</p>
                 </div>
 
                 <div className="space-y-4 mb-8">
@@ -246,7 +246,7 @@ const MainSection = () => {
 
                 {/* WhatsApp Enroll Button */}
                 <a
-                  href="https://wa.me/8801717468814"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLScU1PUUmjNosTOnnQmg4pCF9z6ifH7h2aJoMwIHYtxTr-KPuA/viewform"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -274,10 +274,11 @@ const MainSection = () => {
 
                 <div className="space-y-4">
                   {[
-                    'ডোমেইন নাম (১ বছর)',
-                    'হোস্টিং – নিরাপদ ও দ্রুত (১ বছর)',
+                    'ডোমেইন নাম ( ১ বছরের জন্য )',
+                    'হোস্টিং – নিরাপদ ও দ্রুত ( ১ বছরের জন্য )',
                     'সম্পূর্ণ রেসপনসিভ ওয়েবসাইট',
                     'বিনামূল্যে মেটা বিজ্ঞাপন অ্যাকাউন্ট',
+                    'ইনভেসমেন্ট এর সুবিধা',
                   ].map((item, index) => (
                     <div
                       key={index}
@@ -308,6 +309,7 @@ const MainSection = () => {
                     'প্রিন্টেড মাগ',
                     'ব্র্যান্ডিং সহ ক্যাপ',
                     'ডিজিটাল মার্কেটিং উইথ এ আই PDF বই',
+                    'প্রোডাক্ট সোর্সিং এর সুবিধা',
                   ].map((item, index) => (
                     <div
                       key={index}
@@ -415,10 +417,16 @@ const MainSection = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all transform hover:scale-105 flex items-center gap-3">
-                <span>📱</span>
-                Enroll Now
-              </button>
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLScU1PUUmjNosTOnnQmg4pCF9z6ifH7h2aJoMwIHYtxTr-KPuA/viewform"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all transform hover:scale-105 flex items-center gap-3">
+                  <span>📱</span>
+                  Enroll Now
+                </button>
+              </a>
               <a
                 href="https://wa.me/8801978866933"
                 target="_blank"
@@ -445,7 +453,7 @@ const MainSection = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-blue-400">📧</span>
-                  <span>info@digitalmarketing.com</span>
+                  <span>info@futurelabinstitute.com</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-purple-400">🕒</span>

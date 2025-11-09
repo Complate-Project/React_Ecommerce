@@ -89,7 +89,7 @@ const BkashPay = () => {
                   </h3>
                   <div className="bg-pink-50 p-4 rounded-lg">
                     <p className="font-mono text-lg font-bold text-gray-800">
-                      01978866933
+                      01898879001
                     </p>
                     <p className="text-gray-600">টাকা: ৳ ৯,৯৯৯</p>
                   </div>
@@ -149,8 +149,8 @@ const BkashPay = () => {
               </div>
 
               <div className="mt-8 bg-white/20 rounded-xl p-4">
-                <p className="text-center font-semibold">
-                  bKash Account: <span className="font-mono">01978866933</span>
+                <p className="text-center font-bold text-xl">
+                  bKash Account : <span className="font-mono">01898879001</span>
                 </p>
               </div>
             </div>
@@ -176,12 +176,12 @@ const BkashPay = () => {
 
                 <button className="w-full border-2 border-pink-500 text-pink-600 hover:bg-pink-50 py-4 rounded-xl font-bold transition-colors flex items-center justify-center gap-3">
                   <span>📸</span>
-                  Screenshot আপলোড করুন
+                  Screenshot WhatsApp এ send করুন
                 </button>
 
                 <Link to="/nagod-pay">
                   <button className="w-full border-2 border-gray-300 text-gray-600 hover:bg-gray-50 py-3 rounded-xl font-medium transition-colors">
-                    অন্য পেমেন্ট মাধ্যম ব্যবহার করুন
+                    Nagad পেমেন্ট মাধ্যম ব্যবহার করুন
                   </button>
                 </Link>
               </div>
@@ -199,7 +199,7 @@ const BkashPay = () => {
                 <p>
                   💬 WhatsApp: <strong>01978866933</strong>
                 </p>
-                <p>🕒 সময়: সকাল ৯টা - রাত ১১টা</p>
+                <p>🕒 সময়: সকাল ১০টা - রাত ১০টা</p>
               </div>
             </div>
           </div>

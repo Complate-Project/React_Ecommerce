@@ -89,7 +89,7 @@ const NagadPay = () => {
                   </h3>
                   <div className="bg-green-50 p-4 rounded-lg border border-green-200">
                     <p className="font-mono text-lg font-bold text-gray-800">
-                      01978866933
+                      01898879001
                     </p>
                     <p className="text-gray-600 mt-1">টাকা: ৳ ৯,৯৯৯</p>
                   </div>
@@ -155,10 +155,8 @@ const NagadPay = () => {
               </div>
 
               <div className="mt-8 bg-white/20 rounded-xl p-4 text-center">
-                <p className="font-semibold mb-2">Nagad Account Number</p>
-                <p className="font-mono text-xl font-bold">01978866933</p>
-                <p className="text-sm mt-2 opacity-90">
-                  A/C: Digital Marketing Course
+                <p className="font-bold mb-2 text-xl">
+                  Nagad Account Number : 01898879001
                 </p>
               </div>
             </div>
@@ -184,7 +182,7 @@ const NagadPay = () => {
 
                 <button className="w-full border-2 border-green-500 text-green-600 hover:bg-green-50 py-4 rounded-xl font-bold transition-colors flex items-center justify-center gap-3">
                   <span>📸</span>
-                  Screenshot আপলোড করুন
+                  Screenshot WhatsApp এ send করুন
                 </button>
 
                 <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
@@ -221,7 +219,7 @@ const NagadPay = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <span>🕒</span>
-                  <span>সময়: সকাল ৯টা - রাত ১১টা</span>
+                  <span>সময়:সকাল ১০টা - রাত ১০টা</span>
                 </div>
               </div>
             </div>
