@@ -69,9 +69,9 @@ const NagadPay = () => {
                 </div>
                 <div className="flex-1 pb-6">
                   <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                    Send Money নির্বাচন করুন
+                    Payment নির্বাচন করুন
                   </h3>
-                  <p className="text-gray-600">"Send Money" অপশনে ক্লিক করুন</p>
+                  <p className="text-gray-600">"Payment" অপশনে ক্লিক করুন</p>
                 </div>
               </div>
 
