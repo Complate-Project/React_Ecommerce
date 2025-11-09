@@ -11,14 +11,8 @@ function App() {
   const [orderComplete, setOrderComplete] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
     phone: '',
     address: '',
-    city: '',
-    zipCode: '',
-    cardNumber: '',
-    expiryDate: '',
-    cvv: '',
   });
 
   const book = {
