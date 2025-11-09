@@ -65,20 +65,9 @@ function CheckoutModal({
   };
 
   return (
-    <div className="max-w-7xl mx-auto md:px-2 md:py-12 relative">
-      <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-        {/* Header */}
-        <div className="p-6 border-b border-gray-200">
-          <button
-            onClick={() => setShowCheckout(false)}
-            className="flex items-center space-x-2 text-indigo-600 hover:text-indigo-700 font-semibold"
-          >
-            <FaArrowLeft />
-            <span>Back to Book</span>
-          </button>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8">
+    <div className="max-w-7xl mx-auto md:px-2  relative">
+      <div className="bg-white  overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 ">
           {/* Order Summary */}
           <div className="bg-gray-50 rounded-xl px-6">
             <div className="flex items-center space-x-4 mb-6">
