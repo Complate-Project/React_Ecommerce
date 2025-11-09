@@ -211,8 +211,8 @@ const MainSection = () => {
                 <div className="space-y-4 mb-8">
                   {/* bKash Button - Improved with better gradient */}
                   <Link to={'/bkash-pay'}>
-                    <button className="w-full bg-gradient-to-r from-pink-600 to-purple-700 hover:from-pink-700 hover:to-purple-800 text-white py-4 rounded-xl font-bold shadow-lg hover:shadow-xl flex items-center justify-center gap-3 group transition-all duration-300">
-                      <div className="bg-white p-1 rounded-lg">
+                    <button className="w-full bg-gradient-to-r from-pink-600 to-purple-700 hover:from-pink-700 hover:to-purple-800 text-white py-4 rounded-xl font-bold shadow-lg hover:shadow-xl flex items-center justify-center gap-3 group transition-all duration-300 mb-2">
+                      <div className="bg-white p-1 rounded-lg ">
                         <img
                           src="https://ecdn.dhakatribune.net/contents/cache/images/1200x630x1xxxxx1/uploads/media/2024/08/24/bKash-050c0ebc9e3a0f1772fbfa9c715790c0.jpg"
                           alt="bKash Logo"
@@ -252,7 +252,7 @@ const MainSection = () => {
                 >
                   <button className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white py-4 rounded-xl font-bold hover:shadow-xl flex items-center justify-center gap-3 group transition-all duration-300">
                     <span className="text-xl">🚀</span>
-                    <span className="text-lg">এনরোল নাও</span>
+                    <span className="text-lg">এনরোল করুন</span>
                     <span className="text-xl group-hover:translate-x-1 transition-transform">
                       →
                     </span>
@@ -420,7 +420,7 @@ const MainSection = () => {
                 Enroll Now
               </button>
               <a
-                href="https://wa.me/8801717468814"
+                href="https://wa.me/8801978866933"
                 target="_blank"
                 rel="noopener noreferrer"
               >
