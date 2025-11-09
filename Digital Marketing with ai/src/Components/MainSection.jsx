@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaBook, FaLaptop } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const MainSection = () => {
@@ -80,6 +81,12 @@ const MainSection = () => {
                         </span>
                         <span className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">
                           👨‍🎓 500+ Students
+                        </span>
+                        <span className="bg-gradient-to-r from-purple-500 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg flex items-center gap-2">
+                          <FaLaptop /> Giveaway Laptop
+                        </span>
+                        <span className="bg-gradient-to-r from-pink-500 to-pink-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg flex items-center gap-2">
+                          <FaBook /> Ai Design Course
                         </span>
                       </div>
 
@@ -250,7 +257,7 @@ const MainSection = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <button className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white py-4 rounded-xl font-bold hover:shadow-xl flex items-center justify-center gap-3 group transition-all duration-300">
+                  <button className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white py-4 rounded-xl font-bold hover:shadow-xl flex items-center justify-center gap-3 group transition-all duration-300 animate-bounce">
                     <span className="text-xl">🚀</span>
                     <span className="text-lg">এনরোল করুন</span>
                     <span className="text-xl group-hover:translate-x-1 transition-transform">
@@ -324,31 +331,124 @@ const MainSection = () => {
             </div>
           </div>
 
-          {/* Lottery Card - Improved with better gradient */}
-          <div className="bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl p-8 text-white shadow-2xl relative overflow-hidden">
-            <div className="absolute -top-10 -right-10 w-32 h-32 bg-white/10 rounded-full"></div>
-            <div className="absolute -bottom-8 -left-8 w-24 h-24 bg-white/10 rounded-full"></div>
-            <div className="absolute top-1/2 right-10 transform -translate-y-1/2">
-              <div className="text-8xl opacity-20">💻</div>
-            </div>
+          {/* Lottery Card - Premium Offer Design */}
+          <div className="bg-gradient-to-br from-slate-900 via-gray-900 to-black rounded-3xl p-8 text-white shadow-2xl relative overflow-hidden border border-gray-800">
+            {/* Background Elements */}
+            <div className="absolute -top-20 -right-20 w-40 h-40 bg-emerald-500/5 rounded-full blur-xl"></div>
+            <div className="absolute -bottom-16 -left-16 w-32 h-32 bg-purple-500/5 rounded-full blur-xl"></div>
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-400 to-purple-500"></div>
+
+            {/* Floating Particles */}
+            <div className="absolute top-4 right-20 w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+            <div className="absolute bottom-16 left-24 w-1 h-1 bg-purple-400 rounded-full animate-pulse"></div>
+            <div className="absolute top-20 left-16 w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse"></div>
 
             <div className="relative z-10">
-              <div className="flex items-start gap-4">
-                <div className="text-6xl">🎉</div>
-                <div>
-                  <h2 className="text-3xl font-bold mb-4">
-                    বিশেষ লটারির পুরস্কার
+              <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+                {/* Text Content */}
+                <div className="flex-1">
+                  {/* Badge */}
+                  <div className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500/20 to-purple-500/20 px-4 py-2 rounded-full border border-emerald-500/30 mb-6">
+                    <div className="w-2 h-2 bg-emerald-400 rounded-full animate-ping"></div>
+                    <span className="text-sm font-semibold text-emerald-300">
+                      Limited Time Offer
+                    </span>
+                  </div>
+
+                  <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                    বিশেষ লটারির{' '}
+                    <span className="text-emerald-300">পুরস্কার</span>
                   </h2>
-                  <p className="text-xl mb-6">
+
+                  <p className="text-xl mb-6 text-gray-300 leading-relaxed">
                     প্রত্যেক ব্যাচে একটি করে{' '}
-                    <span className="font-bold">💻 ল্যাপটপ</span> লটারির মাধ্যমে
-                    দেওয়া হবে!
+                    <span className="font-bold text-emerald-300">
+                      হাই-এন্ড ল্যাপটপ
+                    </span>{' '}
+                    লটারির মাধ্যমে দেওয়া হবে!
                   </p>
-                  <div className="bg-white/20 rounded-2xl p-6 backdrop-blur-sm border border-white/30 inline-block">
-                    <div className="text-4xl mb-2">💻</div>
-                    <p className="text-lg font-semibold">Latest Model Laptop</p>
+
+                  {/* Features List */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+                    <div className="flex items-center gap-3">
+                      <div className="w-6 h-6 bg-emerald-500/20 rounded-full flex items-center justify-center">
+                        <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
+                      </div>
+                      <span className="text-gray-300">Latest Model</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-6 h-6 bg-purple-500/20 rounded-full flex items-center justify-center">
+                        <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                      </div>
+                      <span className="text-gray-300">High Performance</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-6 h-6 bg-cyan-500/20 rounded-full flex items-center justify-center">
+                        <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                      </div>
+                      <span className="text-gray-300">Premium Quality</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-6 h-6 bg-orange-500/20 rounded-full flex items-center justify-center">
+                        <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
+                      </div>
+                      <span className="text-gray-300">Free Delivery</span>
+                    </div>
                   </div>
                 </div>
+
+                {/* Laptop Image Container */}
+                <div className="flex-1 relative">
+                  <div className="relative group">
+                    {/* Main Laptop Container */}
+                    <div className="relative z-20 transform group-hover:scale-105 transition-transform duration-500">
+                      {/* Laptop Screen */}
+                      <div className="relative bg-gray-900 rounded-t-2xl p-4 border border-gray-700 mx-auto w-64 h-40">
+                        {/* Screen Content */}
+                        <div className="bg-gradient-to-br from-slate-800 to-gray-900 rounded-lg w-full h-full flex items-center justify-center">
+                          <div className="text-center">
+                            <div className="text-2xl mb-2">🎯</div>
+                            <div className="text-xs text-emerald-400 font-semibold">
+                              YOU WIN!
+                            </div>
+                          </div>
+                        </div>
+                        {/* Webcam */}
+                        <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-gray-600 rounded-full"></div>
+                      </div>
+
+                      {/* Laptop Body */}
+                      <div className="bg-gradient-to-b from-gray-800 to-gray-900 rounded-b-2xl p-6 border border-gray-700 border-t-0 mx-auto w-72 h-8 relative">
+                        {/* Trackpad */}
+                        <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gray-700 rounded-full"></div>
+                      </div>
+
+                      {/* Glow Effect */}
+                      <div className="absolute -inset-4 bg-gradient-to-r from-emerald-500/10 to-purple-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 z-10"></div>
+                    </div>
+
+                    {/* Floating Elements */}
+                    <div className="absolute -top-4 -right-4 w-8 h-8 bg-emerald-500/20 rounded-full flex items-center justify-center z-30 group-hover:animate-bounce">
+                      <div className="w-4 h-4 bg-emerald-400 rounded-full"></div>
+                    </div>
+                    <div className="absolute -bottom-2 -left-4 w-6 h-6 bg-purple-500/20 rounded-full flex items-center justify-center z-30 group-hover:animate-bounce">
+                      <div className="w-3 h-3 bg-purple-400 rounded-full"></div>
+                    </div>
+                  </div>
+
+                  {/* Background Pattern */}
+                  <div className="absolute inset-0 opacity-5">
+                    <div className="absolute top-10 left-10 w-20 h-20 border-2 border-emerald-400 rounded-full"></div>
+                    <div className="absolute bottom-10 right-10 w-16 h-16 border-2 border-purple-400 rounded-full"></div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Footer Note */}
+              <div className="text-center mt-8 pt-6 border-t border-gray-800/50">
+                <p className="text-sm text-gray-500">
+                  🎉 প্রতি ব্যাচে একজন সৌভাগ্যবান বিজয়ী নির্বাচিত হবেন!
+                </p>
               </div>
             </div>
           </div>
@@ -422,7 +522,7 @@ const MainSection = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <button className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all transform hover:scale-105 flex items-center gap-3">
+                <button className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 animate-bounce flex items-center gap-3">
                   <span>📱</span>
                   Enroll Now
                 </button>
