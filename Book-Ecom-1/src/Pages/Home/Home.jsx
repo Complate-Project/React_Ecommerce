@@ -115,7 +115,7 @@ const Home = () => {
         'https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixlib=rb-4.0.3&auto=format&fit=crop&w=2068&q=80',
       features: [
         'NVIDIA RTX 4070 8GB',
-        'Intel Core i9-13900H',
+        'Intel Core i5-13900H',
         '16GB DDR5 RAM',
         '1TB NVMe SSD',
       ],
