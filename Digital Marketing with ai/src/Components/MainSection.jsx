@@ -171,7 +171,7 @@ const MainSection = () => {
                         Course Duration
                       </p>
                       <p className="text-gray-600 text-sm sm:text-base">
-                        12-15 Weeks | Online <br /> Beginner to Advanced
+                        12 Weeks | Online <br /> Beginner to Advanced
                       </p>
                     </div>
                   </div>
