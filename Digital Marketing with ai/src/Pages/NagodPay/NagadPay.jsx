@@ -71,7 +71,9 @@ const NagadPay = () => {
                   <h3 className="text-lg font-semibold text-gray-800 mb-2">
                     Payment নির্বাচন করুন
                   </h3>
-                  <p className="text-gray-600">"Payment" অপশনে ক্লিক করুন</p>
+                  <p className="text-gray-600">
+                    " Merchant Pay" অপশনে ক্লিক করুন
+                  </p>
                 </div>
               </div>
 

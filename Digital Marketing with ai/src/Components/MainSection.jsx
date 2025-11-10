@@ -392,9 +392,16 @@ const MainSection = () => {
                   </span>{' '}
                   লটারির মাধ্যমে দেওয়া হবে!
                 </p>
-                <button className="bg-white text-gray-900 hover:bg-gray-100 font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
-                  অংশগ্রহণ করুন
-                </button>
+                <Link
+                  target="_blank"
+                  to={
+                    'https://docs.google.com/forms/d/e/1FAIpQLScU1PUUmjNosTOnnQmg4pCF9z6ifH7h2aJoMwIHYtxTr-KPuA/viewform'
+                  }
+                >
+                  <button className="bg-white text-gray-900 hover:bg-gray-100 font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
+                    অংশগ্রহণ করুন
+                  </button>
+                </Link>
               </div>
 
               <div className="flex justify-center">
