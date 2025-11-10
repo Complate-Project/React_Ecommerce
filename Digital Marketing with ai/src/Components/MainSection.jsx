@@ -478,7 +478,7 @@ const MainSection = () => {
         <div className="max-w-6xl mx-auto">
           {/* Option 1: Simple & Clean */}
           <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 text-center border border-white/20 flex justify-center items-center gap-5">
-            <div className="">
+            <div className="border-r border-white pr-5">
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
                 🚀 এখনই এনরোল করুন
               </h3>
