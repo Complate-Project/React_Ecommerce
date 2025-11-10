@@ -530,10 +530,10 @@ const MainSection = () => {
                       alt="bKash"
                     />
                     <span className="text-white font-semibold text-sm">
-                      bKash
+                      এ Payment করুন
                     </span>
                   </div>
-                </button>
+                </button><br />
 
                 {/* Nagad */}
                 <button className="bg-white/20 hover:bg-white/30 border border-white/30 rounded-xl p-3 transition-all duration-300 hover:scale-105 group">
@@ -544,7 +544,7 @@ const MainSection = () => {
                       alt="Nagad"
                     />
                     <span className="text-white font-semibold text-sm">
-                      Nagad
+                       এ Payment করুন
                     </span>
                   </div>
                 </button>
