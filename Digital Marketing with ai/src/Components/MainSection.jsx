@@ -221,7 +221,7 @@ const MainSection = () => {
                   <p className="text-sm text-gray-300 mt-1">
                     এককালীন পেমেন্টে{' '}
                     <span className="text-amber-400 font-semibold">
-                      80% ছাড়
+                      ৮০% ছাড়
                     </span>
                   </p>
                 </div>
