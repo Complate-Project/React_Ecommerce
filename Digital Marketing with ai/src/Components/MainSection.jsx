@@ -345,7 +345,7 @@ const MainSection = () => {
                 </div>
 
                 {/* Total Calculation */}
-                <div className="pt-6 border-t border-white/20 flex justify-end  items-end gap-4">
+                <div className="pt-6 border-t border-white/20 flex justify-center items-end gap-4">
                   <h4 className="text-xl sm:text-2xl font-bold flex items-center gap-2">
                     💰 মোট মূল্য:
                   </h4>
