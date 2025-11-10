@@ -32,154 +32,147 @@ const MainSection = () => {
         <div className="absolute bottom-20 right-20 w-6 h-6 bg-pink-400 rounded-full animate-bounce"></div>
       </section>
 
-      {/* Trainer Section */}
-      <section className="py-16 px-4 bg-gradient-to-br from-slate-50 to-purple-50">
-        <div className="max-w-6xl mx-auto">
+      {/* Trainer section */}
+      <section className="py-6 px-4 bg-gradient-to-br from-slate-50 to-purple-50">
+        <div className="max-w-7xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
               👨‍🏫 কোর্সের বিস্তারিত
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-lg md:text-xl text-gray-600">
               ১০+ বছরের অভিজ্ঞতা নিয়ে আপনার পাশে
             </p>
           </div>
 
+          {/* Main Flex Container */}
           <div className="flex flex-col lg:flex-row gap-8 items-stretch">
-            {/* Main Trainer Card */}
-            <div className="flex">
-              <div className=" overflow-hidden border border-gray-200  ">
-                <div className="md:flex h-full">
-                  {/* Trainer Image Section */}
+            {/* Trainer Card */}
+            <div className="flex-1">
+              <div className="overflow-hidden border border-gray-200 rounded-2xl bg-white shadow-sm">
+                <div className="flex flex-col md:flex-row h-full">
+                  {/* Image Section */}
                   <div className="md:w-2/5 relative group">
                     <img
                       src="https://i.postimg.cc/BnhW44gq/43546.jpg"
                       alt="Dilouar Hossain"
-                      className="w-full h-80 md:h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-64 md:h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                    <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-lg">
-                      <p className="font-bold text-gray-800 text-lg">
-                        Dilouar Hossain
-                      </p>
-                      <p className="text-sm text-gray-600">
-                        Digital Marketing Expert
-                      </p>
-                    </div>
                   </div>
 
-                  {/* Trainer Info Section */}
-                  <div className="md:w-3/5 p-8 flex flex-col justify-between">
+                  {/* Info Section */}
+                  <div className="md:w-3/5 p-6 md:p-8 flex flex-col justify-between">
                     <div>
                       {/* Badges */}
-                      <div className="flex flex-wrap gap-3 mb-6">
-                        <span className="bg-gradient-to-r from-purple-500 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">
+                      <div className="flex flex-wrap gap-2 sm:gap-3 mb-6">
+                        <span className="bg-gradient-to-r from-purple-500 to-purple-600 text-white px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium shadow-md">
                           🎯 Expert Trainer
                         </span>
-                        <span className="bg-gradient-to-r from-pink-500 to-pink-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">
+                        <span className="bg-gradient-to-r from-pink-500 to-pink-600 text-white px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium shadow-md">
                           🏆 10+ Years
                         </span>
-                        <span className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">
+                        <span className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium shadow-md">
                           👨‍🎓 500+ Students
                         </span>
-                        <span className="bg-gradient-to-r from-purple-500 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg flex items-center gap-2">
-                          <FaLaptop /> Giveaway Laptop
+                        <span className="bg-gradient-to-r from-pink-500 to-pink-600 text-white px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium shadow-md">
+                          💻 Giveaway Laptop
                         </span>
-                        <span className="bg-gradient-to-r from-pink-500 to-pink-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg flex items-center gap-2">
-                          <FaBook /> Ai Design Course
+                        <span className="bg-gradient-to-r from-purple-500 to-purple-600 text-white px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium shadow-md">
+                          📑 Ai Design Course
                         </span>
-                      </div>
-
-                      {/* Trainer Details */}
-                      <div className="mb-6">
-                        <h3 className="text-2xl font-bold text-gray-800 mb-3">
-                          Dilouar Hossain
-                        </h3>
-                        <p className="text-lg text-purple-600 font-semibold mb-2">
-                          Digital Marketing Trainer | 10+ Years Experience
-                        </p>
-                        <p className="text-gray-600 mb-4">
-                          Founder | Zero Degree Agency & Future Lab Institute
-                        </p>
                       </div>
 
                       {/* Stats */}
-                      <div className="grid grid-cols-2 gap-4 mb-6">
-                        <div className="text-center p-4 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl border border-purple-100">
-                          <div className="text-2xl font-bold text-purple-600">
+                      <div className="grid grid-cols-2 gap-3 mb-6">
+                        <div className="text-center p-3 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl border border-purple-100">
+                          <div className="text-xl sm:text-2xl font-bold text-purple-600">
                             10+
                           </div>
-                          <div className="text-sm text-gray-600">
+                          <div className="text-xs sm:text-sm text-gray-600">
                             Years Experience
                           </div>
                         </div>
-                        <div className="text-center p-4 bg-gradient-to-br from-pink-50 to-purple-50 rounded-xl border border-pink-100">
-                          <div className="text-2xl font-bold text-pink-500">
+                        <div className="text-center p-3 bg-gradient-to-br from-pink-50 to-purple-50 rounded-xl border border-pink-100">
+                          <div className="text-xl sm:text-2xl font-bold text-pink-500">
                             500+
                           </div>
-                          <div className="text-sm text-gray-600">
+                          <div className="text-xs sm:text-sm text-gray-600">
                             Students Trained
                           </div>
                         </div>
                       </div>
+
+                      {/* Trainer Details */}
+                      <div className="mb-6">
+                        <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2">
+                          Dilouar Hossain
+                        </h3>
+                        <p className="text-base sm:text-lg text-purple-600 font-semibold mb-1">
+                          Digital Marketing Trainer | 10+ Years Experience
+                        </p>
+                        <p className="text-gray-600 text-sm sm:text-base">
+                          Founder | Zero Degree Agency & Future Lab Institute
+                        </p>
+                      </div>
                     </div>
 
-                    {/* Call to Action */}
+                    {/* CTA */}
                     <a href="https://wa.me/8801978866933" target="_blank">
-                      <button className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-4 rounded-xl font-bold hover:shadow-xl transition-all duration-300 hover:scale-105 transform flex items-center justify-center gap-2">
-                        <span className="text-xl">📞</span>
+                      <button className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 sm:py-4 rounded-xl font-bold hover:shadow-xl transition-all duration-300 hover:scale-105 transform flex items-center justify-center gap-2 text-sm sm:text-base">
+                        <span className="text-lg sm:text-xl">📞</span>
                         <span>ট্রেইনারের সাথে কথা বলুন</span>
                       </button>
                     </a>
                   </div>
                 </div>
               </div>
-              {/* Schedule Card */}
-              <div className="lg:w-96">
-                <div className=" p-4 border border-gray-100 h-full  ">
-                  <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center flex items-center justify-center gap-2">
-                    <span className="text-2xl">📅</span>
-                    ক্লাসের সময়সূচী
-                  </h3>
+            </div>
 
-                  <div className="space-y-6">
-                    {/* Batch Info */}
-                    <div className="flex items-center p-5 bg-gradient-to-r from-purple-50 to-blue-50 rounded-2xl border border-purple-100 hover:shadow-md transition-all">
-                      <div className="text-2xl mr-4 text-purple-600">🎯</div>
-                      <div>
-                        <p className="font-semibold text-gray-800 text-lg">
-                          Batch No-20251101
-                        </p>
-                        <p className="text-gray-600">
-                          Class Start: 01 December 2025
-                        </p>
-                      </div>
+            {/* Schedule Card */}
+            <div className="lg:w-96 w-full">
+              <div className="p-4 border border-gray-100 rounded-2xl bg-white shadow-sm h-full">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-6 text-center flex items-center justify-center gap-2">
+                  <span className="text-2xl">📅</span> ক্লাসের সময়সূচী
+                </h3>
+
+                <div className="space-y-4 sm:space-y-6">
+                  {/* Batch Info */}
+                  <div className="flex items-center p-4 sm:p-5 bg-gradient-to-r from-purple-50 to-blue-50 rounded-2xl border border-purple-100 hover:shadow-md transition-all">
+                    <div className="text-2xl mr-3 text-purple-600">🎯</div>
+                    <div>
+                      <p className="font-semibold text-gray-800 text-base sm:text-lg">
+                        Batch No-20251101
+                      </p>
+                      <p className="text-gray-600 text-sm sm:text-base">
+                        Class Start: 01 December 2025
+                      </p>
                     </div>
+                  </div>
 
-                    {/* Class Time */}
-                    <div className="flex items-center p-5 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-2xl border border-blue-100 hover:shadow-md transition-all">
-                      <div className="text-2xl mr-4 text-blue-600">⏰</div>
-                      <div>
-                        <p className="font-semibold text-gray-800 text-lg">
-                          Class Time
-                        </p>
-                        <p className="text-gray-600">
-                          9PM to 11PM (Night) <br /> Sunday,Tuesday,Thursday
-                        </p>
-                      </div>
+                  {/* Class Time */}
+                  <div className="flex items-center p-4 sm:p-5 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-2xl border border-blue-100 hover:shadow-md transition-all">
+                    <div className="text-2xl mr-3 text-blue-600">⏰</div>
+                    <div>
+                      <p className="font-semibold text-gray-800 text-base sm:text-lg">
+                        Class Time
+                      </p>
+                      <p className="text-gray-600 text-sm sm:text-base">
+                        9PM to 11PM (Night) <br /> Sunday, Tuesday, Thursday
+                      </p>
                     </div>
+                  </div>
 
-                    {/* Course Duration */}
-                    <div className="flex items-center p-5 bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl border border-green-100 hover:shadow-md transition-all">
-                      <div className="text-2xl mr-4 text-green-600">📚</div>
-                      <div>
-                        <p className="font-semibold text-gray-800 text-lg">
-                          Course Duration
-                        </p>
-                        <p className="text-gray-600">
-                          12-15 Weeks | Online <br /> Beginner to Advanced
-                        </p>
-                      </div>
+                  {/* Duration */}
+                  <div className="flex items-center p-4 sm:p-5 bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl border border-green-100 hover:shadow-md transition-all">
+                    <div className="text-2xl mr-3 text-green-600">📚</div>
+                    <div>
+                      <p className="font-semibold text-gray-800 text-base sm:text-lg">
+                        Course Duration
+                      </p>
+                      <p className="text-gray-600 text-sm sm:text-base">
+                        12-15 Weeks | Online <br /> Beginner to Advanced
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -190,7 +183,7 @@ const MainSection = () => {
       </section>
 
       {/* Pricing & Benefits Section */}
-      <section className="py-16 px-4 md:px-0 bg-gradient-to-br from-slate-50 to-purple-50">
+      <section className="pt-10 pb-4 px-4 md:px-0 bg-gradient-to-br from-slate-50 to-purple-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-800 mb-4">
@@ -201,131 +194,176 @@ const MainSection = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8 mb-12">
-            {/* Pricing Card - Improved with better colors */}
-            <div className="bg-gradient-to-br from-slate-800 to-purple-900 rounded-2xl p-8 text-white shadow-2xl relative overflow-hidden">
+          <div className="grid lg:grid-cols-3 md:gap-8 mb-12">
+            {/* Pricing Card - Premium Version */}
+            <div className="bg-gradient-to-br from-slate-900 via-purple-900 to-indigo-900 rounded-3xl p-8 text-white shadow-2xl relative overflow-hidden mb-2 md:mb-0">
               {/* Decorative elements */}
-              <div className="absolute -top-10 -right-10 w-32 h-32 bg-white/5 rounded-full"></div>
-              <div className="absolute -bottom-8 -left-8 w-24 h-24 bg-white/5 rounded-full"></div>
+              <div className="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-xl"></div>
+              <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-white/10 rounded-full blur-xl"></div>
 
-              <div className="relative z-10">
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold mb-4">কোর্স ফি</h3>
-                  <div className="text-5xl font-bold mb-2">৳ ৯৯৯৯</div>
-                  <p className="text-gray-300">এককালীন পেমেন্ট</p>
+              <div className="relative z-10 flex flex-col items-center text-center space-y-6">
+                {/* Header */}
+                <div>
+                  <h3 className="text-3xl font-extrabold mb-2 tracking-wide text-amber-400">
+                    💰 কোর্স ফি
+                  </h3>
+                  <p className="text-gray-300 text-sm uppercase">
+                    সীমিত সময়ের জন্য অফার
+                  </p>
                 </div>
 
-                <div className="space-y-4 mb-8">
-                  {/* bKash Button - Improved with better gradient */}
-                  <Link to={'/bkash-pay'}>
-                    <button className="w-full bg-gradient-to-r from-pink-600 to-purple-700 hover:from-pink-700 hover:to-purple-800 text-white py-4 rounded-xl font-bold shadow-lg hover:shadow-xl flex items-center justify-center gap-3 group transition-all duration-300 mb-2">
-                      <div className="bg-white p-1 rounded-lg ">
-                        <img
-                          src="https://ecdn.dhakatribune.net/contents/cache/images/1200x630x1xxxxx1/uploads/media/2024/08/24/bKash-050c0ebc9e3a0f1772fbfa9c715790c0.jpg"
-                          alt="bKash Logo"
-                          className="w-12 h-5 object-contain group-hover:scale-110 transition-transform"
-                        />
-                      </div>
-                      <span className="text-lg">বিকাশে পেমেন্ট করুন</span>
-                      <span className="text-xl group-hover:translate-x-1 transition-transform">
-                        →
-                      </span>
-                    </button>
-                  </Link>
+                {/* Price Section */}
+                <div className="bg-white/10 rounded-2xl p-6 w-full">
+                  <div className="text-5xl font-extrabold mb-2 text-amber-300">
+                    ৳ 9,999
+                  </div>
+                  <p className="text-lg text-gray-300 line-through">৳ 90,300</p>
+                  <p className="text-sm text-gray-300 mt-1">
+                    এককালীন পেমেন্টে{' '}
+                    <span className="text-amber-400 font-semibold">
+                      80% ছাড়
+                    </span>
+                  </p>
+                </div>
 
-                  {/* Nagad Button - Improved with better gradient */}
-                  <Link to={'/nagod-pay'}>
-                    <button className="w-full bg-gradient-to-r from-emerald-600 to-green-700 hover:from-emerald-700 hover:to-green-800 text-white py-4 rounded-xl font-bold shadow-lg hover:shadow-xl flex items-center justify-center gap-3 group transition-all duration-300">
-                      <div className="bg-white p-1 rounded-lg">
-                        <img
-                          src="https://freepnglogo.com/images/all_img/1725618513nagad-logo.png"
-                          alt="Nagad Logo"
-                          className="w-12 h-5 object-contain group-hover:scale-110 transition-transform"
-                        />
-                      </div>
-                      <span className="text-lg">নগদে পেমেন্ট করুন</span>
-                      <span className="text-xl group-hover:translate-x-1 transition-transform">
-                        →
-                      </span>
-                    </button>
+                {/* Offer Highlights */}
+                <ul className="text-left space-y-3 text-gray-200 text-sm md:text-base">
+                  <li className="flex items-center ">
+                    <span>লাইফটাইম এক্সেস এবং আপডেট কোর্স কনটেন্ট</span>
+                  </li>
+                </ul>
+
+                {/* Payment Options */}
+                <div className="flex justify-center items-center gap-5 mt-2">
+                  <Link to="/bkash-pay">
+                    <img
+                      src="https://ecdn.dhakatribune.net/contents/cache/images/1200x630x1xxxxx1/uploads/media/2024/08/24/bKash-050c0ebc9e3a0f1772fbfa9c715790c0.jpg"
+                      alt="bKash Logo"
+                      className="w-20 h-10 object-contain rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
+                    />
+                  </Link>
+                  <Link to="/nagod-pay">
+                    <img
+                      src="https://freepnglogo.com/images/all_img/1725618513nagad-logo.png"
+                      alt="Nagad Logo"
+                      className="w-20 h-10 object-contain rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
+                    />
                   </Link>
                 </div>
 
-                {/* WhatsApp Enroll Button */}
+                {/* Enroll Button */}
                 <a
                   href="https://docs.google.com/forms/d/e/1FAIpQLScU1PUUmjNosTOnnQmg4pCF9z6ifH7h2aJoMwIHYtxTr-KPuA/viewform"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="w-full"
                 >
-                  <button className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white py-4 rounded-xl font-bold hover:shadow-xl flex items-center justify-center gap-3 group transition-all duration-300 animate-bounce">
+                  <button className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white py-4 rounded-xl font-bold hover:shadow-2xl flex items-center justify-center gap-3 group transition-all duration-300 hover:scale-105 ">
                     <span className="text-xl">🚀</span>
-                    <span className="text-lg">এনরোল করুন</span>
+                    <span className="text-lg">এখনই এনরোল করুন</span>
                     <span className="text-xl group-hover:translate-x-1 transition-transform">
                       →
                     </span>
                   </button>
                 </a>
-              </div>
-            </div>
-
-            {/* Free Benefits - Improved with better gradient */}
-            <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-8 text-white shadow-2xl relative overflow-hidden">
-              {/* Decorative elements */}
-              <div className="absolute -top-10 -right-10 w-32 h-32 bg-white/10 rounded-full"></div>
-              <div className="absolute -bottom-8 -left-8 w-24 h-24 bg-white/10 rounded-full"></div>
-
-              <div className="relative z-10">
-                <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                  🎁 কোর্সে যা ফ্রি পাবেন
-                </h3>
-
-                <div className="space-y-4">
-                  {[
-                    'ডোমেইন নাম ( ১ বছরের জন্য )-২০০০ টাকা',
-                    'হোস্টিং – ( ১ বছরের জন্য )-১৫০০ টাকা',
-                    'রেসপনসিভ ওয়েবসাইট-২৫০০০ টাকা',
-                    'মেটা বিজ্ঞাপন অ্যাকাউন্ট-৫০০০ টাকা',
-                    'ইনভেসমেন্ট এর সুবিধা-৫০০০০ টাকা',
-                  ].map((item, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center p-3 bg-white/10 rounded-xl backdrop-blur-sm hover:bg-white/15 transition-colors duration-300"
-                    >
-                      <div className="w-2 h-2 bg-white rounded-full mr-3"></div>
-                      <span className="font-medium">{item}</span>
-                    </div>
-                  ))}
+                {/* Guarantee */}
+                <div className="text-xs text-gray-400 ">
+                  🔒 100% Secure Payment | 📞 Support: +8801978866933
                 </div>
               </div>
             </div>
 
-            {/* Gift Pack - Improved with better gradient */}
-            <div className="bg-gradient-to-br from-emerald-600 to-teal-700 rounded-2xl p-8 text-white shadow-2xl relative overflow-hidden">
+            {/* Free Benefits - Responsive with Total Price */}
+            <div className="bg-gradient-to-br col-span-2 from-blue-600 to-indigo-700 rounded-2xl p-6 sm:p-8 text-white shadow-2xl relative overflow-hidden">
               {/* Decorative elements */}
               <div className="absolute -top-10 -right-10 w-32 h-32 bg-white/10 rounded-full"></div>
               <div className="absolute -bottom-8 -left-8 w-24 h-24 bg-white/10 rounded-full"></div>
 
-              <div className="relative z-10">
-                <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                  🎯 বিশেষ গিফট প্যাক
-                </h3>
+              {/* Content Wrapper */}
+              <div className="relative z-10 space-y-10">
+                {/* Two Sections */}
+                <div className="flex flex-col md:flex-row justify-between gap-8">
+                  {/* Left Column */}
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
+                      🎁 কোর্সে যা ফ্রি পাবেন
+                    </h3>
 
-                <div className="space-y-4">
-                  {[
-                    'ব্র্যান্ডিং সহ টিশার্ট-৫০০ টাকা ',
-                    'প্রিন্টেড মাগ-৫০০ টাকা',
-                    'ব্র্যান্ডিং সহ ক্যাপ-৩০০ টাকা',
-                    'ডিজিটাল মার্কেটিং With Ai বই-৫০০ টাকা',
-                    'প্রোডাক্ট সোর্সিং এর সুবিধা-৫০০০ টাকা',
-                  ].map((item, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center p-3 bg-white/10 rounded-xl backdrop-blur-sm hover:bg-white/15 transition-colors duration-300"
-                    >
-                      <div className="text-lg mr-3">🎁</div>
-                      <span className="font-medium">{item}</span>
+                    <div className="space-y-4">
+                      {[
+                        { name: 'ডোমেইন নাম (১ বছরের জন্য)', price: 2000 },
+                        { name: 'হোস্টিং (১ বছরের জন্য)', price: 1500 },
+                        { name: 'রেসপনসিভ ওয়েবসাইট', price: 25000 },
+                        { name: 'মেটা বিজ্ঞাপন অ্যাকাউন্ট', price: 5000 },
+                        { name: 'ইনভেসমেন্ট এর সুবিধা', price: 50000 },
+                      ].map((item, index) => (
+                        <div
+                          key={index}
+                          className="flex items-center justify-between p-3 bg-white/10 rounded-xl backdrop-blur-sm hover:bg-white/15 transition-colors duration-300"
+                        >
+                          <div className="flex items-center">
+                            <div className="w-2 h-2 bg-white rounded-full mr-3"></div>
+                            <span className="font-medium">{item.name}</span>
+                          </div>
+                          <span className="font-semibold">
+                            {item.price.toLocaleString()} ৳
+                          </span>
+                        </div>
+                      ))}
                     </div>
-                  ))}
+                  </div>
+
+                  {/* Right Column */}
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
+                      🎯 বিশেষ গিফট প্যাক
+                    </h3>
+
+                    <div className="space-y-4">
+                      {[
+                        { name: 'ব্র্যান্ডিং সহ টিশার্ট', price: 500 },
+                        { name: 'প্রিন্টেড মাগ', price: 500 },
+                        { name: 'ব্র্যান্ডিং সহ ক্যাপ', price: 300 },
+                        { name: 'ডিজিটাল মার্কেটিং With Ai বই', price: 500 },
+                        { name: 'প্রোডাক্ট সোর্সিং এর সুবিধা', price: 5000 },
+                      ].map((item, index) => (
+                        <div
+                          key={index}
+                          className="flex items-center justify-between p-3 bg-white/10 rounded-xl backdrop-blur-sm hover:bg-white/15 transition-colors duration-300"
+                        >
+                          <div className="flex items-center">
+                            <div className="text-lg mr-3">🎁</div>
+                            <span className="font-medium">{item.name}</span>
+                          </div>
+                          <span className="font-semibold">
+                            {item.price.toLocaleString()} ৳
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Total Calculation */}
+                <div className="pt-6 border-t border-white/20 flex justify-end  items-end gap-4">
+                  <h4 className="text-xl sm:text-2xl font-bold flex items-center gap-2">
+                    💰 মোট মূল্য:
+                  </h4>
+                  <p className="text-3xl font-extrabold text-yellow-300">
+                    {(
+                      2000 +
+                      1500 +
+                      25000 +
+                      5000 +
+                      50000 +
+                      500 +
+                      500 +
+                      300 +
+                      500 +
+                      5000
+                    ).toLocaleString()}{' '}
+                    ৳
+                  </p>
                 </div>
               </div>
             </div>
@@ -357,7 +395,6 @@ const MainSection = () => {
                 <button className="bg-white text-gray-900 hover:bg-gray-100 font-semibold py-3 px-6 rounded-lg transition-colors duration-300">
                   অংশগ্রহণ করুন
                 </button>
-                
               </div>
 
               <div className="flex justify-center">
@@ -383,7 +420,7 @@ const MainSection = () => {
       </section>
 
       {/* Course Modules Section */}
-      <section className="py-16 px-4 md:px-0 bg-white">
+      <section className="py-6 px-4 md:px-0 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-800 mb-4">
