@@ -519,7 +519,14 @@ const MainSection = () => {
             <div className="">
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
                 💰 কিভাবে Payment করবেন
-              </h3>
+              </h3> {/* Support Text */}
+              <div className="mt-6">
+                <p className="text-gray-500 text-sm flex items-center justify-center gap-2">
+                  <span>❓</span>
+                  পেমেন্টে কোন সমস্যা হলে কল করুন:
+                  <span className="font-bold text-green-600">01978866933</span>
+                </p>
+              </div><br />
               <div className="flex justify-center items-center gap-4">
                 {/* bKash */}
                 <button className="bg-white/20 hover:bg-white/30 border border-white/30 rounded-xl p-3 transition-all duration-300 hover:scale-105 group">
@@ -549,14 +556,7 @@ const MainSection = () => {
                   </div>
                 </button>
               </div>
-              {/* Support Text */}
-              <div className="mt-6">
-                <p className="text-gray-500 text-sm flex items-center justify-center gap-2">
-                  <span>❓</span>
-                  পেমেন্টে কোন সমস্যা হলে কল করুন:
-                  <span className="font-bold text-green-600">01978866933</span>
-                </p>
-              </div>
+             
             </div>
           </div>
 
