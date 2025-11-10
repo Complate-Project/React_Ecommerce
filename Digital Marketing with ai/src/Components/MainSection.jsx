@@ -477,37 +477,86 @@ const MainSection = () => {
       <section className="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-16 px-4">
         <div className="max-w-6xl mx-auto">
           {/* Option 1: Simple & Clean */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 text-center border border-white/20">
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
-              🚀 এখনই এনরোল করুন
-            </h3>
+          <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 text-center border border-white/20 flex justify-center items-center gap-5">
+            <div className="">
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
+                🚀 এখনই এনরোল করুন
+              </h3>
 
-            <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
-              বিস্তারিত জানতে হোয়াটসঅ্যাপে যোগাযোগ করুন –
-              <span className="font-bold text-white text-xl"> 01978866933</span>
-            </p>
+              <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
+                বিস্তারিত জানতে হোয়াটসঅ্যাপে যোগাযোগ করুন –
+                <span className="font-bold text-white text-xl">
+                  {' '}
+                  01978866933
+                </span>
+              </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLScU1PUUmjNosTOnnQmg4pCF9z6ifH7h2aJoMwIHYtxTr-KPuA/viewform"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <button className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 animate-bounce flex items-center gap-3">
-                  <span>📱</span>
-                  Enroll Now
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLScU1PUUmjNosTOnnQmg4pCF9z6ifH7h2aJoMwIHYtxTr-KPuA/viewform"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 animate-bounce flex items-center gap-3">
+                    <span>📱</span>
+                    Enroll Now
+                  </button>
+                </a>
+                <a
+                  href="https://wa.me/8801978866933"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all transform hover:scale-105 flex items-center gap-3">
+                    <span>💬</span>
+                    WhatsApp এ মেসেজ করুন
+                  </button>
+                </a>
+              </div>
+            </div>
+
+            {/* payment */}
+            <div className="">
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
+                💰 কিভাবে Payment করবেন
+              </h3>
+              <div className="flex justify-center items-center gap-4">
+                {/* bKash */}
+                <button className="bg-white/20 hover:bg-white/30 border border-white/30 rounded-xl p-3 transition-all duration-300 hover:scale-105 group">
+                  <div className="flex items-center gap-2">
+                    <img
+                      className="h-8 w-12 object-contain rounded"
+                      src="https://ecdn.dhakatribune.net/contents/cache/images/1200x630x1xxxxx1/uploads/media/2024/08/24/bKash-050c0ebc9e3a0f1772fbfa9c715790c0.jpg"
+                      alt="bKash"
+                    />
+                    <span className="text-white font-semibold text-sm">
+                      bKash
+                    </span>
+                  </div>
                 </button>
-              </a>
-              <a
-                href="https://wa.me/8801978866933"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <button className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all transform hover:scale-105 flex items-center gap-3">
-                  <span>💬</span>
-                  WhatsApp এ মেসেজ করুন
+
+                {/* Nagad */}
+                <button className="bg-white/20 hover:bg-white/30 border border-white/30 rounded-xl p-3 transition-all duration-300 hover:scale-105 group">
+                  <div className="flex items-center gap-2">
+                    <img
+                      className="h-8 w-12 object-contain"
+                      src="https://freepnglogo.com/images/all_img/1725618513nagad-logo.png"
+                      alt="Nagad"
+                    />
+                    <span className="text-white font-semibold text-sm">
+                      Nagad
+                    </span>
+                  </div>
                 </button>
-              </a>
+              </div>
+              {/* Support Text */}
+              <div className="mt-6">
+                <p className="text-gray-500 text-sm flex items-center justify-center gap-2">
+                  <span>❓</span>
+                  পেমেন্টে কোন সমস্যা হলে কল করুন:
+                  <span className="font-bold text-green-600">01978866933</span>
+                </p>
+              </div>
             </div>
           </div>
 
