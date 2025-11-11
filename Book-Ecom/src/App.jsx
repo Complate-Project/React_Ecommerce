@@ -16,6 +16,9 @@ function App() {
     address: '',
   });
 
+  // ✅ Checkout section ref
+  const checkoutRef = useRef(null);
+
   const book = {
     title: 'The Great Adventure',
     author: 'John Smith',
@@ -56,7 +59,6 @@ function App() {
     }, 2000);
   };
 
-  // ✅ Memoized totalPrice and savings
   const totalPrice = useMemo(
     () => (book.price * quantity).toFixed(2),
     [book.price, quantity]
@@ -69,12 +71,21 @@ function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       <Navbar quantity={quantity} />
-      <Heading />
+
+      {/* ✅ Heading with Scroll Handler */}
+      <Heading
+        onBuyNow={() => {
+          checkoutRef.current?.scrollIntoView({ behavior: 'smooth' });
+        }}
+      />
+
+      {/* Review Section */}
+      <ReviewSection />
       <Faq />
-      {/* ReviewSection */}
-      <ReviewSection></ReviewSection>
-      {/* ✅ শুধু CheckoutModal */}
+
+      {/* ✅ Checkout Section (with ref) */}
       <CheckoutModal
+        ref={checkoutRef}
         book={book}
         quantity={quantity}
         setQuantity={setQuantity}

@@ -35,36 +35,6 @@ const Heading = ({ onBuyNow }) => {
             </div>
           </div>
 
-          {/* Author Section */}
-          {/* <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-200">
-            <div className="flex items-center space-x-4">
-              <img
-                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=80&h=80&q=80"
-                alt="Dr. James Wilson - Author"
-                className="w-16 h-16 rounded-full object-cover border-2 border-blue-500 shadow-md"
-              />
-              <div>
-                <h3 className="text-lg font-bold text-gray-900">
-                  Dr. James Wilson
-                </h3>
-                <p className="text-gray-600 text-sm">
-                  Productivity Expert & Bestselling Author
-                </p>
-                <div className="flex text-yellow-400 text-sm mt-1">
-                  {'★'.repeat(5)}
-                  <span className="text-gray-600 ml-2">
-                    4.9/5 Author Rating
-                  </span>
-                </div>
-              </div>
-            </div>
-            <p className="text-gray-700 text-sm mt-3">
-              With over 15 years of experience coaching Fortune 500 executives
-              and entrepreneurs, Dr. Wilson has helped thousands achieve peak
-              performance through his proven methods.
-            </p>
-          </div> */}
-
           {/* Quick Stats */}
           <div className="grid grid-cols-3 gap-4 text-center">
             <div className="bg-white p-4 rounded-lg shadow-md border border-gray-200">
@@ -97,13 +67,6 @@ const Heading = ({ onBuyNow }) => {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Master Your Time, Master Your Life
             </h2>
-
-            {/* <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              In <strong>"The Productivity Masterclass"</strong>, you'll
-              discover proven strategies used by top performers to achieve more
-              in less time. This isn't just another productivity book—it's a
-              complete system for transforming how you work and live.
-            </p> */}
 
             {/* What You'll Learn */}
             <div className="mb-6">
@@ -418,45 +381,6 @@ const Heading = ({ onBuyNow }) => {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Testimonials */}
-      <div className="bg-white rounded-2xl shadow-lg p-8 mb-12 border border-gray-200">
-        <h3 className="text-2xl font-bold text-center mb-8 text-gray-800">
-          What Readers Are Saying
-        </h3>
-        <div className="grid md:grid-cols-3 gap-6">
-          <div className="bg-gradient-to-br from-gray-50 to-blue-50 p-6 rounded-xl shadow-md border border-gray-200">
-            <div className="text-yellow-400 mb-2">★★★★★</div>
-            <p className="text-gray-700 italic mb-4">
-              "This book completely changed how I approach my work. I've doubled
-              my productivity in just 30 days!"
-            </p>
-            <p className="font-semibold text-gray-900">
-              - Sarah Johnson, Entrepreneur
-            </p>
-          </div>
-          <div className="bg-gradient-to-br from-gray-50 to-green-50 p-6 rounded-xl shadow-md border border-gray-200">
-            <div className="text-yellow-400 mb-2">★★★★★</div>
-            <p className="text-gray-700 italic mb-4">
-              "The practical exercises and frameworks are worth the price alone.
-              Highly recommended!"
-            </p>
-            <p className="font-semibold text-gray-900">
-              - Michael Chen, Software Engineer
-            </p>
-          </div>
-          <div className="bg-gradient-to-br from-gray-50 to-purple-50 p-6 rounded-xl shadow-md border border-gray-200">
-            <div className="text-yellow-400 mb-2">★★★★★</div>
-            <p className="text-gray-700 italic mb-4">
-              "Finally, a productivity book that delivers on its promises. This
-              is the only one you'll ever need."
-            </p>
-            <p className="font-semibold text-gray-900">
-              - Dr. Emily Rodriguez, Professor
-            </p>
           </div>
         </div>
       </div>
