@@ -267,8 +267,8 @@ const MainSection = () => {
                   </button>
                 </a>
                 {/* Guarantee */}
-                <div className="text-xs text-gray-400 ">
-                  🔒 100% Secure Payment | 📞 Support: +8801978866933
+                <div className="text-xs text-gray-200 ">
+                  🔒 100% Secure Payment | 📞 Support: 0949 866 933
                 </div>
               </div>
             </div>
@@ -485,10 +485,10 @@ const MainSection = () => {
               </h3>
 
               <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
-                বিস্তারিত জানতে হোয়াটসঅ্যাপে যোগাযোগ করুন –
+                বিস্তারিত জানতে কল করুন –
                 <span className="font-bold text-white text-xl">
                   {' '}
-                  01978866933
+                  0949 866 933
                 </span>
               </p>
 
@@ -499,7 +499,7 @@ const MainSection = () => {
                   rel="noopener noreferrer"
                 >
                   <button className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 animate-bounce flex items-center gap-3">
-                    <span>📱</span> Enroll Now
+                     এনরোল করুন
                   </button>
                 </a>
 
