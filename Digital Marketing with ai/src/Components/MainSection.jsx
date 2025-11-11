@@ -267,8 +267,8 @@ const MainSection = () => {
                   </button>
                 </a>
                 {/* Guarantee */}
-                <div className="text-xs text-gray-400 ">
-                  🔒 100% Secure Payment | 📞 Support: +8801978866933
+                <div className="text-xs text-gray-200 ">
+                  🔒 100% Secure Payment | 📞 Support: 0949 866 933
                 </div>
               </div>
             </div>
@@ -347,7 +347,7 @@ const MainSection = () => {
                 {/* Total Calculation */}
                 <div className="pt-6 border-t border-white/20 flex justify-center items-end gap-4">
                   <h4 className="text-xl sm:text-2xl font-bold flex items-center gap-2">
-                    💰 মোট মূল্য:
+                    💰 সর্বমোট গিফটের মূল্য :
                   </h4>
                   <p className="text-3xl font-extrabold text-yellow-300">
                     {(
@@ -485,10 +485,10 @@ const MainSection = () => {
               </h3>
 
               <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
-                বিস্তারিত জানতে হোয়াটসঅ্যাপে যোগাযোগ করুন –
+                বিস্তারিত জানতে কল করুন –
                 <span className="font-bold text-white text-xl">
                   {' '}
-                  01978866933
+                  0949 866 933
                 </span>
               </p>
 
@@ -499,7 +499,7 @@ const MainSection = () => {
                   rel="noopener noreferrer"
                 >
                   <button className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 animate-bounce flex items-center gap-3">
-                    <span>📱</span> Enroll Now
+                     এনরোল করুন
                   </button>
                 </a>
 
@@ -532,7 +532,7 @@ const MainSection = () => {
                         alt="bKash"
                       />
                       <span className="text-white font-semibold text-sm">
-                        bKash
+                        এ পেমেন্ট করুন
                       </span>
                     </div>
                   </button>
@@ -549,7 +549,7 @@ const MainSection = () => {
                         alt="Nagad"
                       />
                       <span className="text-white font-semibold text-sm">
-                        Nagad
+                        এ পেমেন্ট করুন
                       </span>
                     </div>
                   </button>
@@ -561,7 +561,7 @@ const MainSection = () => {
                 <p className="text-gray-300 text-sm flex items-center justify-center gap-2 flex-wrap">
                   <span>❓</span>
                   পেমেন্টে কোন সমস্যা হলে কল করুন:
-                  <span className="font-bold text-green-400">01978866933</span>
+                  <span className="font-bold text-green-400">0949 866 933</span>
                 </p>
               </div>
             </div>
@@ -576,7 +576,7 @@ const MainSection = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center text-white/80">
                 <div className="flex items-center gap-2">
                   <span className="text-green-400">📱</span>
-                  <span className="font-mono text-lg">01978866933</span>
+                  <span className="font-mono text-lg">0949 866 933</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-blue-400">📧</span>
