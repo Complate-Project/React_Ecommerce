@@ -5,6 +5,7 @@ import CheckoutModal from '../../components/CheckoutModal';
 import ContactIcon from '../../components/ContactIcon';
 import Footer from '../../components/Footer';
 import Faq from '../../components/Faq';
+import ReviewSection from '../../components/ReviewSection';
 
 const Home = () => {
   const [quantity, setQuantity] = useState(1);
@@ -179,6 +180,7 @@ const Home = () => {
       <Navbar quantity={quantity} />
       <Heading />
 
+      <ReviewSection></ReviewSection>
       <Faq />
 
       <div className="min-h-screen bg-gray-50 p-6">
@@ -217,9 +219,6 @@ const Home = () => {
                   <p className="text-lg font-bold text-indigo-600 mt-1">
                     ${product.price}
                   </p>
-                  <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">
-                    In Stock
-                  </span>
                 </div>
               ))}
             </div>
