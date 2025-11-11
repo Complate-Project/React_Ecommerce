@@ -183,7 +183,7 @@ const Home = () => {
       <ReviewSection></ReviewSection>
       <Faq />
 
-      <div className="min-h-screen bg-gray-50 p-6">
+      <div className="min-h-screen bg-gray-50 p-6 -mt-24">
         <div className="max-w-7xl mx-auto space-y-8">
           {/* Header */}
           <div className="text-center">
@@ -197,28 +197,70 @@ const Home = () => {
               Available Books
             </h2>
 
-            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {products.map(product => (
                 <div
                   key={product.id}
                   onClick={() => setSelectedProduct(product)}
-                  className={`p-3 border-2 rounded-lg cursor-pointer transition-all duration-200 ${
-                    selectedProduct?.id === product.id
-                      ? 'border-indigo-500 bg-indigo-50 shadow-md scale-[1.02]'
-                      : 'border-gray-200 hover:border-indigo-300 hover:shadow-sm'
-                  }`}
+                  className={`
+        group relative p-6 rounded-2xl cursor-pointer transition-all duration-300 ease-out
+        border-2 bg-white overflow-hidden
+        ${
+          selectedProduct?.id === product.id
+            ? 'border-indigo-500 shadow-xl scale-[1.02] ring-2 ring-indigo-200 ring-opacity-50'
+            : 'border-gray-100 hover:border-indigo-300 hover:shadow-lg'
+        }
+      `}
                 >
-                  <img
-                    src={product.image}
-                    alt={product.title}
-                    className="w-full h-48 object-cover rounded-md mb-3"
-                  />
-                  <h3 className="text-base font-semibold text-gray-900 line-clamp-2">
-                    {product.title}
-                  </h3>
-                  <p className="text-lg font-bold text-indigo-600 mt-1">
-                    ${product.price}
-                  </p>
+                  {/* Selection indicator */}
+                  {selectedProduct?.id === product.id && (
+                    <div className="absolute top-3 right-3 w-6 h-6 bg-indigo-500 rounded-full flex items-center justify-center">
+                      <i className="fas fa-check text-white text-xs"></i>
+                    </div>
+                  )}
+
+                  <div className="flex items-start space-x-4">
+                    {/* Image container */}
+                    <div className="flex-shrink-0">
+                      <div className="relative w-20 h-20 rounded-xl overflow-hidden bg-gray-100 group-hover:bg-gray-200 transition-colors">
+                        <img
+                          src={product.image}
+                          alt={product.title}
+                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-lg font-semibold text-gray-900 line-clamp-2 leading-tight group-hover:text-indigo-700 transition-colors">
+                        {product.title}
+                      </h3>
+
+                      <div className="flex items-center justify-between mt-3">
+                        <p className="text-2xl font-bold text-indigo-600">
+                          ${product.price}
+                        </p>
+
+                        {/* Hover arrow */}
+                        <div className="opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all duration-300">
+                          <i className="fas fa-arrow-right text-indigo-400 text-sm"></i>
+                        </div>
+                      </div>
+
+                      {/* Optional badge */}
+                      {product.category && (
+                        <span className="inline-block mt-2 px-2 py-1 text-xs font-medium bg-indigo-100 text-indigo-800 rounded-full">
+                          {product.category}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Background glow effect for selected state */}
+                  {selectedProduct?.id === product.id && (
+                    <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 to-white opacity-60 -z-10"></div>
+                  )}
                 </div>
               ))}
             </div>
