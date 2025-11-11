@@ -576,7 +576,7 @@ const MainSection = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center text-white/80">
                 <div className="flex items-center gap-2">
                   <span className="text-green-400">📱</span>
-                  <span className="font-mono text-lg">01978866933</span>
+                  <span className="font-mono text-lg">0949 866 933</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-blue-400">📧</span>
