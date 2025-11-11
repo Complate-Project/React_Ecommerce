@@ -65,37 +65,28 @@ function CheckoutModal({
   };
 
   return (
-    <div className="max-w-7xl mx-auto md:px-2  relative">
+    <div className="max-w-7xl mx-auto md:px-2 mt-10  relative">
       <div className="bg-white  overflow-hidden">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 ">
-          {/* Order Summary */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* অর্ডার সারাংশ */}
           <div className="bg-gray-50 rounded-xl px-6">
-            <div className="flex items-center space-x-4 mb-6">
-              <img
-                src={book.image}
-                alt={book.title}
-                className="object-cover rounded-lg shadow-md w-full h-72"
-              />
-            </div>
-
             <div className="flex justify-between pb-5">
               <div>
                 <h4 className="font-semibold text-gray-800 text-lg">
-                  {book.title}
+                  অর্ডারের বিস্তারিত
                 </h4>
               </div>
-              <div>
-                <p className="text-indigo-600 font-semibold text-lg">
-                  {book.price} Tk
-                </p>
-              </div>
             </div>
-            {/* Quantity Selector */}
+
+            {/* পরিমাণ নির্ধারণ */}
             <div className="bg-white rounded-lg p-4 mb-6 shadow-sm border border-gray-200">
               <div className="flex items-center justify-between">
-                <span className="text-gray-700 font-semibold">Quantity</span>
+                <span className="text-gray-700 font-semibold">
+                  {book.title}
+                </span>
+
                 <div className="flex items-center space-x-3">
-                  {/* Minus Button */}
+                  {/* মাইনাস বোতাম */}
                   <button
                     type="button"
                     onClick={() =>
@@ -106,12 +97,12 @@ function CheckoutModal({
                     <FaMinus className="text-gray-600 text-xs" />
                   </button>
 
-                  {/* Quantity Display */}
+                  {/* পরিমাণ প্রদর্শন */}
                   <span className="w-12 text-center font-bold text-lg text-gray-800">
                     {quantity}
                   </span>
 
-                  {/* Plus Button */}
+                  {/* প্লাস বোতাম */}
                   <button
                     type="button"
                     onClick={() => setQuantity(prev => prev + 1)}
@@ -120,46 +111,52 @@ function CheckoutModal({
                     <FaPlus className="text-gray-600 text-xs" />
                   </button>
                 </div>
+
+                <div>
+                  <p className="text-indigo-600 font-semibold text-lg">
+                    {book.price} টাকা
+                  </p>
+                </div>
               </div>
             </div>
 
-            {/* Price Breakdown */}
+            {/* মূল্য সংক্ষিপ্তসার */}
             <div className="space-y-3 border-t border-gray-200 pt-4">
               <div className="flex justify-between">
-                <span className="text-gray-600">Unit Price</span>
-                <span className="font-semibold">{book.price} Tk</span>
+                <span className="text-gray-600">একক মূল্য</span>
+                <span className="font-semibold">{book.price} টাকা</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-600">Quantity</span>
-                <span className="font-semibold">{quantity} Pice </span>
+                <span className="text-gray-600">পরিমাণ</span>
+                <span className="font-semibold">{quantity} টি</span>
               </div>
 
-              {savings > 0 && (
+              {/* {savings > 0 && (
                 <div className="flex justify-between">
-                  <span className="text-gray-600">You Save</span>
+                  <span className="text-gray-600">আপনি সাশ্রয় করেছেন</span>
                   <span className="font-semibold text-orange-500">
-                    {savings}
-                    Tk{' '}
+                    {savings} টাকা
                   </span>
                 </div>
-              )}
+              )} */}
+
               <div className="flex justify-between text-lg font-bold border-t border-gray-200 pt-3">
-                <span>Total</span>
-                <span className="text-indigo-600">{totalPrice} Tk</span>
+                <span>মোট মূল্য</span>
+                <span className="text-indigo-600">{totalPrice} টাকা</span>
               </div>
             </div>
           </div>
 
-          {/* Checkout Form */}
+          {/* চেকআউট ফর্ম */}
           <div>
             <h3 className="text-2xl font-bold text-gray-800 mb-6">
-              Shipping & Payment
+              ডেলিভারি ও পেমেন্ট তথ্য
             </h3>
             <form onSubmit={handleSubmitOrder} className="space-y-6">
-              {/* Name */}
+              {/* নাম */}
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  Full Name
+                  পূর্ণ নাম
                 </label>
                 <input
                   type="text"
@@ -168,14 +165,14 @@ function CheckoutModal({
                   onChange={handleInputChange}
                   required
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-                  placeholder="Enter your full name"
+                  placeholder="আপনার পূর্ণ নাম লিখুন"
                 />
               </div>
 
-              {/* Phone */}
+              {/* ফোন নম্বর */}
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  Phone Number
+                  মোবাইল নম্বর
                 </label>
                 <input
                   type="tel"
@@ -184,38 +181,38 @@ function CheckoutModal({
                   onChange={handleInputChange}
                   required
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-                  placeholder="Enter your phone number"
+                  placeholder="আপনার মোবাইল নম্বর লিখুন"
                 />
               </div>
 
-              {/* Address */}
+              {/* ঠিকানা */}
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  Shipping Address
+                  ডেলিভারি ঠিকানা
                 </label>
                 <textarea
                   name="address"
                   value={formData.address}
                   onChange={handleInputChange}
                   required
-                  rows="7"
+                  rows="3"
                   className="w-full px-4 py-5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-                  placeholder="Enter your complete shipping address"
+                  placeholder="আপনার সম্পূর্ণ ডেলিভারি ঠিকানা লিখুন"
                 />
               </div>
 
-              {/* Submit Button */}
+              {/* সাবমিট বোতাম */}
               <button
                 type="submit"
-                className="w-full  bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600  text-white py-4 rounded-lg font-semibold text-lg hover:bg-[#054923] transition duration-300 shadow-md hover:shadow-lg"
+                className="w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white py-4 rounded-lg font-semibold text-lg hover:bg-[#054923] transition duration-300 shadow-md hover:shadow-lg"
               >
-                Complete Order - {totalPrice} Tk
+                অর্ডার সম্পন্ন করুন - {totalPrice} টাকা
               </button>
 
               <div className="flex items-center justify-center space-x-2 text-gray-600">
                 <FaLock />
                 <span className="text-sm">
-                  Your payment is secure and encrypted
+                  আপনার পেমেন্ট সম্পূর্ণ নিরাপদ ও এনক্রিপ্টেড
                 </span>
               </div>
             </form>
