@@ -532,7 +532,7 @@ const MainSection = () => {
                         alt="bKash"
                       />
                       <span className="text-white font-semibold text-sm">
-                        bKash
+                        এ পেমেন্ট করুন
                       </span>
                     </div>
                   </button>
@@ -549,7 +549,7 @@ const MainSection = () => {
                         alt="Nagad"
                       />
                       <span className="text-white font-semibold text-sm">
-                        Nagad
+                        এ পেমেন্ট করুন
                       </span>
                     </div>
                   </button>
@@ -561,7 +561,7 @@ const MainSection = () => {
                 <p className="text-gray-300 text-sm flex items-center justify-center gap-2 flex-wrap">
                   <span>❓</span>
                   পেমেন্টে কোন সমস্যা হলে কল করুন:
-                  <span className="font-bold text-green-400">01978866933</span>
+                  <span className="font-bold text-green-400">0949 866 933</span>
                 </p>
               </div>
             </div>
