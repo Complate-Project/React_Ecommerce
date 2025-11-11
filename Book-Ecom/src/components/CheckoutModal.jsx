@@ -18,81 +18,19 @@ function CheckoutModal({
     <div className="max-w-7xl mx-auto md:px-2 md:py-12">
       <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8">
-          {/* অর্ডার সারাংশ */}
+          {/* অর্ডার বিস্তারিত */}
           <div className="bg-gray-50 rounded-xl p-6">
             <h3 className="text-2xl font-bold text-gray-800 mb-6">
-              অর্ডার সারাংশ
+              অর্ডার বিস্তারিত
             </h3>
-
-            <div className="flex items-center space-x-4 mb-6">
-              <img
-                src={book.image}
-                alt={book.title}
-                className="object-cover rounded-lg shadow-md h-[500px] w-[400px]"
-              />
-            </div>
-
-            <div className="flex justify-between py-5">
-              <div>
-                <h4 className="font-semibold text-gray-800 text-lg">
-                  {book.title}
-                </h4>
-                <p className="text-gray-600 text-sm">লেখক: {book.author}</p>
-              </div>
-              <div>
-                <p className="text-indigo-600 font-semibold text-lg">
-                  {book.price} Tk
-                </p>
-              </div>
-            </div>
-
-            <div className="mt-4 p-3 bg-blue-50 rounded-lg border border-blue-200">
-              <p className="text-sm text-blue-700 text-center">
-                📚 {quantity} কপি কিনলে ফ্রি শিপিং পাবেন!
-              </p>
-            </div>
-          </div>
-
-          {/* শিপিং ও পেমেন্ট */}
-          <div>
-            <h3 className="text-2xl font-bold text-gray-800 mb-6">
-              শিপিং ও পেমেন্ট
-            </h3>
-
-            {/* দাম সংক্ষেপ */}
-            <div className="space-y-3 border-t border-gray-200 pt-4">
-              <div className="flex justify-between">
-                <span className="text-gray-600">একক মূল্য</span>
-                <span className="font-semibold"> {book.price} Tk</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-gray-600">পরিমাণ</span>
-                <span className="font-semibold">{quantity}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-gray-600">উপমোট</span>
-                <span className="font-semibold"> {totalPrice} Tk</span>
-              </div>
-
-              {savings > 0 && (
-                <div className="flex justify-between">
-                  <span className="text-gray-600">আপনি সাশ্রয় করছেন</span>
-                  <span className="font-semibold text-green-600">
-                    {savings}
-                    Tk{' '}
-                  </span>
-                </div>
-              )}
-              <div className="flex justify-between text-lg font-bold border-t border-gray-200 pt-3">
-                <span>মোট</span>
-                <span className="text-indigo-600"> {totalPrice} Tk</span>
-              </div>
-            </div>
 
             {/* পরিমাণ নিয়ন্ত্রণ */}
             <div className="bg-white rounded-lg p-4 mb-6 shadow-sm border border-gray-200">
               <div className="flex items-center justify-between">
-                <span className="text-gray-700 font-semibold">পরিমাণ</span>
+                <span className="text-gray-700 font-semibold">
+                  {book?.title}
+                  <p className="text-gray-600 text-sm">লেখক: {book.author}</p>
+                </span>
                 <div className="flex items-center space-x-3">
                   <button
                     type="button"
@@ -112,9 +50,49 @@ function CheckoutModal({
                     <FaPlus className="text-gray-600 text-xs" />
                   </button>
                 </div>
+                <div>
+                  <p className="text-indigo-600 font-semibold text-lg">
+                    {book.price} Tk
+                  </p>
+                </div>
               </div>
             </div>
 
+            {/* দাম সংক্ষেপ */}
+            <div className="space-y-3 border-t border-gray-200 pt-4">
+              <div className="flex justify-between">
+                <span className="text-gray-600">একক মূল্য</span>
+                <span className="font-semibold"> {book.price} Tk</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-600">পরিমাণ</span>
+                <span className="font-semibold">{quantity}</span>
+              </div>
+
+              {/* {savings > 0 && (
+                <div className="flex justify-between">
+                  <span className="text-gray-600">আপনি সাশ্রয় করছেন</span>
+                  <span className="font-semibold text-green-600">
+                    {savings}
+                    Tk{' '}
+                  </span>
+                </div>
+              )} */}
+              <div className="flex justify-between text-lg font-bold border-t border-gray-200 pt-3">
+                <span>সর্বমোট</span>
+                <span className="text-indigo-600"> {totalPrice} Tk</span>
+              </div>
+            </div>
+
+            <div className="mt-4 p-3 bg-blue-50 rounded-lg border border-blue-200">
+              <p className="text-sm text-blue-700 text-center">
+                📚 ডেলিভারি চার্জ ফ্রি !
+              </p>
+            </div>
+          </div>
+
+          {/* শিপিং ও পেমেন্ট */}
+          <div>
             <form onSubmit={handleSubmitOrder} className="space-y-6">
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -148,7 +126,7 @@ function CheckoutModal({
 
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  শিপিং ঠিকানা
+                  ডেলিভারি ঠিকানা
                 </label>
                 <textarea
                   name="address"
@@ -163,7 +141,7 @@ function CheckoutModal({
 
               <button
                 type="submit"
-                className="w-full bg-indigo-600 text-white py-4 rounded-lg font-semibold text-lg hover:bg-indigo-700 transition duration-300 shadow-md hover:shadow-lg"
+                className="w-full bg-indigo-600 text-white py-4 rounded-lg font-semibold text-2xl hover:bg-indigo-700 transition duration-300 shadow-md hover:shadow-lg"
               >
                 অর্ডার সম্পূর্ণ করুন - {totalPrice} Tk
               </button>

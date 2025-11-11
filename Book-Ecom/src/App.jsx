@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Heading from './components/Heading';
 import Faq from './components/Faq';
 import ContactIcon from './components/ContactIcon';
+import ReviewSection from './components/ReviewSection';
 
 function App() {
   const [quantity, setQuantity] = useState(1);
@@ -18,8 +19,8 @@ function App() {
   const book = {
     title: 'The Great Adventure',
     author: 'John Smith',
-    price: 24.99,
-    originalPrice: 34.99,
+    price: 24,
+    originalPrice: 34,
     rating: 4.5,
     reviews: 1284,
     description:
@@ -70,8 +71,9 @@ function App() {
       <Navbar quantity={quantity} />
       <Heading />
       <Faq />
-
-      {/* ✅ শুধু CheckoutModal দেখাও */}
+      {/* ReviewSection */}
+      <ReviewSection></ReviewSection>
+      {/* ✅ শুধু CheckoutModal */}
       <CheckoutModal
         book={book}
         quantity={quantity}
