@@ -41,7 +41,7 @@ const Faq = () => {
   };
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 py-16 min-h-screen">
+    <div className="w-full max-w-7xl mx-auto px-4 pt-16 min-h-screen">
       {/* Header Section */}
       <div className="text-center mb-12">
         <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mb-4">
