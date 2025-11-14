@@ -625,8 +625,35 @@ const modulesData = [
     ],
   },
   {
+    emoji: '📣',
+    title: 'Module 4: Meta Paid Ads',
+    points: [
+      'AI Based Audience Targeting',
+      'Re-marketing ও Custom Audience',
+      'Campaign Monitoring & Scaling',
+    ],
+  },
+  {
+    emoji: '📣',
+    title: 'Module 5: Google Paid Ads',
+    points: [
+      'High Quality Traffic (Ready-to-Buy Users)',
+      'Budget Control + Transparent Reporting',
+      'Predictive Performance Forecasting',
+    ],
+  },
+  {
+    emoji: '🎬',
+    title: 'Module 6: AI Based Youtube Video Optimization',
+    points: [
+      'YouTube AI Optimization Tools',
+      'AI-Based Audience Targeting',
+      'AI Caption & Script Optimization',
+    ],
+  },
+  {
     emoji: '🔍',
-    title: 'Module 4: AI in SEO & SEM',
+    title: 'Module 7: AI in SEO & SEM',
     points: [
       'AI Keyword Research: Ubersuggest, Frase, Semrush AI',
       'Content Optimization: SurferSEO / NeuronWriter',
@@ -635,7 +662,7 @@ const modulesData = [
   },
   {
     emoji: '📧',
-    title: 'Module 5: Email Marketing & Chatbots',
+    title: 'Module 8: Email Marketing & Chatbots',
     points: [
       'AI Email Personalization',
       'Subject Line Optimization',
@@ -644,7 +671,7 @@ const modulesData = [
   },
   {
     emoji: '📊',
-    title: 'Module 6: Analytics & Predictive Marketing with AI',
+    title: 'Module 9: Analytics & Predictive Marketing with AI',
     points: [
       'AI in Google Analytics & Meta Insights',
       'Customer Segmentation & CLV Prediction',
@@ -653,7 +680,7 @@ const modulesData = [
   },
   {
     emoji: '🎨',
-    title: 'Module 7: AI Tools for Design & Video',
+    title: 'Module 10: AI Tools for Design & Video',
     points: [
       'Graphics: Canva AI, Adobe Firefly',
       'AI Video Editors: Runway ML, Pictory, Synthesia',
@@ -662,7 +689,7 @@ const modulesData = [
   },
   {
     emoji: '🏆',
-    title: 'Module 8: Capstone Project & Certification',
+    title: 'Module 11: Capstone Project & Certification',
     points: [
       'Complete Marketing Funnel Project using AI',
       'Peer Review & Instructor Feedback',
@@ -671,7 +698,7 @@ const modulesData = [
   },
   {
     emoji: '💼',
-    title: 'Module 9: Career Guideline',
+    title: 'Module 12: Career Guideline',
     points: [
       'Discussion of what you can do as a digital marketer',
       'Difference between job and business',
