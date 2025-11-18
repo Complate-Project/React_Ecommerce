@@ -312,7 +312,7 @@ const Home = () => {
       </div>
 
       <ContactIcon />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

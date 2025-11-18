@@ -1,4 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import Review1 from '../assets/screenshot/1.jpg';
+import Review2 from '../assets/screenshot/2.jpg';
+import Review3 from '../assets/screenshot/3.jpg';
+import Review4 from '../assets/screenshot/4.jpg';
+import Review5 from '../assets/screenshot/5.jpg';
+import Review6 from '../assets/screenshot/6.jpg';
 
 const ReviewSection = () => {
   const reviews = [
@@ -8,8 +14,7 @@ const ReviewSection = () => {
       text: 'Amazing product! Highly recommend it.',
       avatar:
         'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face',
-      productImage:
-        'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=100&h=100&fit=crop',
+      productImage: Review1,
       rating: 5,
       product: 'Wireless Headphones',
     },
@@ -19,8 +24,7 @@ const ReviewSection = () => {
       text: 'Very good quality and fast delivery!',
       avatar:
         'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=80&h=80&fit=crop&crop=face',
-      productImage:
-        'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100&h=100&fit=crop',
+      productImage: Review2,
       rating: 5,
       product: 'Smart Watch',
     },
@@ -30,8 +34,7 @@ const ReviewSection = () => {
       text: 'Excellent experience, will buy again.',
       avatar:
         'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face',
-      productImage:
-        'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=100&h=100&fit=crop',
+      productImage: Review3,
       rating: 4,
       product: 'Bluetooth Speaker',
     },
@@ -41,8 +44,27 @@ const ReviewSection = () => {
       text: 'Excellent experience, will buy again.',
       avatar:
         'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face',
-      productImage:
-        'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=100&h=100&fit=crop',
+      productImage: Review4,
+      rating: 4,
+      product: 'Bluetooth Speaker',
+    },
+    {
+      id: 5,
+      name: 'David Smith',
+      text: 'Excellent experience, will buy again.',
+      avatar:
+        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face',
+      productImage: Review5,
+      rating: 4,
+      product: 'Bluetooth Speaker',
+    },
+    {
+      id: 6,
+      name: 'David Smith',
+      text: 'Excellent experience, will buy again.',
+      avatar:
+        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face',
+      productImage: Review6,
       rating: 4,
       product: 'Bluetooth Speaker',
     },
@@ -89,19 +111,18 @@ const ReviewSection = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto overflow-hidden py-10">
+    <div className="max-w-7xl mx-auto overflow-hidden py-10">
       <div className="text-center mb-10">
-        <h2 className="text-4xl font-bold text-gray-900">Customer Reviews</h2>
-        <p className="text-gray-600 mt-2">
-          See what our customers say about our products
-        </p>
+        <h2 className="text-4xl font-bold text-gray-900">
+          সম্মানিত কাস্টমার রিভিও
+        </h2>
       </div>
 
       <div className="relative">
         {/* Prev Button */}
         <button
           onClick={prevSlide}
-          className="absolute left-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:scale-110 -ml-6 z-10"
+          className="absolute left-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:scale-110  z-10 "
         >
           <svg
             className="w-6 h-6 text-gray-600"
@@ -121,7 +142,7 @@ const ReviewSection = () => {
         {/* Next Button */}
         <button
           onClick={nextSlide}
-          className="absolute right-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:scale-110 -mr-6 z-10"
+          className="absolute right-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:scale-110  z-10"
         >
           <svg
             className="w-6 h-6 text-gray-600"
@@ -149,26 +170,10 @@ const ReviewSection = () => {
             {reviews.map(review => (
               <div key={review.id} className="w-full flex-shrink-0 px-3">
                 <div className="bg-white shadow-lg p-5 rounded-xl">
-                  <div className="flex items-center space-x-3 mb-4">
-                    <img
-                      src={review.avatar}
-                      alt={review.name}
-                      className="w-14 h-14 rounded-full border shadow-md"
-                    />
-                    <div>
-                      <h3 className="font-semibold text-lg text-gray-900">
-                        {review.name}
-                      </h3>
-                      <StarRating rating={review.rating} />
-                    </div>
-                  </div>
-
-                  <p className="text-gray-700 mb-4">{review.text}</p>
-
                   <img
                     src={review.productImage}
                     alt={review.product}
-                    className="w-full h-48 object-cover rounded-lg shadow-md"
+                    className="w-full h-80 object-cover rounded-lg shadow-md"
                   />
                 </div>
               </div>
