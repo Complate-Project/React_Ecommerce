@@ -73,7 +73,7 @@ function CheckoutModal({
             <div className="flex justify-between pb-5">
               <div>
                 <h4 className="font-semibold text-gray-800 text-lg">
-                  অর্ডারের বিস্তারিত
+                  পণ্যের বিস্তারিত তথ্য
                 </h4>
               </div>
             </div>
@@ -153,7 +153,7 @@ function CheckoutModal({
           {/* চেকআউট ফর্ম */}
           <div>
             <h3 className="text-2xl font-bold text-gray-800 mb-6">
-              ডেলিভারি ও পেমেন্ট তথ্য
+              ডেলিভারি তথ্য দিন
             </h3>
             <form onSubmit={handleSubmitOrder} className="space-y-6">
               {/* নাম */}
