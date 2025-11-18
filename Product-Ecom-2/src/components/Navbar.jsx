@@ -4,7 +4,7 @@ function Navbar({ quantity, setShowCheckout }) {
   return (
     <div className="text-center">
       <h2 className="py-7 text-2xl font-semibold">
-        ন্তার কিছু নেই! এখনই অর্ডার করু
+    সারা দেশে ডেলিভারি চার্জ ফ্রি তাই এখনই অর্ডার করুন
       </h2>
     </div>
     // <nav className="bg-white  top-0 z-50 sticky">
