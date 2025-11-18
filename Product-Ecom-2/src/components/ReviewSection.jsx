@@ -173,7 +173,7 @@ const ReviewSection = () => {
                   <img
                     src={review.productImage}
                     alt={review.product}
-                    className="w-full h-80 object-cover rounded-lg shadow-md"
+                    className="w-full h-[550px] object-cover rounded-lg shadow-md"
                   />
                 </div>
               </div>

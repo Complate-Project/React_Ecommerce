@@ -76,58 +76,6 @@ const Home = () => {
         manufacturer: 'Samsung Electronics',
       },
     },
-    {
-      id: 3,
-      title: 'Gaming Headset',
-      brand: 'SteelSeries',
-      price: 99,
-      originalPrice: 129,
-      rating: 4.6,
-      reviews: 1240,
-      description:
-        'Professional gaming headset with surround sound and noise-canceling microphone for competitive gaming.',
-      image:
-        'https://images.unsplash.com/photo-1599669454699-248893623440?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-      features: [
-        '7.1 Surround Sound',
-        'Noise-Canceling Mic',
-        'RGB Lighting',
-        'Memory Foam Earcups',
-      ],
-      details: {
-        weight: '350g',
-        origin: 'Denmark',
-        connectivity: '3.5mm + USB',
-        warranty: '1 Year',
-        manufacturer: 'SteelSeries',
-      },
-    },
-    {
-      id: 4,
-      title: 'Gaming Laptop Pro',
-      brand: 'ASUS ROG',
-      price: 1499,
-      originalPrice: 1799,
-      rating: 4.8,
-      reviews: 1560,
-      description:
-        'High-performance gaming laptop with RTX 4070, Intel i9 processor, and 16GB RAM. Perfect for gaming and professional work.',
-      image:
-        'https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixlib=rb-4.0.3&auto=format&fit=crop&w=2068&q=80',
-      features: [
-        'NVIDIA RTX 4070 8GB',
-        'Intel Core i5-13900H',
-        '16GB DDR5 RAM',
-        '1TB NVMe SSD',
-      ],
-      details: {
-        weight: '2.3kg',
-        origin: 'Taiwan',
-        display: '15.6" FHD 165Hz',
-        warranty: '2 Years',
-        manufacturer: 'ASUS',
-      },
-    },
   ];
 
   // Set first product as default selected
