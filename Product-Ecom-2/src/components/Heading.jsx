@@ -98,16 +98,11 @@ const Heading = ({ scrollToProducts }) => {
               </div>
             </div>
 
-<<<<<<< HEAD
-            <button className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 mt-4">
-             দ্রুত অর্ডার করুন
-=======
             <button
               onClick={scrollToProducts}
               className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 mt-4"
             >
-              অর্ডার করুন
->>>>>>> 0f3ee0f68f08fbaec20bc427376d915c0c49ac01
+             দ্রুত অর্ডার করুন
             </button>
           </div>
         </div>
@@ -184,16 +179,11 @@ const Heading = ({ scrollToProducts }) => {
           </div>
         </div>
         <div className="text-center">
-<<<<<<< HEAD
-          <button className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 mt-4">
-           দ্রুত অর্ডার করুন
-=======
           <button
             onClick={scrollToProducts}
             className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 mt-4"
           >
-            অর্ডার করুন
->>>>>>> 0f3ee0f68f08fbaec20bc427376d915c0c49ac01
+           দ্রুত অর্ডার করুন
           </button>
         </div>
       </div>
