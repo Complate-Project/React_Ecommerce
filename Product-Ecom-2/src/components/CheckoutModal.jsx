@@ -144,6 +144,9 @@ function CheckoutModal({
                 <span>মোট মূল্য</span>
                 <span className="text-indigo-600">{totalPrice} টাকা</span>
               </div>
+              <div className=" font-bold  text-center text-gray-800">
+                <span className="text-sm">ডেলিভারি চার্জ ফ্রি</span>
+              </div>
             </div>
           </div>
 
