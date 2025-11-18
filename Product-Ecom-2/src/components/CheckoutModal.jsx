@@ -72,9 +72,9 @@ function CheckoutModal({
           <div className="bg-gray-50 rounded-xl px-6">
             <div className="flex justify-between pb-5">
               <div>
-                <h4 className="font-semibold text-gray-800 text-lg">
-                  পণ্যের বিস্তারিত তথ্য
-                </h4>
+                <h3 className="text-2xl font-bold text-gray-800 mb-6">
+                  ডেলিভারি তথ্য দিন
+                </h3>
               </div>
             </div>
 
@@ -144,8 +144,27 @@ function CheckoutModal({
                 <span>মোট মূল্য</span>
                 <span className="text-indigo-600">{totalPrice} টাকা</span>
               </div>
-              <div className=" font-bold  text-center text-gray-800">
-                <span className="text-sm">ডেলিভারি চার্জ ফ্রি</span>
+              <div className="flex items-center justify-center gap-2  bg-gradient-to-r from-red-500 to-orange-400  text-white py-2 px-4 rounded-xl shadow-md mt-12">
+                {/* Truck Icon */}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 h-6 animate-bounce"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M9 17a2 2 0 100 4 2 2 0 000-4zm6 0a2 2 0 100 4 2 2 0 000-4zM3 3h12v12H3V3zm12 0l6 6v6h-6V3z"
+                  />
+                </svg>
+
+                {/* Text */}
+                <span className="font-bold text-sm tracking-wide">
+                  ডেলিভারি চার্জ ফ্রি
+                </span>
               </div>
             </div>
           </div>

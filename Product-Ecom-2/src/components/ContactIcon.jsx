@@ -15,7 +15,7 @@ const ContactIcon = () => {
     <div className="fixed bottom-5 right-10 z-50">
       <div className="flex items-center flex-col-reverse gap-6">
         {/* WhatsApp Button */}
-        <div>
+        {/* <div>
           <a
             href="https://wa.me/8801978866977"
             target="_blank"
@@ -24,7 +24,7 @@ const ContactIcon = () => {
           >
             <FaWhatsapp size={28} />
           </a>
-        </div>
+        </div> */}
 
         {/* Scroll to Top Button */}
         <div>

@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef } from 'react';
 import Navbar from '../../components/Navbar';
 import Heading from '../../components/Heading';
 import CheckoutModal from '../../components/CheckoutModal';
@@ -8,6 +8,12 @@ import Faq from '../../components/Faq';
 import ReviewSection from '../../components/ReviewSection';
 
 const Home = () => {
+  const productSectionRef = useRef(null); // add this
+
+  // scroll handler
+  const scrollToProducts = () => {
+    productSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
   const [quantity, setQuantity] = useState(1);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [formData, setFormData] = useState({
@@ -126,12 +132,13 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-purple-100">
       <Navbar quantity={quantity} />
-      <Heading />
+      <Heading scrollToProducts={scrollToProducts} />
 
       <ReviewSection></ReviewSection>
       {/* <Faq /> */}
 
-      <div className="min-h-screen bg-gray-50 p-6 ">
+      {/* product section */}
+      <div ref={productSectionRef} className="min-h-screen bg-gray-50 p-6 ">
         <div className="max-w-7xl mx-auto space-y-8">
           {/* Header */}
           <div className="text-center">
