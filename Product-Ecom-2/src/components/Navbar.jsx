@@ -3,9 +3,9 @@ import { FaLaptop, FaShoppingCart } from 'react-icons/fa';
 function Navbar({ quantity, setShowCheckout }) {
   return (
     <div className="text-center">
-      <h2 className="py-7 text-2xl font-semibold">
-    সারা দেশে ডেলিভারি চার্জ ফ্রি তাই এখনই অর্ডার করুন
-      </h2>
+      <h1 className="py-7 text-4xl font-semibold">
+    সারাদেশে ডেলিভারি চার্জ ফ্রি তাই এখনই অর্ডার করুন !
+      </h1>
     </div>
     // <nav className="bg-white  top-0 z-50 sticky">
     //   <div className="max-w-7xl mx-auto px-4">
