@@ -99,7 +99,7 @@ const Heading = () => {
             </div>
 
             <button className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 mt-4">
-              Shop Now
+              অর্ডার করুন
             </button>
           </div>
         </div>
@@ -171,10 +171,6 @@ const Heading = () => {
                 </div>
               </div>
             </div>
-
-            <button className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 mt-4">
-              Shop Now
-            </button>
           </div>
           {/* right - Image */}
           <div className="lg:w-1/2 flex justify-center">
@@ -184,6 +180,11 @@ const Heading = () => {
               className="rounded-xl h-[300px] w-[250px]  max-w-md "
             />
           </div>
+        </div>
+        <div className="text-center">
+          <button className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 mt-4">
+            অর্ডার করুন
+          </button>
         </div>
       </div>
     </div>
