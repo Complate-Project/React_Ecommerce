@@ -26,8 +26,7 @@ const Heading = ({ scrollToProducts }) => {
       {/* Product 1 Features Section */}
       <div className="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-2xl p-8 shadow-lg border border-purple-200">
         <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-          কি কি <span className="text-purple-600">কাজ করবে </span>
-          ?
+          কি কি <span className="text-purple-600">কাজ করবে </span>?
         </h2>
 
         <div className="flex flex-col lg:flex-row gap-8 items-center">
@@ -99,21 +98,21 @@ const Heading = ({ scrollToProducts }) => {
                 </div>
               </div>
             </div>
-
-            <button
-              onClick={scrollToProducts}
-              className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 mt-4"
-            >
-             দ্রুত অর্ডার করুন
-            </button>
           </div>
+        </div>
+        <div className="text-center">
+          <button
+            onClick={scrollToProducts}
+            className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 mt-4"
+          >
+            দ্রুত অর্ডার করুন
+          </button>
         </div>
       </div>
       {/* Product 2 Features Section */}
       <div className="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-2xl p-8 shadow-lg border border-purple-200 mt-5">
         <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-         কেন আমাদের <span className="text-purple-600">কাছ থেকে নিবেন</span>
-          ?
+          কেন আমাদের <span className="text-purple-600">কাছ থেকে নিবেন</span>?
         </h2>
 
         <div className="flex flex-col lg:flex-row gap-8 items-center">
@@ -126,9 +125,9 @@ const Heading = ({ scrollToProducts }) => {
                 </div>
                 <div>
                   <h3 className="text-2xl font-semibold text-gray-900">
-                   কাজ না করলে টাকা ফেরত !
+                    কাজ না করলে টাকা ফেরত !
                   </h3>
-                 {/* <p className="text-gray-600">
+                  {/* <p className="text-gray-600">
                     Get your orders delivered within 2-3 business days
                   </p> */}
                 </div>
@@ -142,7 +141,6 @@ const Heading = ({ scrollToProducts }) => {
                   <h3 className="text-2xl font-semibold text-gray-900">
                     আন্তর্জাতিক মানের পণ্য !
                   </h3>
-                  
                 </div>
               </div>
 
@@ -154,7 +152,6 @@ const Heading = ({ scrollToProducts }) => {
                   <h3 className="text-2xl font-semibold text-gray-900">
                     লক্ষ মানুষের উপকারের রিভিউ !
                   </h3>
-                 
                 </div>
               </div>
 
@@ -166,7 +163,6 @@ const Heading = ({ scrollToProducts }) => {
                   <h3 className="text-2xl font-semibold text-gray-900">
                     দ্রুত ও ক্যাশ অন ডেলিভারী !
                   </h3>
-                 
                 </div>
               </div>
             </div>
@@ -185,7 +181,7 @@ const Heading = ({ scrollToProducts }) => {
             onClick={scrollToProducts}
             className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 mt-4"
           >
-           দ্রুত অর্ডার করুন
+            দ্রুত অর্ডার করুন
           </button>
         </div>
       </div>

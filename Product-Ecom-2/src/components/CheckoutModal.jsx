@@ -73,49 +73,53 @@ function CheckoutModal({
             <div className="flex justify-between pb-5">
               <div>
                 <h3 className="text-2xl font-bold text-gray-800 mb-6">
-                  ডেলিভারি তথ্য দিন
+                  প্রোডাক্টের বিস্তারিত
                 </h3>
               </div>
             </div>
 
-            {/* পরিমাণ নির্ধারণ */}
+            {/* পরিমাণ নির্ধারণ - Compact Mobile */}
             <div className="bg-white rounded-lg p-4 mb-6 shadow-sm border border-gray-200">
-              <div className="flex items-center justify-between gap-2">
-                <span className="text-gray-700 font-semibold">
-                  {book.title}
-                </span>
-
-                <div className="flex items-center space-x-3">
-                  {/* মাইনাস বোতাম */}
-                  <button
-                    type="button"
-                    onClick={() =>
-                      setQuantity(prev => (prev > 1 ? prev - 1 : 1))
-                    }
-                    className="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center transition-colors duration-200"
-                  >
-                    <FaMinus className="text-gray-600 text-xs" />
-                  </button>
-
-                  {/* পরিমাণ প্রদর্শন */}
-                  <span className="w-12 text-center font-bold text-lg text-gray-800">
-                    {quantity}
+              <div className="flex flex-col xs:flex-row xs:items-center xs:justify-between gap-3">
+                {/* বইয়ের নাম */}
+                <div className="flex-1">
+                  <span className="text-gray-700 font-semibold text-sm xs:text-base line-clamp-2">
+                    {book.title}
                   </span>
-
-                  {/* প্লাস বোতাম */}
-                  <button
-                    type="button"
-                    onClick={() => setQuantity(prev => prev + 1)}
-                    className="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center transition-colors duration-200"
-                  >
-                    <FaPlus className="text-gray-600 text-xs" />
-                  </button>
                 </div>
 
-                <div>
-                  <p className="text-indigo-600 font-semibold text-lg">
-                    {book.price} টাকা
-                  </p>
+                <div className="flex items-center justify-between xs:justify-end gap-4 w-full xs:w-auto">
+                  {/* পরিমাণ কন্ট্রোল */}
+                  <div className="flex items-center space-x-2 xs:space-x-3">
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setQuantity(prev => (prev > 1 ? prev - 1 : 1))
+                      }
+                      className="w-7 h-7 xs:w-8 xs:h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center transition-colors duration-200"
+                    >
+                      <FaMinus className="text-gray-600 text-xs" />
+                    </button>
+
+                    <span className="w-8 xs:w-12 text-center font-bold text-base xs:text-lg text-gray-800">
+                      {quantity}
+                    </span>
+
+                    <button
+                      type="button"
+                      onClick={() => setQuantity(prev => prev + 1)}
+                      className="w-7 h-7 xs:w-8 xs:h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center transition-colors duration-200"
+                    >
+                      <FaPlus className="text-gray-600 text-xs" />
+                    </button>
+                  </div>
+
+                  {/* মূল্য */}
+                  <div>
+                    <p className="text-indigo-600 font-semibold text-sm xs:text-base whitespace-nowrap">
+                      {book.price} টাকা
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
