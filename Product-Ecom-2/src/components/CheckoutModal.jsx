@@ -78,7 +78,7 @@ function CheckoutModal({
               </div>
             </div>
 
-            {/* পরিমাণ নির্ধারণ - Compact Mobile */}
+            {/* পরিমাণ নির্ধারণ - Compact Mobile device */}
             <div className="bg-white rounded-lg p-4 mb-6 shadow-sm border border-gray-200">
               <div className="flex flex-col xs:flex-row xs:items-center xs:justify-between gap-3">
                 {/* বইয়ের নাম */}
