@@ -151,7 +151,7 @@ const Home = () => {
           </div>
 
           {/* Checkout Section */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6">
+          <div className="bg-white rounded-xl shadow-sm border border-gray-200  sm:p-6">
             {/* Product List */}
             <div className="bg-white p-4 sm:p-6">
               <h2 className="text-lg sm:text-xl font-semibold text-gray-800 mb-4">

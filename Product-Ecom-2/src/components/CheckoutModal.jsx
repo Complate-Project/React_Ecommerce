@@ -69,7 +69,7 @@ function CheckoutModal({
       <div className="bg-white  overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* অর্ডার সারাংশ */}
-          <div className="bg-gray-50 rounded-xl md:px-6">
+          <div className="bg-gray-50 rounded-xl px-2 md:px-6">
             <div className="flex justify-between pb-5">
               <div>
                 <h3 className="text-2xl font-bold text-gray-800 mb-6">
@@ -174,7 +174,7 @@ function CheckoutModal({
           </div>
 
           {/* চেকআউট ফর্ম */}
-          <div>
+          <div className="px-2 px-0">
             <h3 className="text-2xl font-bold text-gray-800 mb-6">
               ডেলিভারি তথ্য দিন
             </h3>
