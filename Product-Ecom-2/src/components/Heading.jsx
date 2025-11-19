@@ -6,17 +6,19 @@ const Heading = ({ scrollToProducts }) => {
     <div className="max-w-7xl mx-auto pb-12">
       {/* Video Section */}
       <div className="relative mb-16">
-        <div className="relative  overflow-hidden shadow-2xl">
-          {/* Video */}
+        <div
+          className="relative w-full overflow-hidden md:rounded-2xl shadow-2xl"
+          style={{ paddingTop: '56.25%' }}
+        >
+          {/* Responsive Iframe */}
           <iframe
-            width="1296"
-            height="729"
+            className="absolute top-0 left-0 w-full h-full"
             src="https://www.youtube.com/embed/KvN3JXICzdM"
             title="Top 20 New Technology Trends That Will Define the Future"
-            frameborder="0"
+            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
           ></iframe>
         </div>
       </div>

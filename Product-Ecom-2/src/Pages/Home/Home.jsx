@@ -138,39 +138,41 @@ const Home = () => {
       {/* <Faq /> */}
 
       {/* product section */}
-      <div ref={productSectionRef} className="min-h-screen bg-gray-50 p-6 ">
+      <div
+        ref={productSectionRef}
+        className="min-h-screen bg-gray-50 px-0 sm:px-4 md:px-6 py-6"
+      >
         <div className="max-w-7xl mx-auto space-y-8">
           {/* Header */}
           <div className="text-center">
-            <h1 className="text-3xl font-bold text-gray-900">
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
               📚 অর্ডার করতে নিচের ফরমটি পূরণ করুন
             </h1>
           </div>
 
-          {/* Checkout Section - BOTTOM */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-            {/* Product List - TOP Section */}
-            <div className="bg-white  p-6">
-              <h2 className="text-xl font-semibold text-gray-800 mb-4">
+          {/* Checkout Section */}
+          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6">
+            {/* Product List */}
+            <div className="bg-white p-4 sm:p-6">
+              <h2 className="text-lg sm:text-xl font-semibold text-gray-800 mb-4">
                 Available Books
               </h2>
 
-              <div className="grid sm:grid-cols-2 gap-6">
+              {/* Responsive Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
                 {products.map(product => (
                   <div
                     key={product.id}
                     onClick={() => setSelectedProduct(product)}
-                    className={`
-        group relative p-6 rounded-2xl cursor-pointer transition-all duration-300 ease-out
-        border-2 bg-white overflow-hidden
-        ${
-          selectedProduct?.id === product.id
-            ? 'border-indigo-500 shadow-xl scale-[1.02] ring-2 ring-indigo-200 ring-opacity-50'
-            : 'border-gray-100 hover:border-indigo-300 hover:shadow-lg'
-        }
-      `}
+                    className={`group relative p-5 sm:p-6 rounded-2xl cursor-pointer 
+                transition-all duration-300 ease-out border-2 bg-white
+                ${
+                  selectedProduct?.id === product.id
+                    ? 'border-indigo-500 shadow-xl scale-[1.02] ring-2 ring-indigo-200'
+                    : 'border-gray-100 hover:border-indigo-300 hover:shadow-lg'
+                }
+              `}
                   >
-                    {/* Selection indicator */}
                     {selectedProduct?.id === product.id && (
                       <div className="absolute top-3 right-3 w-6 h-6 bg-indigo-500 rounded-full flex items-center justify-center">
                         <i className="fas fa-check text-white text-xs"></i>
@@ -178,7 +180,6 @@ const Home = () => {
                     )}
 
                     <div className="flex items-start space-x-4">
-                      {/* Image container */}
                       <div className="flex-shrink-0">
                         <div className="relative w-20 h-20 rounded-xl overflow-hidden bg-gray-100 group-hover:bg-gray-200 transition-colors">
                           <img
@@ -191,22 +192,20 @@ const Home = () => {
 
                       {/* Content */}
                       <div className="flex-1 min-w-0">
-                        <h3 className="text-lg font-semibold text-gray-900 line-clamp-2 leading-tight group-hover:text-indigo-700 transition-colors">
+                        <h3 className="text-base sm:text-lg font-semibold text-gray-900 line-clamp-2 leading-tight group-hover:text-indigo-700 transition-colors">
                           {product.title}
                         </h3>
 
                         <div className="flex items-center justify-between mt-3">
-                          <p className="text-2xl font-bold text-indigo-600">
+                          <p className="text-xl sm:text-2xl font-bold text-indigo-600">
                             ${product.price}
                           </p>
 
-                          {/* Hover arrow */}
                           <div className="opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all duration-300">
                             <i className="fas fa-arrow-right text-indigo-400 text-sm"></i>
                           </div>
                         </div>
 
-                        {/* Optional badge */}
                         {product.category && (
                           <span className="inline-block mt-2 px-2 py-1 text-xs font-medium bg-indigo-100 text-indigo-800 rounded-full">
                             {product.category}
@@ -215,7 +214,6 @@ const Home = () => {
                       </div>
                     </div>
 
-                    {/* Background glow effect for selected state */}
                     {selectedProduct?.id === product.id && (
                       <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 to-white opacity-60 -z-10"></div>
                     )}
@@ -223,6 +221,8 @@ const Home = () => {
                 ))}
               </div>
             </div>
+
+            {/* Checkout modal / placeholder */}
             {selectedProduct ? (
               <CheckoutModal
                 book={selectedProduct}
@@ -238,9 +238,9 @@ const Home = () => {
             ) : (
               <div className="text-center py-12">
                 <div className="max-w-md mx-auto">
-                  <div className="w-24 h-24 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <svg
-                      className="w-12 h-12 text-indigo-500"
+                      className="w-10 h-10 sm:w-12 sm:h-12 text-indigo-500"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -253,10 +253,10 @@ const Home = () => {
                       />
                     </svg>
                   </div>
-                  <h2 className="text-xl font-semibold text-gray-900 mb-2">
+                  <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
                     Select a Book
                   </h2>
-                  <p className="text-gray-600">
+                  <p className="text-gray-600 text-sm sm:text-base">
                     Choose a book from the top section to start your purchase
                   </p>
                 </div>

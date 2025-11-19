@@ -69,7 +69,7 @@ function CheckoutModal({
       <div className="bg-white  overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* অর্ডার সারাংশ */}
-          <div className="bg-gray-50 rounded-xl px-6">
+          <div className="bg-gray-50 rounded-xl md:px-6">
             <div className="flex justify-between pb-5">
               <div>
                 <h3 className="text-2xl font-bold text-gray-800 mb-6">
@@ -80,7 +80,7 @@ function CheckoutModal({
 
             {/* পরিমাণ নির্ধারণ */}
             <div className="bg-white rounded-lg p-4 mb-6 shadow-sm border border-gray-200">
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between gap-2">
                 <span className="text-gray-700 font-semibold">
                   {book.title}
                 </span>

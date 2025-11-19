@@ -111,7 +111,7 @@ const ReviewSection = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto overflow-hidden py-10">
+    <div className="max-w-7xl mx-auto overflow-hidden py-10 px-4">
       <div className="text-center mb-10">
         <h2 className="text-4xl font-bold text-gray-900">
           সম্মানিত কাস্টমার রিভিও
@@ -122,10 +122,10 @@ const ReviewSection = () => {
         {/* Prev Button */}
         <button
           onClick={prevSlide}
-          className="absolute left-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:scale-110  z-10 "
+          className="absolute left-2 md:left-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 md:p-3 shadow-lg hover:scale-110 z-10"
         >
           <svg
-            className="w-6 h-6 text-gray-600"
+            className="w-5 h-5 md:w-6 md:h-6 text-gray-600"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -142,10 +142,10 @@ const ReviewSection = () => {
         {/* Next Button */}
         <button
           onClick={nextSlide}
-          className="absolute right-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:scale-110  z-10"
+          className="absolute right-2 md:right-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 md:p-3 shadow-lg hover:scale-110 z-10"
         >
           <svg
-            className="w-6 h-6 text-gray-600"
+            className="w-5 h-5 md:w-6 md:h-6 text-gray-600"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -163,17 +163,21 @@ const ReviewSection = () => {
         <div className="overflow-hidden w-full">
           <div
             className="flex transition-transform duration-700 ease-in-out"
-            style={{
-              transform: `translateX(-${current * 100}%)`,
-            }}
+            style={{ transform: `translateX(-${current * 100}%)` }}
           >
             {reviews.map(review => (
-              <div key={review.id} className="w-full flex-shrink-0 px-3">
-                <div className="bg-white shadow-lg p-5 rounded-xl">
+              <div
+                key={review.id}
+                className="w-full flex-shrink-0 px-2 md:px-3"
+              >
+                <div className="bg-white shadow-lg p-3 md:p-5 rounded-xl">
+                  {/* Responsive Image */}
                   <img
                     src={review.productImage}
                     alt={review.product}
-                    className="w-full h-[550px] object-cover rounded-lg shadow-md"
+                    className="w-full 
+                  h-48 sm:h-64 md:h-80 lg:h-[500px] 
+                  object-cover rounded-lg shadow-md"
                   />
                 </div>
               </div>
@@ -187,9 +191,8 @@ const ReviewSection = () => {
             <button
               key={index}
               onClick={() => setCurrent(index)}
-              className={`w-3 h-3 rounded-full transition-all ${
-                index === current ? 'bg-blue-600 scale-125' : 'bg-gray-300'
-              }`}
+              className={`w-3 h-3 rounded-full transition-all 
+            ${index === current ? 'bg-blue-600 scale-125' : 'bg-gray-300'}`}
             ></button>
           ))}
         </div>
