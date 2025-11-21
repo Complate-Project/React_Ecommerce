@@ -9,50 +9,38 @@ function CheckoutModal({
   book,
   quantity,
   setQuantity,
-  savings,
   totalPrice,
   formData,
   handleInputChange,
   setShowCheckout,
 }) {
   const [showSuccess, setShowSuccess] = useState(false);
-
-  // 🔹 Function to generate unique order ID
-  const generateOrderId = () => {
-    const datePart = new Date().toISOString().split('T')[0].replace(/-/g, '');
-    const randomPart = Math.random().toString(36).substring(2, 7).toUpperCase();
-    return `ORD-${datePart}-${randomPart}`;
-  };
+  const [orderId, setOrderId] = useState(null);
 
   // 🔹 Handle form submit
   const handleSubmitOrder = async e => {
     e.preventDefault();
 
-    const orderId = generateOrderId();
-    const finalQuantity = book?.combo ? 10 : quantity;
-
     const order = {
-      orderId, // unique order ID
-      product: {
-        id: book.id,
-        title: book.title,
-        author: book.author,
-        price: book.price,
-        image: book.image,
-      },
-      combo: book.combo,
-      quantity: finalQuantity, // from radio button
-      savings,
-      totalPrice,
-      customer: formData,
-      status: 'Pending',
+      user_name: formData.name,
+      user_phone: formData.phone,
+      user_address: formData.address,
+      product_id: book.id,
+      product_name: book.title,
+      product_image: book.image,
+      quantity: quantity,
+      total: totalPrice,
     };
 
     try {
-      const response = await axios.post('http://localhost:5000/orders', order);
-      console.log('✅ Order Submitted:', response.data);
+      const response = await axios.post(
+        `${import.meta.env.VITE_BASE_URL}/order/store`,
+        order
+      );
 
-      setShowSuccess(true);
+      setOrderId(response?.data?.order?.order_no);
+
+      setShowSuccess(true); // success modal open
     } catch (error) {
       console.error('❌ API Error:', error);
       alert('Failed to submit order. Please try again.');
@@ -249,9 +237,7 @@ function CheckoutModal({
       {/* Success Modal */}
       {showSuccess && (
         <SuccessModal
-          message={`✅ Order placed successfully! Order ID: ${generateOrderId()} for ${quantity} Kg of "${
-            book.title
-          }".`}
+          message={`✅ Order placed successfully! Order ID:${orderId} for ${quantity} "${book.title}".`}
           onClose={handleSuccessClose}
         />
       )}
