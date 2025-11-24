@@ -4,6 +4,7 @@ import { FaArrowLeft, FaLock } from 'react-icons/fa';
 import { FaMinus, FaPlus } from 'react-icons/fa';
 import axios from 'axios';
 import SuccessModal from './Modal/SuccessModal';
+import { toast } from 'react-toastify';
 
 function CheckoutModal({
   book,
@@ -43,7 +44,11 @@ function CheckoutModal({
       setShowSuccess(true); // success modal open
     } catch (error) {
       console.error('❌ API Error:', error);
-      alert('Failed to submit order. Please try again.');
+      toast.error(
+        error.response.data.message ||
+          'Failed to submit order. Please try again.'
+      );
+      // alert('Failed to submit order. Please try again.');
     }
   };
 

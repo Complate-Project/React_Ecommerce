@@ -1,4 +1,4 @@
-import { useState, useMemo, useRef } from 'react';
+import { useState, useMemo, useRef, useEffect } from 'react';
 import Navbar from '../../components/Navbar';
 import Heading from '../../components/Heading';
 import CheckoutModal from '../../components/CheckoutModal';
@@ -16,6 +16,9 @@ const Home = () => {
   };
   const [quantity, setQuantity] = useState(1);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [products, setProducts] = useState([]);
+  const [title, setTitle] = useState('');
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -29,60 +32,79 @@ const Home = () => {
   });
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const products = [
-    {
-      id: 1,
-      title: 'Gaming Laptop Pro',
-      brand: 'ASUS ROG',
-      price: 1499,
-      originalPrice: 1799,
-      rating: 4.8,
-      reviews: 1560,
-      description:
-        'High-performance gaming laptop with RTX 4070, Intel i9 processor, and 16GB RAM. Perfect for gaming and professional work.',
-      image:
-        'https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixlib=rb-4.0.3&auto=format&fit=crop&w=2068&q=80',
-      features: [
-        'NVIDIA RTX 4070 8GB',
-        'Intel Core i9-13900H',
-        '16GB DDR5 RAM',
-        '1TB NVMe SSD',
-      ],
-      details: {
-        weight: '2.3kg',
-        origin: 'Taiwan',
-        display: '15.6" FHD 165Hz',
-        warranty: '2 Years',
-        manufacturer: 'ASUS',
-      },
-    },
-    {
-      id: 2,
-      title: '4K Gaming Monitor',
-      brand: 'Samsung',
-      price: 429,
-      originalPrice: 529,
-      rating: 4.7,
-      reviews: 980,
-      description:
-        '27-inch 4K gaming monitor with 144Hz refresh rate and HDR support for immersive gaming experience.',
-      image:
-        'https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2042&q=80',
-      features: [
-        '27" 4K UHD Display',
-        '144Hz Refresh Rate',
-        '1ms Response Time',
-        'AMD FreeSync',
-      ],
-      details: {
-        weight: '5.8kg',
-        origin: 'South Korea',
-        panel: 'IPS',
-        warranty: '2 Years',
-        manufacturer: 'Samsung Electronics',
-      },
-    },
-  ];
+  // const products = [
+  //   {
+  //     id: 1,
+  //     title: 'Gaming Laptop Pro',
+  //     brand: 'ASUS ROG',
+  //     price: 1499,
+  //     originalPrice: 1799,
+  //     rating: 4.8,
+  //     reviews: 1560,
+  //     description:
+  //       'High-performance gaming laptop with RTX 4070, Intel i9 processor, and 16GB RAM. Perfect for gaming and professional work.',
+  //     image:
+  //       'https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixlib=rb-4.0.3&auto=format&fit=crop&w=2068&q=80',
+  //     features: [
+  //       'NVIDIA RTX 4070 8GB',
+  //       'Intel Core i9-13900H',
+  //       '16GB DDR5 RAM',
+  //       '1TB NVMe SSD',
+  //     ],
+  //     details: {
+  //       weight: '2.3kg',
+  //       origin: 'Taiwan',
+  //       display: '15.6" FHD 165Hz',
+  //       warranty: '2 Years',
+  //       manufacturer: 'ASUS',
+  //     },
+  //   },
+  //   {
+  //     id: 2,
+  //     title: '4K Gaming Monitor',
+  //     brand: 'Samsung',
+  //     price: 429,
+  //     originalPrice: 529,
+  //     rating: 4.7,
+  //     reviews: 980,
+  //     description:
+  //       '27-inch 4K gaming monitor with 144Hz refresh rate and HDR support for immersive gaming experience.',
+  //     image:
+  //       'https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2042&q=80',
+  //     features: [
+  //       '27" 4K UHD Display',
+  //       '144Hz Refresh Rate',
+  //       '1ms Response Time',
+  //       'AMD FreeSync',
+  //     ],
+  //     details: {
+  //       weight: '5.8kg',
+  //       origin: 'South Korea',
+  //       panel: 'IPS',
+  //       warranty: '2 Years',
+  //       manufacturer: 'Samsung Electronics',
+  //     },
+  //   },
+  // ];
+
+  // api call
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch(
+          'https://admin.prothomashop.com/api/category/50/products'
+        );
+        const data = await response.json();
+
+        setProducts(data.result.products);
+        setTitle(data.result.category);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      }
+    };
+
+    fetchProducts(); // <-- MUST CALL THIS FUNCTION
+  }, []);
 
   // Set first product as default selected
   useMemo(() => {
@@ -155,7 +177,7 @@ const Home = () => {
             {/* Product List */}
             <div className="bg-white p-4 sm:p-6">
               <h2 className="text-lg sm:text-xl font-semibold text-gray-800 mb-4">
-                Available Books
+                {title}
               </h2>
 
               {/* Responsive Grid */}
@@ -183,7 +205,7 @@ const Home = () => {
                       <div className="flex-shrink-0">
                         <div className="relative w-20 h-20 rounded-xl overflow-hidden bg-gray-100 group-hover:bg-gray-200 transition-colors">
                           <img
-                            src={product.image}
+                            src={`https://admin.prothomashop.com/product/${product.image}`}
                             alt={product.title}
                             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                           />
