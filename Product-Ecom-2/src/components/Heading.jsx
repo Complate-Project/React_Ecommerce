@@ -5,21 +5,19 @@ const Heading = ({ scrollToProducts }) => {
   return (
     <div className="max-w-7xl mx-auto pb-12">
       {/* Video Section */}
-      <div className="relative mb-16">
-        <div
-          className="relative w-full overflow-hidden md:rounded-2xl shadow-2xl"
-          style={{ paddingTop: '56.25%' }}
-        >
-          {/* Responsive Iframe */}
-          <iframe
-            className="absolute top-0 left-0 w-full h-full"
-            src="https://www.youtube.com/embed/KvN3JXICzdM"
-            title="Top 20 New Technology Trends That Will Define the Future"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          ></iframe>
+      <div className="flex justify-center mb-16">
+        <div className="relative w-full max-w-4xl overflow-hidden rounded-2xl shadow-2xl">
+          {/* Keep ratio clean */}
+          <div className="relative" style={{ paddingTop: '56.25%' }}>
+            <iframe
+              className="absolute top-0 left-0 w-full h-full rounded-2xl"
+              src={import.meta.env.VITE_VIDEO_URL}
+              title="Technology Trends"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+          </div>
         </div>
       </div>
 

@@ -14,6 +14,7 @@ function CheckoutModal({
   formData,
   handleInputChange,
   setShowCheckout,
+  setFormData,
 }) {
   const [showSuccess, setShowSuccess] = useState(false);
   const [orderId, setOrderId] = useState(null);
@@ -41,7 +42,18 @@ function CheckoutModal({
 
       setOrderId(response?.data?.order?.order_no);
 
-      setShowSuccess(true); // success modal open
+      setShowSuccess(true);
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        address: '',
+        city: '',
+        zipCode: '',
+        cardNumber: '',
+        expiryDate: '',
+        cvv: '',
+      });
     } catch (error) {
       console.error('❌ API Error:', error);
       toast.error(
