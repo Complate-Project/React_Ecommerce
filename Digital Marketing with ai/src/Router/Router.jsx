@@ -3,6 +3,7 @@ import Root from '../Layout/Root/Root';
 import Home from '../Pages/Home/Home';
 import BkashPay from '../Pages/BKashPay/BkashPay';
 import NagadPay from '../Pages/NagodPay/NagadPay';
+import { NewOfter } from '../Pages/999/NewOfter';
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
       {
         path: '/nagod-pay',
         Component: NagadPay,
+      },
+      {
+        path: '/999',
+        Component: NewOfter,
       },
     ],
   },
