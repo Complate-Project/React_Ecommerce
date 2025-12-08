@@ -7,8 +7,10 @@ import {
   Phone,
   MessageSquare,
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export const NewOfter = () => {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
       <div className="w-full bg-white  overflow-hidden">
@@ -32,8 +34,6 @@ export const NewOfter = () => {
         </div>
         {/* Price + Trainer Section */}
         <div className="bg-gray-900 text-white text-center py-6 px-4 md:px-16">
-          <p className="text-3xl md:text-4xl font-bold mb-6">মাত্র ১০০০ টাকা</p>
-
           <div className="max-w-5xl mx-auto overflow-hidden border border-gray-700 rounded-2xl bg-gray-800 shadow-lg">
             <div className="flex flex-col md:flex-row h-full">
               {/* Image Section */}
@@ -94,19 +94,42 @@ export const NewOfter = () => {
                       Founder | Zero Degree Agency & Future Lab Institute
                     </p>
                   </div>
-                </div>
+                  {/* Price and Button - Compact Version */}
+                  <div className="mt-8 bg-gray-900 border-2 border-purple-600 rounded-2xl p-6 shadow-lg">
+                    <div className="flex flex-col items-center">
+                      <div className="mb-4 text-center">
+                        <p className="text-gray-400 text-sm mb-2">
+                          বিশেষ মূল্য
+                        </p>
+                        <div className="flex items-baseline gap-3 mb-2">
+                          <span className="text-5xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
+                            ১০০০ টাকা
+                          </span>
+                          <span className="text-xl text-gray-500 line-through">
+                            ৩০০০ টাকা
+                          </span>
+                        </div>
+                        <p className="text-green-400 font-semibold text-sm">
+                          ✅ লাইফটাইম এক্সেস সহ
+                        </p>
+                      </div>
 
-                {/* CTA */}
-                <a
-                  href="https://wa.me/8801978866933"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <button className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 sm:py-4 rounded-xl font-bold hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 text-sm sm:text-base">
-                    <span className="text-lg sm:text-xl">📞</span>
-                    <span>ট্রেইনারের সাথে কথা বলুন</span>
-                  </button>
-                </a>
+                      <button
+                        onClick={() => navigate('/new-offer/enroll')}
+                        className="w-full max-w-md bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700 text-white py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-3 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]"
+                      >
+                        <Sparkles className="w-5 h-5" />
+                        <span>এখনই রেজিস্টার করুন</span>
+                        <Sparkles className="w-5 h-5" />
+                      </button>
+
+                      <div className="mt-4 flex items-center gap-2 text-yellow-300 text-sm">
+                        <Star className="w-4 h-4" />
+                        <span>প্রথম ২০ জনের জন্য অতিরিক্ত ৫% ছাড়</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -125,6 +148,7 @@ export const NewOfter = () => {
                 'SEO & Keyword Research অটোমেটিক',
                 'Client Project ৫০% দ্রুত শেষ',
                 'নিজের ব্যবসায় Full AI Automation',
+                'AI দিয়ে Facebook Ads স্ট্র্যাটেজি',
               ].map((item, index) => (
                 <div
                   key={index}
@@ -142,7 +166,7 @@ export const NewOfter = () => {
             <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-8">
               🎓 ৭ দিনের সম্পূর্ণ ক্লাস ব্রেকডাউন
             </h2>
-            <div className="space-y-4">
+            <div className="space-y-4 grid grid-cols-2 gap-4">
               {[
                 {
                   day: 'Class 1',
@@ -214,6 +238,15 @@ export const NewOfter = () => {
                   ],
                   icon: '💰',
                 },
+                {
+                  day: 'Class 8',
+                  title: 'Social Media Marketing with AI',
+                  details: [
+                    'AI দিয়ে Content Calendar',
+                    'AI দিয়ে Caption, Hashtag, Creative Idea',
+                  ],
+                  icon: '📱',
+                },
               ].map((cls, index) => (
                 <div
                   key={index}
@@ -262,13 +295,13 @@ export const NewOfter = () => {
           </div>
         </div>
         {/* Call to Action */}
-        <div className="bg-gradient-to-r from-purple-700 to-blue-700 text-white p-8 text-center">
+        <div className="bg-gradient-to-r from-purple-700 to-blue-700 text-white p-8 text-center mt-5">
           <h2 className="text-2xl md:text-4xl font-bold mb-6">
             👉 এখনই ভর্তি হন – AI এর শক্তিতে ভবিষ্যৎ বদলান!
           </h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="#enroll"
+              href="/new-offer/enroll"
               className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition"
             >
               <Phone className="w-5 h-5" />

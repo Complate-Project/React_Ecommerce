@@ -3,7 +3,8 @@ import Root from '../Layout/Root/Root';
 import Home from '../Pages/Home/Home';
 import BkashPay from '../Pages/BKashPay/BkashPay';
 import NagadPay from '../Pages/NagodPay/NagadPay';
-import { NewOfter } from '../Pages/999/NewOfter';
+import { NewOfter } from '../Pages/NewOfter/NewOfter';
+import { Enroll } from '../Pages/enroll/Enroll';
 
 export const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
       {
         path: '/new-offer',
         Component: NewOfter,
+      },
+      {
+        path: '/new-offer/enroll',
+        Component: Enroll,
       },
     ],
   },
