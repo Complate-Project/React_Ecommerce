@@ -23,7 +23,7 @@ export const router = createBrowserRouter([
         Component: NagadPay,
       },
       {
-        // path: '/new-offer',
+        path: '/new-offer',
         Component: NewOfter,
       },
     ],
