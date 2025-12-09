@@ -24,7 +24,7 @@ export const NewOfter = () => {
             <Rocket className="w-8 h-8" />
           </div>
           <p className="text-lg md:text-2xl font-semibold">
-            🚀 মাত্র ১০০০ টাকায় আপনার স্কিলকে নিয়ে যান পরবর্তী লেভেলে
+            🚀 মাত্র 999 টাকায় আপনার স্কিলকে নিয়ে যান পরবর্তী লেভেলে
           </p>
           <div className="mt-4">
             <span className="inline-block bg-yellow-400 text-black px-6 py-2 rounded-full text-lg font-semibold">
@@ -95,37 +95,43 @@ export const NewOfter = () => {
                     </p>
                   </div>
                   {/* Price and Button - Compact Version */}
-                  <div className="mt-8 bg-gray-900 border-2 border-purple-600 rounded-2xl p-6 shadow-lg">
-                    <div className="flex flex-col items-center">
-                      <div className="mb-4 text-center">
-                        <p className="text-gray-400 text-sm mb-2">
-                          বিশেষ মূল্য
-                        </p>
-                        <div className="flex items-baseline gap-3 mb-2">
-                          <span className="text-5xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
-                            ১০০০ টাকা
-                          </span>
-                          <span className="text-xl text-gray-500 line-through">
-                            ৩০০০ টাকা
-                          </span>
-                        </div>
-                        <p className="text-green-400 font-semibold text-sm">
-                          ✅ লাইফটাইম এক্সেস সহ
-                        </p>
+                  <div className="mt-8 bg-gray-900 border-2 border-purple-600 rounded-2xl p-6 md:p-8 shadow-lg max-w-xl mx-auto">
+                    <div className="flex flex-col items-center text-center">
+                      {/* Price Text */}
+                      <p className="text-gray-400 text-xs md:text-sm mb-1">
+                        বিশেষ মূল্য
+                      </p>
+                      <div className="flex flex-wrap items-baseline justify-center gap-1 sm:gap-2 md:gap-3 mb-2">
+                        <span className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent leading-none">
+                          999 টাকা
+                        </span>
+
+                        <span className="text-base sm:text-lg md:text-xl text-gray-500 line-through leading-none">
+                          ৩০০০ টাকা
+                        </span>
                       </div>
 
+                      <p className="text-green-400 font-semibold text-xs md:text-sm">
+                        ✅ লাইফটাইম এক্সেস সহ
+                      </p>
+
+                      {/* Button */}
                       <button
                         onClick={() => navigate('/new-offer/enroll')}
-                        className="w-full max-w-md bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700 text-white py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-3 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]"
+                        className="w-full bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700 text-white py-3 md:py-4 rounded-xl font-bold text-base md:text-lg flex items-center justify-center gap-2 md:gap-3 shadow-lg hover:shadow-xl transition-all duration-300 mt-4"
                       >
-                        <Sparkles className="w-5 h-5" />
-                        <span>এখনই রেজিস্টার করুন</span>
-                        <Sparkles className="w-5 h-5" />
+                        <Sparkles className="w-4 h-4 md:w-5 md:h-5" />
+                        <span>এখনই Enroll করুন</span>
+                        <Sparkles className="w-4 h-4 md:w-5 md:h-5" />
                       </button>
 
-                      <div className="mt-4 flex items-center gap-2 text-yellow-300 text-sm">
-                        <Star className="w-4 h-4" />
-                        <span>প্রথম ২০ জনের জন্য অতিরিক্ত ৫% ছাড়</span>
+                      {/* Offer Text */}
+                      <div className="mt-3 md:mt-4 flex  text-yellow-300 text-xs md:text-sm">
+                        <Star className="w-3 h-3 md:w-4 md:h-4" />
+                        <span>
+                          প্রথম ২০ জনের জন্য অতিরিক্ত ৫% ছাড়Digital Marketing
+                          with Ai eBook প্রথম ৫০ জনের জন্য
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -135,38 +141,40 @@ export const NewOfter = () => {
           </div>
         </div>
 
-        <div className="max-w-7xl  mx-auto">
+        <div className="">
           {/* Why This Course */}
           <div className="p-6 bg-gradient-to-r from-indigo-50 to-purple-50">
-            <h2 className="text-2xl md:text-3xl font-bold text-center text-purple-700 mb-6">
-              🔥 কেন এই কোর্সটি করবেন?
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {[
-                '১০ মিনিটে পেশাদার কনটেন্ট তৈরি',
-                'AI দিয়ে Facebook Ads স্ট্র্যাটেজি',
-                'SEO & Keyword Research অটোমেটিক',
-                'Client Project ৫০% দ্রুত শেষ',
-                'নিজের ব্যবসায় Full AI Automation',
-                'AI দিয়ে Facebook Ads স্ট্র্যাটেজি',
-              ].map((item, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-3 bg-white p-4 rounded-lg shadow-md"
-                >
-                  <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0" />
-                  <span className="text-lg">{item}</span>
-                </div>
-              ))}
+            <div className="max-w-7xl  mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-center text-purple-700 mb-6">
+                🔥 কেন এই কোর্সটি করবেন?
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {[
+                  '১০ মিনিটে পেশাদার কনটেন্ট তৈরি',
+                  'AI দিয়ে Facebook Ads স্ট্র্যাটেজি',
+                  'SEO & Keyword Research অটোমেটিক',
+                  'Client Project ৫০% দ্রুত শেষ',
+                  'নিজের ব্যবসায় Full AI Automation',
+                  'AI দিয়ে Facebook Ads স্ট্র্যাটেজি',
+                ].map((item, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center gap-3 bg-white p-4 rounded-lg shadow-md"
+                  >
+                    <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0" />
+                    <span className="text-lg">{item}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
           {/* Class Breakdown */}
-          <div className="p-6">
+          <div className="p-6 max-w-7xl  mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-8">
               🎓 ৭ দিনের সম্পূর্ণ ক্লাস ব্রেকডাউন
             </h2>
-            <div className="space-y-4 grid grid-cols-2 gap-4">
+            <div className="space-y-4 grid grid-cols-1 md:grid-cols-2 gap-4">
               {[
                 {
                   day: 'Class 1',
@@ -238,15 +246,6 @@ export const NewOfter = () => {
                   ],
                   icon: '💰',
                 },
-                {
-                  day: 'Class 8',
-                  title: 'Social Media Marketing with AI',
-                  details: [
-                    'AI দিয়ে Content Calendar',
-                    'AI দিয়ে Caption, Hashtag, Creative Idea',
-                  ],
-                  icon: '📱',
-                },
               ].map((cls, index) => (
                 <div
                   key={index}
@@ -275,22 +274,27 @@ export const NewOfter = () => {
           </div>
 
           {/* Bonus Section */}
-          <div className="p-6 bg-yellow-50 border-t-4 border-yellow-400">
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-6">
-              🎁 Exclusive Bonus (মূল্য: ১৫,০০০+ টাকা)
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {[
-                '৩০ দিনের Content Calendar Template',
-                'Ready Ads Copy Templates',
-                '৫০+ Canva AI Editable Templates',
-                'AI Tools Premium Prompt Pack',
-              ].map((bonus, index) => (
-                <div key={index} className="flex items-center gap-3">
-                  <Star className="w-6 h-6 text-yellow-600" />
-                  <span className="text-lg font-semibold">{bonus}</span>
-                </div>
-              ))}
+          <div className="p-6 bg-yellow-50 border-t-4 border-yellow-400 ">
+            <div className="max-w-7xl  mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-center mb-6">
+                🎁 Exclusive Bonus (মূল্য: ১৫,০০০+ টাকা)
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
+                {[
+                  '৩০ দিনের Content Calendar Template',
+                  'Ready Ads Copy Templates',
+                  '৫০+ Canva AI Editable Templates',
+                  'AI Tools Premium Prompt Pack',
+                ].map((bonus, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center  justify-center gap-3"
+                  >
+                    <Star className="w-6 h-6 text-yellow-600" />
+                    <span className="text-lg font-semibold">{bonus}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -305,10 +309,11 @@ export const NewOfter = () => {
               className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition"
             >
               <Phone className="w-5 h-5" />
-              Enroll Now – ১০০০ টাকা
+              Enroll Now – 999 টাকা
             </a>
             <a
-              href="#whatsapp"
+              href="https://chat.whatsapp.com/Hqlqidz0HS6BFdBNFqlSkH"
+              target="_blank"
               className="flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition"
             >
               <MessageSquare className="w-5 h-5" />

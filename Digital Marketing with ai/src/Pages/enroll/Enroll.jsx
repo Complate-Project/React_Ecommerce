@@ -226,7 +226,7 @@ export const Enroll = () => {
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </div>
                     <p className="text-sm font-normal mt-1 opacity-90">
-                      সম্পূর্ণ কোর্স এক্সেসের জন্য মাত্র ৳১০০০
+                      সম্পূর্ণ কোর্স এক্সেসের জন্য মাত্র ৳999
                     </p>
                   </button>
                 </form>
@@ -247,7 +247,7 @@ export const Enroll = () => {
                   <p className="text-white/80">ডিস্কাউন্টেড মূল্য</p>
                   <span className="flex gap-2 item-center justify-center">
                     {' '}
-                    <p className="text-4xl md:text-6xl font-bold ">৳১,০০০</p>
+                    <p className="text-4xl md:text-6xl font-bold ">৳999</p>
                     <p className="text-2xl line-through opacity-60 mt-3">
                       ৳৩,০০০
                     </p>
