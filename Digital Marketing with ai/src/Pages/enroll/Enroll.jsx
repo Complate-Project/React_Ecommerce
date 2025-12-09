@@ -17,6 +17,7 @@ export const Enroll = () => {
     name: '',
     email: '',
     phone: '',
+    profession: '',
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -82,11 +83,11 @@ export const Enroll = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           {/* Left Column - Course Highlights */}
           <div className="lg:col-span-2">
             <div className="bg-white rounded-md shadow-xl overflow-hidden mb-8">
-              <div className="p-6 md:p-8">
+              <div className="p-3 md:p-5">
                 <div className="flex items-center justify-between mb-8">
                   <div>
                     <h2 className="text-2xl font-bold text-gray-900">
@@ -110,6 +111,11 @@ export const Enroll = () => {
                       <User className="w-4 h-4 text-purple-600" />
                       পুরো নাম
                       <span className="text-red-500">*</span>
+                      <span>
+                        <p className="text-sm text-gray-500 mt-2">
+                          ( জাতীয় আইডি কার্ড অনুযায়ী )
+                        </p>
+                      </span>
                     </label>
                     <div className="relative">
                       <input
@@ -125,9 +131,6 @@ export const Enroll = () => {
                         <User className="w-5 h-5" />
                       </div>
                     </div>
-                    <p className="text-sm text-gray-500 mt-2">
-                      জাতীয় আইডি কার্ড অনুযায়ী
-                    </p>
                   </div>
 
                   {/* Email Field */}
@@ -165,6 +168,12 @@ export const Enroll = () => {
                       <Phone className="w-4 h-4 text-purple-600" />
                       ফোন নম্বর
                       <span className="text-red-500">*</span>
+                      <span>
+                        {' '}
+                        <p className="text-sm text-gray-500 mt-2">
+                          ( হোয়াটসঅ্যাপ আপডেট এবং সাপোর্টের জন্য )
+                        </p>
+                      </span>
                     </label>
                     <div className="relative">
                       <div className="absolute left-4 top-1/2 transform -translate-y-1/2 flex items-center gap-2">
@@ -186,9 +195,37 @@ export const Enroll = () => {
                         <Phone className="w-5 h-5" />
                       </div>
                     </div>
-                    <p className="text-sm text-gray-500 mt-2">
-                      হোয়াটসঅ্যাপ আপডেট এবং সাপোর্টের জন্য
-                    </p>
+                  </div>
+                  {/* Profession Dropdown */}
+                  <div className="group">
+                    <label className="flex items-center gap-2 text-gray-700 font-medium mb-2">
+                      <User className="w-4 h-4 text-purple-600" />
+                      রেফারেন্স নির্বাচন করুন
+                      <span className="text-red-500">*</span>
+                    </label>
+
+                    <div className="relative">
+                      <select
+                        name="profession"
+                        value={formData.profession}
+                        onChange={handleChange}
+                        required
+                        className="w-full px-4 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl
+      focus:border-purple-500 focus:ring-2 focus:ring-purple-200 focus:bg-white
+      transition-all duration-300 outline-none text-lg appearance-none"
+                      >
+                        <option value="">রেফারেন্স নির্বাচন করুন</option>
+                        <option value="mahir">মাহির</option>
+                        <option value="rakib">রাকিব</option>
+                        <option value="sumon">সুমন</option>
+                        <option value="anis">আনিস</option>
+                      </select>
+
+                      {/* Dropdown icon */}
+                      <div className="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none text-gray-400">
+                        ▼
+                      </div>
+                    </div>
                   </div>
 
                   {/* Terms and Conditions */}
@@ -222,15 +259,12 @@ export const Enroll = () => {
                   {/* Submit Button */}
                   <button
                     type="submit"
-                    className="w-full group bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                    className="w-full group bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl "
                   >
                     <div className="flex items-center justify-center gap-3">
-                      <span>এনরোলমেন্ট সম্পন্ন করুন</span>
+                      <span>এনরোলমেন্ট সম্পন্ন করুন মাত্র 999Tk</span>
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </div>
-                    <p className="text-sm font-normal mt-1 opacity-90">
-                      সম্পূর্ণ কোর্স এক্সেসের জন্য মাত্র ৳999
-                    </p>
                   </button>
                 </form>
               </div>
@@ -252,12 +286,12 @@ export const Enroll = () => {
                     {' '}
                     <p className="text-4xl md:text-6xl font-bold ">৳999</p>
                     <p className="text-2xl line-through opacity-60 mt-3">
-                      ৳৩,০০০
+                      ৳5000
                     </p>
                   </span>
                 </div>
                 <div className="bg-white/20 px-4 py-2 rounded-full inline-block">
-                  <span className="font-bold">৬৭% ছাড়</span>
+                  <span className="font-bold">80% ছাড়</span>
                 </div>
               </div>
 

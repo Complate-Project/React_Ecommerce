@@ -24,7 +24,8 @@ export const NewOfter = () => {
             <Rocket className="w-8 h-8" />
           </div>
           <p className="text-lg md:text-2xl font-semibold">
-            🚀 মাত্র 999 টাকায় আপনার স্কিলকে নিয়ে যান পরবর্তী লেভেলে
+            🚀 মাত্র <span className="text-yellow-300 ">999</span> টাকায় আপনার
+            স্কিলকে নিয়ে যান পরবর্তী লেভেলে
           </p>
           <div className="mt-4">
             <span className="inline-block bg-yellow-400 text-black px-6 py-2 rounded-full text-lg font-semibold">
@@ -33,105 +34,114 @@ export const NewOfter = () => {
           </div>
         </div>
         {/* Price + Trainer Section */}
-        <div className="bg-gray-900 text-white text-center py-6 px-4 md:px-16">
-          <div className="max-w-5xl mx-auto overflow-hidden border border-gray-700 rounded-2xl bg-gray-800 shadow-lg">
-            <div className="flex flex-col md:flex-row h-full">
+        <div className="bg-gray-900 text-white py-6 px-4 md:px-8 lg:px-16">
+          <div className="max-w-6xl mx-auto border border-gray-700 rounded-2xl bg-gray-800 shadow-lg overflow-hidden">
+            <div className="flex flex-col lg:flex-row">
               {/* Image Section */}
-              <div className="md:w-2/5 relative group">
-                <img
-                  src="https://i.postimg.cc/BnhW44gq/43546.jpg"
-                  alt="Dilouar Hossain"
-                  className="w-full h-64 md:h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+              <div className="lg:w-2/5 relative group">
+                <div className="aspect-[4/3] lg:aspect-auto lg:h-full">
+                  <img
+                    src="https://i.postimg.cc/BnhW44gq/43546.jpg"
+                    alt="Dilouar Hossain"
+                    className="w-full h-[500px] md:h-full object-cover group-hover:scale-105 transition-transform duration-500 lg:rounded-l-2xl"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent lg:from-black/40 lg:rounded-l-2xl"></div>
               </div>
 
               {/* Info Section */}
-              <div className="md:w-3/5 p-6 md:p-8 flex flex-col justify-between">
-                <div>
-                  {/* Badges */}
-                  <div className="flex flex-wrap gap-2 sm:gap-3 mb-4">
-                    <span className="bg-purple-700 text-white px-3 py-1 rounded-full text-xs sm:text-sm font-medium shadow-md">
-                      🎯 Expert Trainer
-                    </span>
-                    <span className="bg-pink-700 text-white px-3 py-1 rounded-full text-xs sm:text-sm font-medium shadow-md">
-                      🏆 10+ Years
-                    </span>
-                    <span className="bg-blue-700 text-white px-3 py-1 rounded-full text-xs sm:text-sm font-medium shadow-md">
-                      👨‍🎓 500+ Students
-                    </span>
-                  </div>
+              <div className="lg:w-3/5 p-5 sm:p-6 md:p-8 flex flex-col">
+                {/* Badges - Responsive */}
+                <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
+                  <span className="bg-purple-700 text-white px-3 py-1 rounded-full text-xs sm:text-sm font-medium shadow-md whitespace-nowrap">
+                    🎯 Expert Trainer
+                  </span>
+                  <span className="bg-pink-700 text-white px-3 py-1 rounded-full text-xs sm:text-sm font-medium shadow-md whitespace-nowrap">
+                    🏆 10+ Years
+                  </span>
+                  <span className="bg-blue-700 text-white px-3 py-1 rounded-full text-xs sm:text-sm font-medium shadow-md whitespace-nowrap">
+                    👨‍🎓 500+ Students
+                  </span>
+                </div>
 
-                  {/* Stats */}
-                  <div className="grid grid-cols-2 gap-3 mb-4">
-                    <div className="text-center p-3 bg-gray-700 rounded-xl border border-gray-600">
-                      <div className="text-xl sm:text-2xl font-bold text-purple-400">
-                        10+
-                      </div>
-                      <div className="text-xs sm:text-sm text-gray-300">
-                        Years Experience
-                      </div>
+                {/* Stats Grid */}
+                <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-5 sm:mb-6">
+                  <div className="text-center p-3 sm:p-4 bg-gray-700 rounded-xl border border-gray-600">
+                    <div className="text-xl sm:text-2xl md:text-3xl font-bold text-purple-400">
+                      10+
                     </div>
-                    <div className="text-center p-3 bg-gray-700 rounded-xl border border-gray-600">
-                      <div className="text-xl sm:text-2xl font-bold text-pink-400">
-                        500+
-                      </div>
-                      <div className="text-xs sm:text-sm text-gray-300">
-                        Students Trained
-                      </div>
+                    <div className="text-xs sm:text-sm text-gray-300 mt-1">
+                      Years Experience
                     </div>
                   </div>
-
-                  {/* Trainer Details */}
-                  <div className="mb-4">
-                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-1">
-                      Dilouar Hossain
-                    </h3>
-                    <p className="text-base sm:text-lg text-purple-400 font-semibold mb-1">
-                      Digital Marketing Trainer | 10+ Years Experience
-                    </p>
-                    <p className="text-gray-300 text-sm sm:text-base">
-                      Founder | Zero Degree Agency & Future Lab Institute
-                    </p>
+                  <div className="text-center p-3 sm:p-4 bg-gray-700 rounded-xl border border-gray-600">
+                    <div className="text-xl sm:text-2xl md:text-3xl font-bold text-pink-400">
+                      500+
+                    </div>
+                    <div className="text-xs sm:text-sm text-gray-300 mt-1">
+                      Students Trained
+                    </div>
                   </div>
-                  {/* Price and Button - Compact Version */}
-                  <div className="mt-8 bg-gray-900 border-2 border-purple-600 rounded-2xl p-6 md:p-8 shadow-lg max-w-xl mx-auto">
-                    <div className="flex flex-col items-center text-center">
-                      {/* Price Text */}
-                      <p className="text-gray-400 text-xs md:text-sm mb-1">
-                        বিশেষ মূল্য
-                      </p>
-                      <div className="flex flex-wrap items-baseline justify-center gap-1 sm:gap-2 md:gap-3 mb-2">
-                        <span className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent leading-none">
+                </div>
+
+                {/* Trainer Details */}
+                <div className="mb-6 sm:mb-8">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2">
+                    Dilouar Hossain
+                  </h3>
+                  <p className="text-base sm:text-lg md:text-xl text-purple-400 font-semibold mb-2">
+                    Digital Marketing Trainer | 10+ Years Experience
+                  </p>
+                  <p className="text-gray-300 text-sm sm:text-base">
+                    Founder | Zero Degree Agency & Future Lab Institute
+                  </p>
+                </div>
+
+                {/* Price and Button Section */}
+                <div className="mt-auto bg-gray-900 border-2 border-purple-600 rounded-2xl p-5 sm:p-6 md:p-8 shadow-lg">
+                  <div className="flex flex-col items-center text-center">
+                    {/* Price Text */}
+                    <p className="text-gray-400 text-xs sm:text-sm md:text-base mb-1 sm:mb-2">
+                      বিশেষ মূল্য
+                    </p>
+
+                    {/* Price Display */}
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 md:gap-4 mb-3 sm:mb-4">
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent leading-tight">
                           999 টাকা
                         </span>
-
-                        <span className="text-base sm:text-lg md:text-xl text-gray-500 line-through leading-none">
+                      </div>
+                      <div className="flex items-center">
+                        <span className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-500 line-through">
                           5000 টাকা
                         </span>
-                      </div>
-
-                      <p className="text-green-400 font-semibold text-xs md:text-sm">
-                        ✅ লাইফটাইম এক্সেস সহ
-                      </p>
-
-                      {/* Button */}
-                      <button
-                        onClick={() => navigate('/new-offer/enroll')}
-                        className="w-full bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700 text-white py-3 md:py-4 rounded-xl font-bold text-base md:text-lg flex items-center justify-center gap-2 md:gap-3 shadow-lg hover:shadow-xl transition-all duration-300 mt-4"
-                      >
-                        <Sparkles className="w-4 h-4 md:w-5 md:h-5" />
-                        <span>এখনই Enroll করুন</span>
-                        <Sparkles className="w-4 h-4 md:w-5 md:h-5" />
-                      </button>
-
-                      {/* Offer Text */}
-                      <div className="mt-3 gap-3 md:mt-4 flex  text-yellow-300 text-xs md:text-sm">
-                        <Star className="w-3 h-3 md:w-4 md:h-4" />
-                        <span>
-                          Digital Marketing with Ai eBook প্রথম ৫০ জনের জন্য
+                        <span className="ml-2 sm:ml-3 px-2 py-1 bg-green-900/30 text-green-400 text-xs sm:text-sm rounded-md">
+                          80% OFF
                         </span>
                       </div>
+                    </div>
+
+                    <p className="text-green-400 font-semibold text-sm sm:text-base md:text-lg mb-4">
+                      ✅ লাইফটাইম এক্সেস সহ
+                    </p>
+
+                    {/* Button */}
+                    <button
+                      onClick={() => navigate('/new-offer/enroll')}
+                      className="w-full max-w-md bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700 text-white py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg md:text-xl flex items-center justify-center gap-2 sm:gap-3 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                    >
+                      <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
+                      <span>এখনই Enroll করুন</span>
+                      <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
+                    </button>
+
+                    {/* Offer Note */}
+                    <div className="mt-4 sm:mt-5 flex items-center justify-center gap-2 text-yellow-300 text-xs sm:text-sm md:text-base">
+                      <Star className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 flex-shrink-0" />
+                      <span className="text-center">
+                        Digital Marketing with Ai eBook প্রথম ৫০ জনের জন্য
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -139,28 +149,73 @@ export const NewOfter = () => {
             </div>
           </div>
         </div>
-        {/* Bonus Section */}
-        <div className="p-6 bg-yellow-50 border-t-4 border-yellow-400 ">
-          <div className="max-w-7xl  mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-6">
-              🎁 Exclusive Bonus (মূল্য: ১৫,০০০+ টাকা)
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
+
+        {/* Bonus Section - Super Responsive & Premium Look */}
+        <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-yellow-50 to-amber-50 overflow-hidden">
+          <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
+            {/* Heading */}
+            <div className="text-center mb-10 md:mb-12">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+                Exclusive Bonus
+                <span className="block text-2xl sm:text-3xl md:text-4xl text-amber-600 mt-2">
+                  (মূল্য: ১৫,০০০+ টাকা) – আপনার একদম ফ্রি!
+                </span>
+              </h2>
+            </div>
+
+            {/* Bonus Grid - Responsive Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4">
               {[
-                '৩০ দিনের Content Calendar Template',
-                'Ready Ads Copy Templates',
-                '৫০+ Canva AI Editable Templates',
-                'AI Tools Premium Prompt Pack',
-                'লাইফটাইম অ্যাক্সেস',
-              ].map((bonus, index) => (
-                <div key={index} className="flex items-center  gap-3">
-                  <Star className="w-6 h-6 text-yellow-600" />
-                  <span className="text-lg font-semibold">{bonus}</span>
+                {
+                  title: '৩০ দিনের Content Calendar Template',
+                  desc: 'প্লাগ অ্যান্ড প্লে – শুধু ফিল করে পোস্ট করুন',
+                },
+                {
+                  title: 'Ready Ads Copy Templates (50+)',
+                  desc: 'প্রমাণিত ফেসবুক অ্যাডস কপি – সরাসরি কপি করে চালান',
+                },
+                {
+                  title: '৫০+ Canva AI Editable Templates',
+                  desc: 'প্রফেশনাল ডিজাইন – AI দিয়ে এডিট করুন ১ মিনিটে',
+                },
+                {
+                  title: 'AI Tools Premium Prompt Pack',
+                  desc: 'ChatGPT, Gemini, Claude – ১০০+ প্রম্পট',
+                },
+                {
+                  title: 'লাইফটাইম অ্যাক্সেস + আপডেট',
+                  desc: 'কোনো মাসিক ফি নেই – সারাজীবন ফ্রি আপডেট',
+                },
+                {
+                  title: 'Private Community Access',
+                  desc: 'অন্য স্টুডেন্ট ও ট্রেইনারের সাথে নেটওয়ার্কিং',
+                },
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="group relative bg-white rounded-md p-6 md:p-8 shadow-lg hover:shadow-2xl border border-amber-200 hover:border-amber-400 transition-all duration-500 transform hover:-translate-y-2"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center shadow-md">
+                      <Star className="w-7 h-7 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-1">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm md:text-base text-gray-600">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Hover Shine Effect */}
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-transparent via-amber-200 to-transparent opacity-0 group-hover:opacity-30 transition-opacity duration-700 -skew-x-12 translate-x-full group-hover:translate-x-0"></div>
                 </div>
               ))}
             </div>
           </div>
-        </div>
+        </section>
         {/* Call to Action */}
         <div className="bg-gradient-to-r from-purple-700 to-blue-700 text-white p-8 text-center mt-5">
           <h2 className="text-2xl md:text-4xl font-bold mb-6">
@@ -181,13 +236,6 @@ export const NewOfter = () => {
             >
               <MessageSquare className="w-5 h-5" />
               Join WhatsApp Group
-            </a>
-            <a
-              href="#contact"
-              className="flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition"
-            >
-              <MessageSquare className="w-5 h-5" />
-              Contact for Details
             </a>
           </div>
           <p className="mt-6 text-yellow-300 font-bold text-lg">
