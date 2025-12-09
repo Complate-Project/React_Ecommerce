@@ -280,18 +280,18 @@ export const Enroll = () => {
                   <span className="text-sm font-bold">🔥 সীমিত সময় অফার</span>
                 </div>
 
-                <div className="mb-2">
+                <div className="mb-2 text-center">
                   <p className="text-white/80">ডিস্কাউন্টেড মূল্য</p>
-                  <span className="flex gap-2 item-center justify-center">
-                    {' '}
-                    <p className="text-4xl md:text-6xl font-bold ">৳999</p>
-                    <p className="text-2xl line-through opacity-60 mt-3">
+
+                  <div className="flex gap-4 items-center justify-center mt-2">
+                    <p className="text-4xl md:text-6xl font-bold">৳999</p>
+                    <p className="text-2xl line-through opacity-60 mt-1">
                       ৳5000
                     </p>
-                  </span>
-                </div>
-                <div className="bg-white/20 px-4 py-2 rounded-full inline-block">
-                  <span className="font-bold">80% ছাড়</span>
+                    <div className="bg-white/20 px-4 py-2 rounded-full">
+                      <span className="font-bold">80% Off</span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -311,6 +311,10 @@ export const Enroll = () => {
                 <div className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-green-300" />
                   <span>সমস্ত বোনাস ম্যাটেরিয়াল</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="w-5 h-5 text-green-300" />
+                  <span>লাইফটাইম এক্সেস</span>
                 </div>
               </div>
             </div>
