@@ -72,7 +72,7 @@ export const Enroll = () => {
           </div>
           <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
             <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-              এআই ডিজিটাল মার্কেটিং
+              ডিজিটাল মার্কেটিং উইথ এআই
             </span>{' '}
             কোর্সে এনরোল করুন
           </h1>
@@ -136,6 +136,12 @@ export const Enroll = () => {
                       <Mail className="w-4 h-4 text-purple-600" />
                       ইমেইল এড্রেস
                       <span className="text-red-500">*</span>
+                      <span>
+                        {' '}
+                        <p className="text-sm text-gray-500 mt-2">
+                          ( আমরা কোর্সের বিস্তারিত এখানে পাঠাবো )
+                        </p>
+                      </span>
                     </label>
                     <div className="relative">
                       <input
@@ -151,9 +157,6 @@ export const Enroll = () => {
                         <Mail className="w-5 h-5" />
                       </div>
                     </div>
-                    <p className="text-sm text-gray-500 mt-2">
-                      আমরা কোর্সের বিস্তারিত এখানে পাঠাবো
-                    </p>
                   </div>
 
                   {/* Phone Field */}

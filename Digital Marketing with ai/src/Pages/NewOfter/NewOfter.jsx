@@ -107,7 +107,7 @@ export const NewOfter = () => {
                         </span>
 
                         <span className="text-base sm:text-lg md:text-xl text-gray-500 line-through leading-none">
-                          ৩০০০ টাকা
+                          5000 টাকা
                         </span>
                       </div>
 
@@ -126,11 +126,10 @@ export const NewOfter = () => {
                       </button>
 
                       {/* Offer Text */}
-                      <div className="mt-3 md:mt-4 flex  text-yellow-300 text-xs md:text-sm">
+                      <div className="mt-3 gap-3 md:mt-4 flex  text-yellow-300 text-xs md:text-sm">
                         <Star className="w-3 h-3 md:w-4 md:h-4" />
                         <span>
-                          প্রথম ২০ জনের জন্য অতিরিক্ত ৫% ছাড়Digital Marketing
-                          with Ai eBook প্রথম ৫০ জনের জন্য
+                          Digital Marketing with Ai eBook প্রথম ৫০ জনের জন্য
                         </span>
                       </div>
                     </div>
@@ -139,6 +138,61 @@ export const NewOfter = () => {
               </div>
             </div>
           </div>
+        </div>
+        {/* Bonus Section */}
+        <div className="p-6 bg-yellow-50 border-t-4 border-yellow-400 ">
+          <div className="max-w-7xl  mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-6">
+              🎁 Exclusive Bonus (মূল্য: ১৫,০০০+ টাকা)
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
+              {[
+                '৩০ দিনের Content Calendar Template',
+                'Ready Ads Copy Templates',
+                '৫০+ Canva AI Editable Templates',
+                'AI Tools Premium Prompt Pack',
+                'লাইফটাইম অ্যাক্সেস',
+              ].map((bonus, index) => (
+                <div key={index} className="flex items-center  gap-3">
+                  <Star className="w-6 h-6 text-yellow-600" />
+                  <span className="text-lg font-semibold">{bonus}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        {/* Call to Action */}
+        <div className="bg-gradient-to-r from-purple-700 to-blue-700 text-white p-8 text-center mt-5">
+          <h2 className="text-2xl md:text-4xl font-bold mb-6">
+            👉 এখনই ভর্তি হন – AI এর শক্তিতে ভবিষ্যৎ বদলান!
+          </h2>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="/new-offer/enroll"
+              className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition"
+            >
+              <Phone className="w-5 h-5" />
+              Enroll Now – 999 টাকা
+            </a>
+            <a
+              href="https://chat.whatsapp.com/Hqlqidz0HS6BFdBNFqlSkH"
+              target="_blank"
+              className="flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition"
+            >
+              <MessageSquare className="w-5 h-5" />
+              Join WhatsApp Group
+            </a>
+            <a
+              href="#contact"
+              className="flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition"
+            >
+              <MessageSquare className="w-5 h-5" />
+              Contact for Details
+            </a>
+          </div>
+          <p className="mt-6 text-yellow-300 font-bold text-lg">
+            ⚡ Limited Seats | First Come, First Serve
+          </p>
         </div>
 
         <div className="">
@@ -272,64 +326,6 @@ export const NewOfter = () => {
               ))}
             </div>
           </div>
-
-          {/* Bonus Section */}
-          <div className="p-6 bg-yellow-50 border-t-4 border-yellow-400 ">
-            <div className="max-w-7xl  mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-center mb-6">
-                🎁 Exclusive Bonus (মূল্য: ১৫,০০০+ টাকা)
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
-                {[
-                  '৩০ দিনের Content Calendar Template',
-                  'Ready Ads Copy Templates',
-                  '৫০+ Canva AI Editable Templates',
-                  'AI Tools Premium Prompt Pack',
-                ].map((bonus, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center  justify-center gap-3"
-                  >
-                    <Star className="w-6 h-6 text-yellow-600" />
-                    <span className="text-lg font-semibold">{bonus}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* Call to Action */}
-        <div className="bg-gradient-to-r from-purple-700 to-blue-700 text-white p-8 text-center mt-5">
-          <h2 className="text-2xl md:text-4xl font-bold mb-6">
-            👉 এখনই ভর্তি হন – AI এর শক্তিতে ভবিষ্যৎ বদলান!
-          </h2>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/new-offer/enroll"
-              className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition"
-            >
-              <Phone className="w-5 h-5" />
-              Enroll Now – 999 টাকা
-            </a>
-            <a
-              href="https://chat.whatsapp.com/Hqlqidz0HS6BFdBNFqlSkH"
-              target="_blank"
-              className="flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition"
-            >
-              <MessageSquare className="w-5 h-5" />
-              Join WhatsApp Group
-            </a>
-            <a
-              href="#contact"
-              className="flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition"
-            >
-              <MessageSquare className="w-5 h-5" />
-              Contact for Details
-            </a>
-          </div>
-          <p className="mt-6 text-yellow-300 font-bold text-lg">
-            ⚡ Limited Seats | First Come, First Serve
-          </p>
         </div>
       </div>
     </div>
