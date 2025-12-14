@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { FaArrowLeft, FaLock } from 'react-icons/fa';
 import { FaMinus, FaPlus } from 'react-icons/fa';
 import axios from 'axios';
-import SuccessModal from './Modal/SuccessModal';
+// import SuccessModal from './Modal/SuccessModal';
 import { toast } from 'react-toastify';
 
 function CheckoutModal({
@@ -16,13 +16,13 @@ function CheckoutModal({
   setShowCheckout,
   setFormData,
 }) {
-  const [showSuccess, setShowSuccess] = useState(false);
+  // const [showSuccess, setShowSuccess] = useState(false);
   const [orderId, setOrderId] = useState(null);
 
   // 🔹 Handle form submit
-  const handleSubmitOrder = async e => {
+  const handleSubmitOrder = async (e) => {
     e.preventDefault();
-
+  
     const order = {
       user_name: formData.name,
       user_phone: formData.phone,
@@ -30,44 +30,51 @@ function CheckoutModal({
       product_id: book.id,
       product_name: book.title,
       product_image: book.image,
-      quantity: quantity,
-      total: totalPrice,
+      quantity: Number(quantity),
+      total: Number(totalPrice),
+      payment_method: "zpay",
     };
-
+  
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_BASE_URL}/order/store`,
         order
       );
-
-      setOrderId(response?.data?.order?.order_no);
-
-      setShowSuccess(true);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        address: '',
-        city: '',
-        zipCode: '',
-        cardNumber: '',
-        expiryDate: '',
-        cvv: '',
-      });
+  
+      const { order_no, payment_url } = response.data;
+  
+      // ✅ save order id
+      setOrderId(order_no);
+  
+      // ✅ MUST be immediate
+      if (payment_url) {
+        const newWindow = window.open(
+          payment_url,
+          "_blank",
+          "noopener,noreferrer"
+        );
+  
+        if (!newWindow) {
+          toast.error("Popup blocked! Please allow popups.");
+        }
+      }
+  
+      // setShowSuccess(true);
+  
     } catch (error) {
-      console.error('❌ API Error:', error);
+      console.error("❌ API Error:", error);
       toast.error(
-        error.response.data.message ||
-          'Failed to submit order. Please try again.'
+        error?.response?.data?.message ||
+        "Failed to submit order. Please try again."
       );
-      // alert('Failed to submit order. Please try again.');
     }
   };
+  
 
-  const handleSuccessClose = () => {
-    setShowSuccess(false);
-    setShowCheckout(false);
-  };
+  // const handleSuccessClose = () => {
+  //   setShowSuccess(false);
+  //   setShowCheckout(false);
+  // };
 
   return (
     <div className="max-w-7xl mx-auto md:px-2 mt-10  relative">
@@ -252,12 +259,12 @@ function CheckoutModal({
       </div>
 
       {/* Success Modal */}
-      {showSuccess && (
+      {/* {showSuccess && (
         <SuccessModal
-          message={`✅ Order placed successfully! Order ID:${orderId} for ${quantity} "${book.title}".`}
+          message={` Order ID:${orderId}`}
           onClose={handleSuccessClose}
         />
-      )}
+      )} */}
     </div>
   );
 }

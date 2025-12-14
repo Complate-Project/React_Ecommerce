@@ -15,9 +15,9 @@ function SuccessModal({ message, onClose }) {
         {/* Success Message */}
         <div className="text-center mb-6">
           <h2 className="text-3xl font-bold text-gray-800 mb-2 bg-gradient-to-r from-green-600 to-green-800 bg-clip-text text-transparent">
-            সফল হয়েছে!
+            আপনার অর্ডারটি সঠিকভাবে সম্পন্ন হয়েছে !
           </h2>
-          <p className="text-gray-700 text-lg leading-relaxed mb-4">
+          <p className="text-gray-700 text-xl leading-relaxed mb-4">
             {message}
           </p>
         </div>
