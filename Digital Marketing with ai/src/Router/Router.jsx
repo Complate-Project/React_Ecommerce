@@ -5,6 +5,8 @@ import BkashPay from '../Pages/BKashPay/BkashPay';
 import NagadPay from '../Pages/NagodPay/NagadPay';
 import { NewOfter } from '../Pages/NewOfter/NewOfter';
 import { Enroll } from '../Pages/enroll/Enroll';
+import { Ofter } from '../Pages/Offer/Offer';
+import { SecondEnroll } from '../Pages/Enroll-2/SecondEnroll';
 
 export const router = createBrowserRouter([
   {
@@ -28,8 +30,16 @@ export const router = createBrowserRouter([
         Component: NewOfter,
       },
       {
+        path: '/offer',
+        Component: Ofter,
+      },
+      {
         path: '/new-offer/enroll',
         Component: Enroll,
+      },
+      {
+        path: '/offer/enroll',
+        Component: SecondEnroll,
       },
     ],
   },

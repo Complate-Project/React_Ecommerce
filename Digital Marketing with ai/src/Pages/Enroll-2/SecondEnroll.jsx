@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import {
   CheckCircle,
   Shield,
@@ -12,9 +11,8 @@ import {
   BookOpen,
   Sparkles,
 } from 'lucide-react';
-import Swal from 'sweetalert2';
 
-export const Enroll = () => {
+export const SecondEnroll = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -24,56 +22,16 @@ export const Enroll = () => {
 
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = async e => {
+  const handleSubmit = e => {
     e.preventDefault();
-
-    const orderData = {
-      user_name: formData.name,
-      user_phone: formData.phone, // +88 বাদ দিয়ে চাইলে ঠিক করো
-      user_address: 'Dhaka', // চাইলে form এ field যোগ করতে পারো
-      product_id: 1,
-      product_name: 'Digital Marketing with AI',
-      product_image: 'course.jpg',
-      quantity: 1,
-      total: 999,
-      payment_method: 'zpay',
-    };
-
-    try {
-      const res = await axios.post(
-        'https://sarbarna.com/api/order/store',
-        orderData,
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      );
-
-      if (res?.data?.status) {
-        window.open(res?.data?.payment_url, '_blank');
-      }
-      // success UI
-      setIsSubmitted(true);
-
-      setTimeout(() => {
-        setIsSubmitted(false);
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          profession: '',
-        });
-      }, 5000);
-    } catch (error) {
-      console.error('Order failed:', error);
-      Swal.fire({
-        title: 'Order Failed',
-        text: error.response?.data?.message || 'Something went wrong!',
-        icon: 'error',
-        confirmButtonText: 'OK',
-      });
-    }
+    // Here you would typically send data to your backend
+    console.log('Form submitted:', formData);
+    setIsSubmitted(true);
+    // Reset form
+    setTimeout(() => {
+      setIsSubmitted(false);
+      setFormData({ name: '', email: '', phone: '' });
+    }, 5000);
   };
 
   const handleChange = e => {
@@ -230,7 +188,8 @@ export const Enroll = () => {
                         required
                         className="w-full px-4 py-4 pl-24 bg-gray-50 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:ring-2 focus:ring-purple-200 focus:bg-white transition-all duration-300 outline-none text-lg"
                         placeholder="01XXXXXXXXXX"
-                        maxLength="12"
+                        pattern="[0-9]{10}"
+                        maxLength="10"
                       />
                       <div className="absolute left-16 top-1/2 transform -translate-y-1/2 text-gray-400 group-focus-within:text-purple-500">
                         <Phone className="w-5 h-5" />
@@ -241,13 +200,13 @@ export const Enroll = () => {
                   <div className="group">
                     <label className="flex items-center gap-2 text-gray-700 font-medium mb-2">
                       <User className="w-4 h-4 text-purple-600" />
-                      রেফারেন্স নির্বাচন করুন
+                      রেফারেন্স কোড নির্বাচন করুন
                       <span className="text-red-500">*</span>
                     </label>
 
                     <div className="relative">
                       <select
-                        name="profession"
+                        name="reference"
                         value={formData.profession}
                         onChange={handleChange}
                         required
@@ -255,11 +214,11 @@ export const Enroll = () => {
       focus:border-purple-500 focus:ring-2 focus:ring-purple-200 focus:bg-white
       transition-all duration-300 outline-none text-lg appearance-none"
                       >
-                        <option value="">রেফারেন্স নির্বাচন করুন</option>
-                        <option value="mahir">মাহির</option>
-                        <option value="rakib">রাকিব</option>
-                        <option value="sumon">সুমন</option>
-                        <option value="anis">আনিস</option>
+                        <option value="">রেফারেন্স কোড নির্বাচন করুন</option>
+                        <option value="M1001">M1001</option>
+                        <option value="M1002">M1002</option>
+                        <option value="M1003">M1003</option>
+                        <option value="M1004">M1004</option>
                       </select>
 
                       {/* Dropdown icon */}
