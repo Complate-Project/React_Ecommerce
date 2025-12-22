@@ -2,8 +2,9 @@
 import { useState } from 'react';
 import { FaArrowLeft, FaLock } from 'react-icons/fa';
 import { FaMinus, FaPlus } from 'react-icons/fa';
-import axios from 'axios';
+// import axios from 'axios';
 import SuccessModal from './Modal/SuccessModal';
+import { useNavigate } from 'react-router';
 
 function CheckoutModal({
   book,
@@ -16,6 +17,7 @@ function CheckoutModal({
   setShowCheckout,
 }) {
   const [showSuccess, setShowSuccess] = useState(false);
+  const navigate = useNavigate();
 
   // 🔹 Function to generate unique order ID
   const generateOrderId = () => {
@@ -48,15 +50,20 @@ function CheckoutModal({
       status: 'Pending',
     };
 
-    try {
-      const response = await axios.post('http://localhost:5000/orders', order);
-      console.log('✅ Order Submitted:', response.data);
+    console.log(order);
+    navigate('/complete-order');
+    // try {
+    //   const response = await axios.post(
+    //     'https://sarbarna.com/api/order/store',
+    //     order
+    //   );
+    //   console.log('✅ Order Submitted:', response.data);
 
-      setShowSuccess(true);
-    } catch (error) {
-      console.error('❌ API Error:', error);
-      alert('Failed to submit order. Please try again.');
-    }
+    //   setShowSuccess(true);
+    // } catch (error) {
+    //   console.error('❌ API Error:', error);
+    //   alert('Failed to submit order. Please try again.');
+    // }
   };
 
   const handleSuccessClose = () => {

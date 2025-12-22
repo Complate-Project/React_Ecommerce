@@ -1,13 +1,7 @@
 import { createBrowserRouter } from 'react-router';
 import Root from '../Layout/Root/Root';
 import Home from '../Pages/Home/Home';
-import AdminLogin from '../Pages/AdminLogin/AdminLogin';
-import PrivateRoute from './PrivateRoute';
-import AdminRoot from '../Layout/Admin/AdminRoot';
-import Statistics from '../components/Admin/Statistics/Statistics';
-import AllProducts from '../Pages/Adnin/AllProducts/AllProducts';
-import AddProduct from '../Pages/Adnin/AddProduct/AddProduct';
-import Order from '../Pages/Adnin/Order/Order';
+import OrderComplete from '../Pages/order-complete/OrderComplete';
 
 export const router = createBrowserRouter([
   {
@@ -18,10 +12,9 @@ export const router = createBrowserRouter([
         index: true,
         Component: Home,
       },
-
       {
-        path: '/admin-login',
-        Component: AdminLogin,
+        path: '/complete-order',
+        Component: OrderComplete,
       },
     ],
   },
