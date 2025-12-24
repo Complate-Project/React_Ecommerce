@@ -7,6 +7,7 @@ import { NewOfter } from '../Pages/NewOfter/NewOfter';
 import { Enroll } from '../Pages/enroll/Enroll';
 import { Ofter } from '../Pages/Offer/Offer';
 import { SecondEnroll } from '../Pages/Enroll-2/SecondEnroll';
+import OrderComplete from '../Pages/order-complete/OrderComplete';
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
       {
         path: '/new-offer',
         Component: NewOfter,
+      },
+      {
+        path: '/new-offer-complete',
+        Component: OrderComplete,
       },
       {
         path: '/offer',

@@ -20,58 +20,93 @@ export const Enroll = () => {
     email: '',
     phone: '',
     profession: '',
+    promoCode: '',
+    price: 5000, // মূল দাম
   });
 
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
+  // Submit Order
   const handleSubmit = async e => {
     e.preventDefault();
 
     const orderData = {
-      user_name: formData.name,
-      user_phone: formData.phone, // +88 বাদ দিয়ে চাইলে ঠিক করো
-      user_address: 'Dhaka', // চাইলে form এ field যোগ করতে পারো
-      product_id: 1,
-      product_name: 'Digital Marketing with AI',
-      product_image: 'course.jpg',
-      quantity: 1,
-      total: 999,
+      name: formData.name,
+      email: formData.email,
+      mobile: formData.phone.replace(/[^0-11]/g, ''),
+      amount: formData.price,
       payment_method: 'zpay',
+      courses: [
+        { id: 1, title: 'ডিজিটাল মার্কেটিং উইথ এআই', price: formData.price },
+      ],
     };
 
     try {
       const res = await axios.post(
-        'https://sarbarna.com/api/order/store',
-        orderData,
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
+        'https://sarbarna.com/api/course-order',
+        orderData
       );
 
-      if (res?.data?.status) {
-        window.open(res?.data?.payment_url, '_blank');
-      }
-      // success UI
-      setIsSubmitted(true);
-
-      setTimeout(() => {
-        setIsSubmitted(false);
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          profession: '',
+      if (res.data.status && res.data.payment_url) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Order placed!',
+          html: `অর্ডার নং: <b>${res.data.order_no}</b><br>ফাইনাল প্রাইস: <b>৳${res.data.payable}</b>`,
         });
-      }, 5000);
-    } catch (error) {
-      console.error('Order failed:', error);
+        window.open(res.data.payment_url, '_blank');
+      }
+    } catch (err) {
+      console.error(err);
+      Swal.fire({ icon: 'error', title: 'Order Failed' });
+    }
+  };
+
+  // Promo Code Handler
+  const handelPromoCode = async () => {
+    if (!formData.promoCode) {
       Swal.fire({
-        title: 'Order Failed',
-        text: error.response?.data?.message || 'Something went wrong!',
+        icon: 'warning',
+        title: 'প্রোমো কোড দিন',
+        text: 'দয়া করে প্রোমো কোড লিখুন!',
+      });
+      return;
+    }
+
+    try {
+      const response = await fetch('https://sarbarna.com/api/check-referral', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ referral_code: formData.promoCode }),
+      });
+
+      const data = await response.json();
+      console.log('API Response:', data);
+
+      if (data.status && data.refferInfo) {
+        // প্রাইস আপডেট
+        setFormData(prev => ({
+          ...prev,
+          price: data.refferInfo.final_price,
+        }));
+
+        Swal.fire({
+          icon: 'success',
+          title: 'প্রোমো কোড প্রয়োগ হয়েছে!',
+          html: `ডিসকাউন্ট: <b>${data.refferInfo.discount}</b><br>ফাইনাল প্রাইস: <b>৳${data.refferInfo.final_price}</b>`,
+        });
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'প্রোমো কোড ব্যর্থ!',
+          text: 'দয়া করে সঠিক কোড দিন।',
+        });
+      }
+    } catch (error) {
+      console.error('Error applying promo code:', error);
+      Swal.fire({
         icon: 'error',
-        confirmButtonText: 'OK',
+        title: 'এরর!',
+        text: 'প্রোমো কোড প্রয়োগ করা যায়নি।',
       });
     }
   };
@@ -86,26 +121,6 @@ export const Enroll = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50 py-8 px-4 sm:px-6 lg:px-8 font-bangla">
       <div className="max-w-7xl mx-auto">
-        {/* Success Message */}
-        {isSubmitted && (
-          <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-md">
-            <div className="bg-gradient-to-r from-green-500 to-emerald-600 text-white p-6 rounded-2xl shadow-2xl animate-fade-in">
-              <div className="flex items-center gap-4">
-                <div className="bg-white/20 p-3 rounded-full">
-                  <CheckCircle className="w-8 h-8" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold">🎉 রেজিস্ট্রেশন সফল!</h3>
-                  <p className="text-white/90 mt-1">
-                    আমরা আপনার ইমেইলে কনফার্মেশন ডিটেইলস পাঠিয়েছি। আপনার ইনবক্স
-                    চেক করুন!
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-
         <div className="text-center mb-8">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-full mb-4">
             <Sparkles className="w-4 h-4" />
@@ -237,34 +252,64 @@ export const Enroll = () => {
                       </div>
                     </div>
                   </div>
-                  {/* Profession Dropdown */}
-                  <div className="group">
-                    <label className="flex items-center gap-2 text-gray-700 font-medium mb-2">
-                      <User className="w-4 h-4 text-purple-600" />
-                      রেফারেন্স নির্বাচন করুন
-                      <span className="text-red-500">*</span>
-                    </label>
+                  {/* Profession Dropdown with Promo Code */}
+                  <div className="flex flex-col md:flex-row gap-4">
+                    {/* Batch Selection */}
+                    <div className="flex-1 group">
+                      <label className="flex items-center gap-2 text-gray-700 font-medium mb-2">
+                        <User className="w-5 h-5 text-purple-600" />
+                        ব্যাচ নির্বাচন করুন
+                        <span className="text-red-500">*</span>
+                      </label>
 
-                    <div className="relative">
-                      <select
-                        name="profession"
-                        value={formData.profession}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl
-      focus:border-purple-500 focus:ring-2 focus:ring-purple-200 focus:bg-white
-      transition-all duration-300 outline-none text-lg appearance-none"
-                      >
-                        <option value="">রেফারেন্স নির্বাচন করুন</option>
-                        <option value="mahir">মাহির</option>
-                        <option value="rakib">রাকিব</option>
-                        <option value="sumon">সুমন</option>
-                        <option value="anis">আনিস</option>
-                      </select>
+                      <div className="relative">
+                        <select
+                          name="profession"
+                          value={formData.profession}
+                          onChange={handleChange}
+                          required
+                          className="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl
+        focus:border-purple-500 focus:ring-2 focus:ring-purple-200 focus:bg-white
+        transition-all duration-300 outline-none text-lg appearance-none"
+                        >
+                          <option value="">ব্যাচ নির্বাচন করুন</option>
+                          <option value="Batch-1">Batch-1</option>
+                          <option value="Batch-2">Batch-2</option>
+                          <option value="Batch-3">Batch-3</option>
+                          <option value="Batch-4">Batch-4</option>
+                        </select>
 
-                      {/* Dropdown icon */}
-                      <div className="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none text-gray-400">
-                        ▼
+                        {/* Dropdown Icon */}
+                        <div className="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none text-gray-400">
+                          ▼
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Promo Code */}
+                    <div className="flex-1 group mt-4 md:mt-0">
+                      <label className="flex items-center gap-2 text-gray-700 font-medium mb-2">
+                        🎁 প্রোমো কোড (ঐচ্ছিক)
+                      </label>
+
+                      <div className="flex gap-2">
+                        <input
+                          type="text"
+                          name="promoCode"
+                          value={formData.promoCode || ''}
+                          onChange={handleChange}
+                          placeholder="প্রোমো কোড লিখুন"
+                          className="flex-1 px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl
+        focus:border-purple-500 focus:ring-2 focus:ring-purple-200 focus:bg-white
+        transition-all duration-300 outline-none text-lg"
+                        />
+                        <button
+                          type="button"
+                          onClick={handelPromoCode}
+                          className="px-4 py-3 bg-purple-600 text-white rounded-xl font-medium hover:bg-purple-700 transition-colors"
+                        >
+                          Apply
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -303,7 +348,9 @@ export const Enroll = () => {
                     className="w-full group bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl "
                   >
                     <div className="flex items-center justify-center gap-3">
-                      <span>এনরোলমেন্ট সম্পন্ন করুন মাত্র 999Tk</span>
+                      <span>
+                        এনরোলমেন্ট সম্পন্ন করুন মাত্র {formData.price}Tk
+                      </span>
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </button>
