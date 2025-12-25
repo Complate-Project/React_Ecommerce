@@ -13,16 +13,17 @@ function CheckoutModal({
   totalPrice,
   formData,
   handleInputChange,
-  setShowCheckout,
-  setFormData,
 }) {
+  const [loading, setLoading] = useState(false);
+
   // const [showSuccess, setShowSuccess] = useState(false);
-  const [orderId, setOrderId] = useState(null);
 
   // 🔹 Handle form submit
-  const handleSubmitOrder = async (e) => {
+  const handleSubmitOrder = async e => {
     e.preventDefault();
-  
+    if (loading) return;
+
+    setLoading(true);
     const order = {
       user_name: formData.name,
       user_phone: formData.phone,
@@ -32,49 +33,41 @@ function CheckoutModal({
       product_image: book.image,
       quantity: Number(quantity),
       total: Number(totalPrice),
-      payment_method: "zpay",
+      payment_method: 'zpay',
     };
-  
+
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_BASE_URL}/order/store`,
         order
       );
-  
-      const { order_no, payment_url } = response.data;
-  
-      // ✅ save order id
-      setOrderId(order_no);
-  
+
+      const { payment_url } = response.data;
+
       // ✅ MUST be immediate
       if (payment_url) {
         const newWindow = window.open(
           payment_url,
-          "_blank",
-          "noopener,noreferrer"
+          '_blank',
+          'noopener,noreferrer'
         );
-  
+
         if (!newWindow) {
-          toast.error("Popup blocked! Please allow popups.");
+          toast.error('Popup blocked! Please allow popups.');
         }
       }
-  
+
       // setShowSuccess(true);
-  
     } catch (error) {
-      console.error("❌ API Error:", error);
+      console.error('❌ API Error:', error);
       toast.error(
         error?.response?.data?.message ||
-        "Failed to submit order. Please try again."
+          'Failed to submit order. Please try again.'
       );
+    } finally {
+      setLoading(false);
     }
   };
-  
-
-  // const handleSuccessClose = () => {
-  //   setShowSuccess(false);
-  //   setShowCheckout(false);
-  // };
 
   return (
     <div className="max-w-7xl mx-auto md:px-2 mt-10  relative">
@@ -146,15 +139,6 @@ function CheckoutModal({
                 <span className="text-gray-600">পরিমাণ</span>
                 <span className="font-semibold">{quantity} টি</span>
               </div>
-
-              {/* {savings > 0 && (
-                <div className="flex justify-between">
-                  <span className="text-gray-600">আপনি সাশ্রয় করেছেন</span>
-                  <span className="font-semibold text-orange-500">
-                    {savings} টাকা
-                  </span>
-                </div>
-              )} */}
 
               <div className="flex justify-between text-lg font-bold border-t border-gray-200 pt-3">
                 <span>মোট মূল্য</span>
@@ -242,9 +226,23 @@ function CheckoutModal({
               {/* সাবমিট বোতাম */}
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white py-4 rounded-lg font-semibold text-lg hover:bg-[#054923] transition duration-300 shadow-md hover:shadow-lg"
+                disabled={loading}
+                className={`w-full py-4 rounded-lg font-semibold text-lg transition duration-300 shadow-md hover:shadow-lg
+    ${
+      loading
+        ? 'bg-gray-400 cursor-not-allowed'
+        : 'bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white'
+    }
+  `}
               >
-                অর্ডার সম্পন্ন করুন - {totalPrice} টাকা
+                {loading ? (
+                  <div className="flex items-center justify-center gap-2">
+                    <span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                    প্রসেস হচ্ছে...
+                  </div>
+                ) : (
+                  <>অর্ডার সম্পন্ন করুন - {totalPrice} টাকা</>
+                )}
               </button>
 
               <div className="flex items-center justify-center space-x-2 text-gray-600">
@@ -257,16 +255,10 @@ function CheckoutModal({
           </div>
         </div>
       </div>
-
-      {/* Success Modal */}
-      {/* {showSuccess && (
-        <SuccessModal
-          message={` Order ID:${orderId}`}
-          onClose={handleSuccessClose}
-        />
-      )} */}
     </div>
   );
 }
 
 export default CheckoutModal;
+
+// feat: add loading spinner and disable submit button during order processing
