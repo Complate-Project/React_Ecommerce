@@ -15,6 +15,8 @@ import {
 import Swal from 'sweetalert2';
 
 export const Enroll = () => {
+  const [discount, setDiscount] = useState(null);
+  console.log(discount);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -81,6 +83,7 @@ export const Enroll = () => {
 
       const data = await response.json();
       console.log('API Response:', data);
+      setDiscount(data?.refferInfo);
 
       if (data.status && data.refferInfo) {
         // প্রাইস আপডেট
@@ -372,12 +375,16 @@ export const Enroll = () => {
                   <p className="text-white/80">ডিস্কাউন্টেড মূল্য</p>
 
                   <div className="flex gap-4 items-center justify-center mt-2">
-                    <p className="text-4xl md:text-6xl font-bold">৳999</p>
+                    <p className="text-4xl md:text-6xl font-bold">
+                      ৳{formData.price}
+                    </p>
                     <p className="text-2xl line-through opacity-60 mt-1">
                       ৳5000
                     </p>
                     <div className="bg-white/20 px-4 py-2 rounded-full">
-                      <span className="font-bold">80% Off</span>
+                      <span className="font-bold">
+                        {discount ? `${discount.discount} Off` : '0% Off'}
+                      </span>
                     </div>
                   </div>
                 </div>
