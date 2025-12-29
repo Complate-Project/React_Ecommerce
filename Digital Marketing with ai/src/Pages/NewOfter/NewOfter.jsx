@@ -24,12 +24,12 @@ export const NewOfter = () => {
             <Rocket className="w-8 h-8" />
           </div>
           <p className="text-lg md:text-2xl font-semibold">
-            🚀 মাত্র <span className="text-yellow-300 ">999</span> টাকায় আপনার
+            🚀 মাত্র <span className="text-yellow-300 ">5000</span> টাকায় আপনার
             স্কিলকে নিয়ে যান পরবর্তী লেভেলে
           </p>
           <div className="mt-4">
             <span className="inline-block bg-yellow-400 text-black px-6 py-2 rounded-full text-lg font-semibold">
-              Limited Seats Available!
+              ডিসকাউন্ট পেতে যোগাযোগ করুন
             </span>
           </div>
         </div>
@@ -109,7 +109,7 @@ export const NewOfter = () => {
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 md:gap-4 mb-3 sm:mb-4">
                       <div className="flex items-baseline gap-2">
                         <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent leading-tight">
-                          999 টাকা
+                          5000 টাকা
                         </span>
                       </div>
                       <div className="flex items-center">
@@ -140,7 +140,7 @@ export const NewOfter = () => {
                     <div className="mt-4 sm:mt-5 flex items-center justify-center gap-2 text-yellow-300 text-xs sm:text-sm md:text-base">
                       <Star className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 flex-shrink-0" />
                       <span className="text-center">
-                        Digital Marketing with Ai eBook প্রথম ৫০ জনের জন্য
+                        ডিসকাউন্ট পেতে যোগাযোগ করুন
                       </span>
                     </div>
                   </div>
@@ -227,7 +227,7 @@ export const NewOfter = () => {
               className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition"
             >
               <Phone className="w-5 h-5" />
-              Enroll Now – 999 টাকা
+              Enroll Now – 5000 টাকা
             </a>
             <a
               href="https://chat.whatsapp.com/Hqlqidz0HS6BFdBNFqlSkH"
@@ -239,7 +239,7 @@ export const NewOfter = () => {
             </a>
           </div>
           <p className="mt-6 text-yellow-300 font-bold text-lg">
-            ⚡ Limited Seats | First Come, First Serve
+            ⚡ ডিসকাউন্ট পেতে যোগাযোগ করুন
           </p>
         </div>
 
