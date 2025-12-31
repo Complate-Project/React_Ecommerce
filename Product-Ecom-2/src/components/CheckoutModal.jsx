@@ -261,4 +261,3 @@ function CheckoutModal({
 
 export default CheckoutModal;
 
-// feat: add loading spinner and disable submit button during order processing

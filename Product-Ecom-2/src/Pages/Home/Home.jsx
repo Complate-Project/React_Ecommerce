@@ -6,6 +6,7 @@ import ContactIcon from '../../components/ContactIcon';
 import Footer from '../../components/Footer';
 import Faq from '../../components/Faq';
 import ReviewSection from '../../components/ReviewSection';
+import CountDown from '../../components/countDown';
 
 const Home = () => {
   const productSectionRef = useRef(null); // add this
@@ -80,6 +81,8 @@ const Home = () => {
       <Navbar quantity={quantity} />
       <Heading scrollToProducts={scrollToProducts} />
 
+      {/* count down */}
+      <CountDown></CountDown>
       <ReviewSection></ReviewSection>
       {/* <Faq /> */}
 
