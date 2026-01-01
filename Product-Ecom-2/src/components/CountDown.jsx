@@ -53,7 +53,7 @@ const CountDown = () => {
           অফারের শেষ সময়
         </h2>
 
-        <div className="flex justify-center gap-6 md:gap-10 mb-16">
+        <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-16 mb-10 md:mb-16">
           {[
             { value: formatNumber(timeLeft.hours), label: 'Hours' },
             { value: formatNumber(timeLeft.minutes), label: 'Minutes' },
@@ -61,10 +61,20 @@ const CountDown = () => {
           ].map((item, index) => (
             <div
               key={index}
-              className="bg-orange-500 text-white py-6 px-8 md:py-8 md:px-10 rounded-xl min-w-32 shadow-lg"
+              className="
+        bg-orange-500 text-white
+        py-4 px-4 sm:py-5 sm:px-6 md:py-6 md:px-8
+        rounded-xl shadow-lg
+        w-24 sm:w-28 md:w-32
+        text-center
+      "
             >
-              <div className="text-5xl md:text-6xl font-bold">{item.value}</div>
-              <div className="text-lg md:text-xl mt-2">{item.label}</div>
+              <div className="text-3xl sm:text-4xl md:text-5xl font-bold leading-none">
+                {item.value}
+              </div>
+              <div className="text-xs sm:text-sm md:text-base mt-1 sm:mt-2">
+                {item.label}
+              </div>
             </div>
           ))}
         </div>
@@ -79,7 +89,7 @@ const CountDown = () => {
             </span>
           </p>
 
-          <p className="text-green-600 font-bold text-4xl md:text-5xl">
+          <p className="text-green-600 font-bold text-2xl md:text-3xl">
             অফার প্রাইস:{' '}
             <span className="underline underline-offset-4 decoration-wavy decoration-green-500">
               ৯৯৯ টাকা
@@ -89,9 +99,9 @@ const CountDown = () => {
 
         <button
           onClick={handleBuyNow}
-          className="bg-red-600 text-white text-2xl md:text-3xl font-bold py-4 px-10 rounded-full shadow-xl hover:bg-red-700 transition flex items-center gap-3 mx-auto"
+          className="bg-red-600 text-white text-2xl md:text-3xl font-bold py-3 px-8 rounded-full shadow-xl hover:bg-red-700 transition flex items-center gap-3 mx-auto"
         >
-          <span className="text-3xl">🛒</span> অর্ডার করতে চাই
+          <span className="text-2xl">🛒</span> অর্ডার করতে চাই
         </button>
       </div>
       {/* animation */}

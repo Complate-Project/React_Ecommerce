@@ -83,48 +83,53 @@ function CheckoutModal({
               </div>
             </div>
 
-            {/* পরিমাণ নির্ধারণ - Compact Mobile device */}
-            <div className="bg-white rounded-lg p-4 mb-6 shadow-sm border border-gray-200">
-              <div className="flex flex-col xs:flex-row xs:items-center xs:justify-between gap-3">
-                {/* বইয়ের নাম */}
-                <div className="flex-1">
-                  <span className="text-gray-700 font-semibold text-sm xs:text-base line-clamp-2">
+            {/* Quantity selector – Fully Responsive */}
+            <div className="bg-white rounded-lg px-2 mb-6 shadow-sm border border-gray-200">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                {/* Book Image + Title */}
+                <div className="flex items-center gap-3">
+                  <img
+                    src={`https://admin.prothomashop.com/product/${book.image}`}
+                    alt={book.title}
+                    className="w-14 h-14 sm:w-16 sm:h-16 object-cover rounded-md "
+                  />
+
+                  <p className="text-gray-800 font-semibold text-sm sm:text-base line-clamp-2">
                     {book.title}
-                  </span>
+                  </p>
                 </div>
 
-                <div className="flex items-center justify-between xs:justify-end gap-4 w-full xs:w-auto">
-                  {/* পরিমাণ কন্ট্রোল */}
-                  <div className="flex items-center space-x-2 xs:space-x-3">
+                {/* Quantity + Price */}
+                <div className="flex items-center justify-between sm:justify-end gap-4">
+                  {/* Quantity Control */}
+                  <div className="flex items-center gap-2 sm:gap-3">
                     <button
                       type="button"
                       onClick={() =>
                         setQuantity(prev => (prev > 1 ? prev - 1 : 1))
                       }
-                      className="w-7 h-7 xs:w-8 xs:h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center transition-colors duration-200"
+                      className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center"
                     >
                       <FaMinus className="text-gray-600 text-xs" />
                     </button>
 
-                    <span className="w-8 xs:w-12 text-center font-bold text-base xs:text-lg text-gray-800">
+                    <span className="w-8 sm:w-10 text-center font-bold text-sm sm:text-base">
                       {quantity}
                     </span>
 
                     <button
                       type="button"
                       onClick={() => setQuantity(prev => prev + 1)}
-                      className="w-7 h-7 xs:w-8 xs:h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center transition-colors duration-200"
+                      className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center"
                     >
                       <FaPlus className="text-gray-600 text-xs" />
                     </button>
                   </div>
 
-                  {/* মূল্য */}
-                  <div>
-                    <p className="text-indigo-600 font-semibold text-sm xs:text-base whitespace-nowrap">
-                      {book.price} টাকা
-                    </p>
-                  </div>
+                  {/* Price */}
+                  <p className="text-indigo-600 font-semibold text-sm sm:text-base whitespace-nowrap">
+                    {book.price} টাকা
+                  </p>
                 </div>
               </div>
             </div>
@@ -260,4 +265,3 @@ function CheckoutModal({
 }
 
 export default CheckoutModal;
-
