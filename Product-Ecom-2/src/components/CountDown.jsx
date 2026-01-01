@@ -65,7 +65,7 @@ const CountDown = () => {
         bg-orange-500 text-white
         py-4 px-4 sm:py-5 sm:px-6 md:py-6 md:px-8
         rounded-xl shadow-lg
-        w-24 sm:w-28 md:w-32
+        w-20 sm:w-28 md:w-32
         text-center
       "
             >
