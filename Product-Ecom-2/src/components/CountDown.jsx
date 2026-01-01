@@ -94,6 +94,7 @@ const CountDown = () => {
           <span className="text-3xl">🛒</span> অর্ডার করতে চাই
         </button>
       </div>
+      {/* animation */}
       <style jsx>{`
         .price-cross {
           position: relative;
