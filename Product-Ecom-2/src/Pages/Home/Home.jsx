@@ -6,7 +6,7 @@ import ContactIcon from '../../components/ContactIcon';
 import Footer from '../../components/Footer';
 import Faq from '../../components/Faq';
 import ReviewSection from '../../components/ReviewSection';
-import CountDown from '../../components/countDown';
+import CountDown from '../../components/CountDown';
 
 const Home = () => {
   const productSectionRef = useRef(null); // add this
@@ -83,6 +83,7 @@ const Home = () => {
 
       {/* count down */}
       <CountDown></CountDown>
+
       <ReviewSection></ReviewSection>
       {/* <Faq /> */}
 
